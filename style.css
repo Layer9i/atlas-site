@@ -1024,3 +1024,4 @@ h1 .h1-line { display:block; color:inherit; }
 .tester-cta .prose { margin:0 auto; max-width:680px; }
 .tester-cta .hero-actions { justify-content:center; }
 .protection-intro { max-width:780px; margin-bottom:40px; }
+.protection-next { margin:32px 0 0; }
