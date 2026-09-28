@@ -1014,3 +1014,15 @@ h1 .h1-line { display:block; color:inherit; }
 .orbit-inner { width:min(49%, 238px); }
 .diagram-caption { bottom:20px; }
 @media (max-width:760px) { .hero-visual .presence-card { min-height:400px; } }
+
+/* Layer9i is the company (header/footer); Atlas is the product (hero). */
+.brand-logo { height:30px; width:auto; display:block; }
+.product-line { display:flex; align-items:center; gap:12px; }
+.product-line .product-logo { height:34px; width:auto; }
+.statement { padding:72px 0; text-align:center; background:var(--dark); color:var(--white); }
+.statement h2 { margin:0 auto 18px; max-width:900px; }
+.statement p { margin:0 auto; max-width:680px; color:#b9c2da; font-size:18px; line-height:1.6; }
+.tester-cta { text-align:center; }
+.tester-cta .prose { margin:0 auto; max-width:680px; }
+.tester-cta .hero-actions { justify-content:center; }
+.protection-intro { max-width:780px; margin-bottom:40px; }

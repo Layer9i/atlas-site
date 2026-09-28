@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="62 118 388 300" role="img" aria-label="Layer9i">
+  <defs>
+    <linearGradient id="face" x1="0" y1="0" x2="1" y2="0.6">
+      <stop offset="0" stop-color="#3FD8FF"/>
+      <stop offset="0.5" stop-color="#2F7BFF"/>
+      <stop offset="1" stop-color="#7A5CFF"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1C8FD9"/>
+      <stop offset="0.5" stop-color="#1A45C9"/>
+      <stop offset="1" stop-color="#4A2FC4"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5AA8FF"/>
+      <stop offset="1" stop-color="#2440E0"/>
+    </linearGradient>
+  </defs>
+  <!-- outer layer: a ribbon ring with visible thickness -->
+  <path d="M256 158 L420 252 L256 346 L92 252 Z" transform="translate(0 30)" fill="none" stroke="url(#side)" stroke-width="44" stroke-linejoin="round"/>
+  <path d="M256 158 L420 252 L256 346 L92 252 Z" fill="none" stroke="url(#face)" stroke-width="44" stroke-linejoin="round"/>
+  <!-- inner layer: the core, stacked inside -->
+  <path d="M256 214 L322 252 L256 290 L190 252 Z" transform="translate(0 16)" fill="#1A3AB8" stroke="#1A3AB8" stroke-width="30" stroke-linejoin="round"/>
+  <path d="M256 214 L322 252 L256 290 L190 252 Z" fill="url(#core)" stroke="url(#core)" stroke-width="30" stroke-linejoin="round"/>
+</svg>
