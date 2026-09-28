@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="What Atlas Identity is, what is built today, and what Atlas commits to — and cannot do — with a person's data.">
-  <title>Trust &amp; Data — Atlas Identity</title>
+  <title>Privacy &amp; data — Atlas Identity</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,18 +12,18 @@
   <div class="container nav-wrap">
     <a class="brand" href="./"><span class="brand-mark">◎</span><span>Atlas Identity</span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" class="site-nav"><a href="./#problem">Problem</a><a href="trust.html">Trust &amp; Data</a><a class="nav-button" href="https://research.layer9i.com">Research</a></nav>
+    <nav id="site-nav" class="site-nav"><a href="./#what">What you get</a><a href="./#how">How it works</a><a href="trust.html">Privacy &amp; data</a><a class="nav-button" href="https://research.layer9i.com">Research ↗</a></nav>
   </div>
 </header>
 
 <main>
 <section class="paper-hero">
   <div class="paper-shell">
-    <p class="eyebrow">Trust &amp; Data</p>
+    <p class="eyebrow">Privacy &amp; data</p>
     <div class="paper-meta">
       <span>Public disclosure</span>
       <span>Closed testing phase</span>
-      <span>Updated September 13, 2026</span>
+      <span>Updated September 27, 2026</span>
     </div>
     <h1 class="paper-title">What Atlas is, what is built, and what it commits to</h1>
     <p class="paper-deck">A plain statement of what Atlas Identity does with a person's data today, what it cannot do by design, and where that is still a rule rather than a mathematical guarantee.</p>
@@ -63,7 +63,8 @@
         <article><h3>A long-lived credential</h3><p>Issued from a one-time recovery phrase the person holds, not from any single device. Losing a device does not change the identity a service sees.</p></article>
         <article><h3>Per-service identifiers</h3><p>Each service Atlas connects to receives a different, fixed identifier for the same person — not one ID reused everywhere.</p></article>
         <article><h3>One verifying service</h3><p>A demonstration relying party verifies an Atlas identity from a published cryptographic key, with no shared secret and no API call to Atlas required to trust the result.</p></article>
-        <article><h3>Clients on four platforms</h3><p>macOS, iOS, Android, Windows clients carry person's identity and, optionally, declared connection origin, in closed testing.</p></article>
+        <article><h3>Apps on four platforms</h3><p>macOS, iOS, Android and Windows apps carry a person's identity and, optionally, a declared connection origin, with invited testers.</p></article>
+        <article><h3>Rules locked on your devices</h3><p>Since September 27, 2026, the apps encrypt a person's routing rules on their own devices before saving them. Atlas stores only the encrypted copy and cannot read which sites the rules name or where they send them.</p></article>
         <article><h3>An optional declared origin</h3><p>A person can choose where their connection is seen as originating from, confirmed independently by third-party systems and not enabled by default.</p></article>
         <article><h3>Self-held recovery</h3><p>A one-time phrase generated at signup and never held by Atlas is the only way to recover or re-key an account.</p></article>
         <article><h3>No link from account to exit traffic</h3><p>The exit a device connects through admits it by an identity-issued credential and keeps no record of which account used which network address. This is live on the running exits, not only a design intent.</p></article>
@@ -81,6 +82,7 @@
         <article><h3>Public-key verification, not shared secrets</h3><p>Every identity assertion Atlas issues is signed and can be checked against a key Atlas publishes. A relying party verifies it directly instead of trusting an API response or a secret passed out of band.</p></article>
         <article><h3>Closed, individually approved relying parties</h3><p>Atlas is not an open standard anyone can integrate against unannounced. Every relying party is approved one at a time, so its cryptographic setup is confirmed in advance rather than trusted blind.</p></article>
         <article><h3>Unlinkable by design, per service</h3><p>The identifier one service sees for a person cannot be matched to the identifier a different service sees, even if the two compare notes — the derivation exists from the first relying party onward, not bolted on later.</p></article>
+        <article><h3>Rules Atlas cannot read</h3><p>A person's rules open with their recovery phrase or a separate recovery code they write down, never with anything Atlas holds. The accepted cost: lose both, and the rules cannot be recovered by anyone, including Atlas.</p></article>
         <article><h3>No destination monitoring</h3><p>Atlas does not inspect, log, filter, or flag which sites or services a person's traffic reaches. Policing destinations is a network provider's function; Atlas's function is proving who someone is, and it does not take on the first to make the second look safer.</p></article>
       </div>
     </section>
@@ -98,6 +100,7 @@
             <tr><td>Which optional connection origin has an account currently chosen?</td><td>Yes — the current choice, not a history of past choices</td></tr>
             <tr><td>How many connection credentials did an account request in a period?</td><td>Yes — a count, not which credentials</td></tr>
             <tr><td>Which person was behind a given network address at a past point in time?</td><td>No — no record exists beyond the short retention window</td></tr>
+            <tr><td>Which sites do a person's routing rules name, and where do they send them?</td><td>No, for rules locked by the current apps. Atlas holds only an encrypted copy it cannot open. Rules saved by an app from before September 27, 2026 stay readable until that person's app updates.</td></tr>
             <tr><td>What destinations or sites did a person's traffic reach?</td><td>No — Atlas keeps no flow logs or per-person destination logs</td></tr>
             <tr><td>Which person does a given relying-party identifier belong to, using only what the relying party holds?</td><td>No — the identifier is unlinkable without Atlas's own signing material</td></tr>
             <tr><td>Can Atlas revoke a device or an account on request?</td><td>Yes — this exists and is used</td></tr>
@@ -128,7 +131,7 @@
 
     <footer class="paper-status">
       <p><strong>Status:</strong> Closed testing. Registration is not open to the public.</p>
-      <p><strong>Last updated:</strong> September 13, 2026</p>
+      <p><strong>Last updated:</strong> September 27, 2026</p>
     </footer>
   </article>
 </section>
@@ -136,8 +139,8 @@
 
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div><a class="brand footer-brand" href="./"><span class="brand-mark">◎</span><span>Atlas Identity</span></a><p>Open technical research into person-controlled Internet presence.</p></div>
-    <div class="footer-links"><a href="trust.html">Trust &amp; Data</a><a href="https://research.layer9i.com">Research</a></div>
+    <div><a class="brand footer-brand" href="./"><span class="brand-mark">◎</span><span>Atlas Identity</span></a><p>Your Personal Internet Presence. By Layer9i, Inc.</p></div>
+    <div class="footer-links"><a href="./#what">What you get</a><a href="trust.html">Privacy &amp; data</a><a href="https://research.layer9i.com">Research</a><a href="atlas/investors/">Investors</a></div>
   </div>
 </footer>
 <script src="assets/js/site.js"></script>

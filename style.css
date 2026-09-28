@@ -113,16 +113,8 @@ a {
     linear-gradient(180deg, #fff 0%, #f8f9fd 100%);
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  right: -210px;
-  bottom: -260px;
-  border: 1px solid rgba(86, 89, 221, 0.18);
-  border-radius: 50%;
-}
+/* The decorative ring that sat here crossed the diagram card and, clipped by
+   the hero, left stray arcs at the section edge. Removed 2026-09-27. */
 
 .hero-grid {
   display: grid;
@@ -338,22 +330,22 @@ h3 {
 }
 
 .node-employer {
-  right: -2%;
+  right: 4%;
   top: 14%;
 }
 
 .node-network {
-  right: -8%;
+  right: 2%;
   top: 49%;
 }
 
 .node-government {
-  right: 2%;
+  right: 6%;
   bottom: 10%;
 }
 
 .node-platform {
-  left: 0;
+  left: 4%;
   bottom: 4%;
 }
 
@@ -590,7 +582,8 @@ h3 {
 
 .footer-links {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 14px 24px;
   color: var(--white);
   font-size: 13px;
   font-weight: 750;
@@ -753,7 +746,7 @@ h3 {
 .definition-grid p,.principle-cards p,.review-question-grid p { margin-bottom:0; color:var(--muted); font-size:15px; line-height:1.65; }
 .review-question-grid span { color:var(--accent); font-size:12px; font-weight:900; }
 .table-wrap { overflow-x:auto; margin:30px 0 14px; border:1px solid var(--line); border-radius:18px; }
-.comparison-table { width:100%; min-width:760px; border-collapse:collapse; background:var(--white); font-size:14px; }
+.comparison-table { width:100%; min-width:0; border-collapse:collapse; background:var(--white); font-size:14px; }
 .comparison-table th,.comparison-table td { padding:15px 16px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
 .comparison-table th { color:var(--ink); background:var(--surface); }
 .comparison-table tr:last-child td { border-bottom:0; }
@@ -764,7 +757,8 @@ h3 {
 .paper-status { padding-top:30px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
 .review-template { overflow-x:auto; padding:24px; background:#111831; color:#edf0ff; border-radius:18px; font:14px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; white-space:pre-wrap; }
 @media (max-width:900px) {
-  .paper-layout { grid-template-columns:1fr; gap:36px; }
+  .paper-layout { grid-template-columns:minmax(0,1fr); gap:36px; }
+  .paper-body { min-width:0; }
   .paper-toc { position:static; padding:22px; background:var(--white); border:1px solid var(--line); border-radius:18px; }
 }
 @media (max-width:650px) {
@@ -772,6 +766,17 @@ h3 {
   .definition-grid,.principle-cards,.review-question-grid { grid-template-columns:1fr; }
   .paper-body h2 { font-size:34px; }
   .paper-title { font-size:clamp(42px,13vw,60px); }
+  .paper-deck { font-size:19px; }
+  .thesis-card { padding:22px; }
+  .thesis-card p { font-size:17px; }
+  .paper-body { font-size:17px; }
+  .comparison-table { min-width:0; }
+  .comparison-table thead { display:none; }
+  .comparison-table tr { display:block; padding:14px 16px; border-bottom:1px solid var(--line); }
+  .comparison-table tr:last-child { border-bottom:0; }
+  .comparison-table td { display:block; padding:0; border:0; }
+  .comparison-table td + td { margin-top:6px; color:var(--accent-dark); font-weight:700; }
+  .review-cta { padding:22px; }
 }
 
 /* Atlas Journal and article pages */
@@ -992,3 +997,20 @@ h3 {
   .deck-slide { padding: 40px 26px; }
   .deck-grid { grid-template-columns: 1fr; }
 }
+
+/* Home page: feature cards and card buttons (2026-09-27 rewrite) */
+.feature-grid { grid-template-columns:repeat(3,1fr); margin:0; }
+.card-actions { margin-top:18px; }
+.definition-grid article > p { margin-bottom:0; }
+.microcopy a { color:var(--accent); font-weight:700; }
+.journey-section { background:var(--surface); }
+@media (max-width:980px) { .feature-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:650px) { .feature-grid { grid-template-columns:1fr; } }
+/* Hero heading: one phrase per line, so it never breaks mid-phrase. */
+h1 .h1-line { display:block; color:inherit; }
+/* Keep the orbit clear of the caption at every width. */
+.hero-visual .presence-card { min-height:520px; }
+.orbit-outer { width:min(78%, 380px); }
+.orbit-inner { width:min(49%, 238px); }
+.diagram-caption { bottom:20px; }
+@media (max-width:760px) { .hero-visual .presence-card { min-height:400px; } }
