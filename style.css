@@ -1027,3 +1027,21 @@ h1 .h1-line { display:block; color:inherit; }
 .protection-intro { max-width:780px; margin-bottom:40px; }
 .protection-next { margin:32px 0 0; }
 .hero h1.h1-long { font-size:clamp(40px, 4.6vw, 64px); line-height:1.04; }
+
+/* Home hero: identity map (2026-09-29). Your identity at the centre, a link to
+   each service through a chosen location, and a separate ID per service. */
+.hero-visual .presence-card { min-height:0; padding:22px 0 24px; }
+.identity-map { display:block; width:min(92%, 460px); margin:0 auto; overflow:visible; font-family:inherit; }
+.presence-card .diagram-caption { position:static; margin:6px 28px 0; }
+.identity-map text { text-anchor:middle; }
+.map-ring { fill:none; stroke:rgba(86, 89, 221, 0.16); stroke-width:1; }
+.map-link { stroke:var(--accent); stroke-opacity:0.45; stroke-width:1.5; }
+.map-city rect { fill:var(--accent-soft); stroke:rgba(86, 89, 221, 0.3); }
+.map-city text { fill:var(--accent-dark); font-size:10.5px; font-weight:700; }
+.map-service rect { fill:var(--white); stroke:#dce1ed; filter:drop-shadow(0 6px 12px rgba(30, 39, 79, 0.06)); }
+.map-service text { fill:var(--ink); font-size:12.5px; font-weight:800; }
+.map-service .map-id { fill:var(--muted); font-size:10px; font-weight:700; letter-spacing:0.06em; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; }
+.map-you-halo { fill:var(--accent-soft); }
+.map-you { fill:var(--accent); }
+.map-you-label { fill:var(--white); font-size:17px; font-weight:900; }
+.map-you-key { fill:rgba(255, 255, 255, 0.85); font-size:10px; font-weight:700; }

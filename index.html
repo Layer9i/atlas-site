@@ -32,11 +32,29 @@
     </div>
     <div class="hero-visual">
       <div class="hero-video-badge" aria-label="Atlas overview video"><video controls playsinline preload="metadata" poster="assets/video/atlas-identity-overview-poster.png"><source src="assets/video/atlas-identity-overview.mp4" type="video/mp4"></video><a class="hero-video-badge-download" href="assets/video/atlas-identity-overview.mp4" download title="Download video">⬇</a></div>
-      <div class="presence-card" aria-label="You at the centre, with the organisations you deal with around you">
-        <div class="orbit orbit-outer"><span class="node node-bank">Bank</span><span class="node node-employer">Employer</span><span class="node node-network">Network</span><span class="node node-government">Government</span><span class="node node-platform">Platform</span></div>
-        <div class="orbit orbit-inner"></div>
-        <div class="presence-center">You</div>
-        <p class="diagram-caption">You at the centre, not the companies around you.</p>
+      <div class="presence-card">
+        <svg class="identity-map" viewBox="0 0 480 430" role="img" aria-labelledby="identity-map-title">
+        <title id="identity-map-title">You hold one identity. Each service you use sees its own separate ID, reached through a location you choose: your bank through Toronto, your employer through New York, shopping through London, government through Montreal and streaming through Amsterdam.</title>
+        <circle class="map-ring" cx="240" cy="212" r="168"/>
+        <line class="map-link" x1="240" y1="212" x2="141" y2="76"/>
+        <line class="map-link" x1="240" y1="212" x2="339" y2="76"/>
+        <line class="map-link" x1="240" y1="212" x2="400" y2="264"/>
+        <line class="map-link" x1="240" y1="212" x2="240" y2="380"/>
+        <line class="map-link" x1="240" y1="212" x2="80" y2="264"/>
+        <g class="map-city"><rect x="150" y="125" width="69" height="22" rx="11"/><text x="185" y="140">Toronto</text></g>
+        <g class="map-city"><rect x="257" y="125" width="76" height="22" rx="11"/><text x="295" y="140">New York</text></g>
+        <g class="map-city"><rect x="298" y="230" width="63" height="22" rx="11"/><text x="329" y="245">London</text></g>
+        <g class="map-city"><rect x="202" y="295" width="76" height="22" rx="11"/><text x="240" y="310">Montreal</text></g>
+        <g class="map-city"><rect x="110" y="230" width="82" height="22" rx="11"/><text x="151" y="245">Amsterdam</text></g>
+        <g class="map-service"><rect x="113" y="59" width="56" height="34" rx="17"/><text x="141" y="80">Bank</text><text class="map-id" x="141" y="51">ID 7F3A</text></g>
+        <g class="map-service"><rect x="296" y="59" width="85" height="34" rx="17"/><text x="339" y="80">Employer</text><text class="map-id" x="339" y="51">ID C21E</text></g>
+        <g class="map-service"><rect x="357" y="247" width="85" height="34" rx="17"/><text x="400" y="268">Shopping</text><text class="map-id" x="400" y="295">ID 94B0</text></g>
+        <g class="map-service"><rect x="190" y="363" width="100" height="34" rx="17"/><text x="240" y="384">Government</text><text class="map-id" x="240" y="411">ID 5D8C</text></g>
+        <g class="map-service"><rect x="34" y="247" width="93" height="34" rx="17"/><text x="80" y="268">Streaming</text><text class="map-id" x="80" y="295">ID E61F</text></g>
+        <circle class="map-you-halo" cx="240" cy="212" r="60"/><circle class="map-you" cx="240" cy="212" r="44"/>
+        <text class="map-you-label" x="240" y="214">YOU</text><text class="map-you-key" x="240" y="230">your identity</text>
+        </svg>
+        <p class="diagram-caption">One identity, held only by you. Each service sees its own ID, through the location you choose.</p>
       </div>
     </div>
   </div>
