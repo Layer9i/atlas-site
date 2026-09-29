@@ -6,7 +6,7 @@
   <meta name="description" content="Atlas lets you choose how apps and websites see your connection, keeps no record of the sites you visit, and gives you an account only you hold, wherever you connect. Beta by invitation.">
   <title>Atlas — control your internet identity and privacy | Layer9i</title>
   <link rel="icon" type="image/svg+xml" href="assets/brand/layer9i-mark.svg">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260929">
 </head>
 <body>
 <header class="site-header">
@@ -35,24 +35,24 @@
       <div class="presence-card">
         <svg class="identity-map" viewBox="0 0 480 430" role="img" aria-labelledby="identity-map-title">
         <title id="identity-map-title">You hold one identity. Each service you use sees its own separate ID, reached through a location you choose: your bank through Toronto, your employer through New York, shopping through London, government through Montreal and streaming through Amsterdam.</title>
-        <circle class="map-ring" cx="240" cy="212" r="168"/>
-        <line class="map-link" x1="240" y1="212" x2="141" y2="76"/>
-        <line class="map-link" x1="240" y1="212" x2="339" y2="76"/>
-        <line class="map-link" x1="240" y1="212" x2="400" y2="264"/>
-        <line class="map-link" x1="240" y1="212" x2="240" y2="380"/>
-        <line class="map-link" x1="240" y1="212" x2="80" y2="264"/>
-        <g class="map-city"><rect x="150" y="125" width="69" height="22" rx="11"/><text x="185" y="140">Toronto</text></g>
-        <g class="map-city"><rect x="257" y="125" width="76" height="22" rx="11"/><text x="295" y="140">New York</text></g>
-        <g class="map-city"><rect x="298" y="230" width="63" height="22" rx="11"/><text x="329" y="245">London</text></g>
-        <g class="map-city"><rect x="202" y="295" width="76" height="22" rx="11"/><text x="240" y="310">Montreal</text></g>
-        <g class="map-city"><rect x="110" y="230" width="82" height="22" rx="11"/><text x="151" y="245">Amsterdam</text></g>
-        <g class="map-service"><rect x="113" y="59" width="56" height="34" rx="17"/><text x="141" y="80">Bank</text><text class="map-id" x="141" y="51">ID 7F3A</text></g>
-        <g class="map-service"><rect x="296" y="59" width="85" height="34" rx="17"/><text x="339" y="80">Employer</text><text class="map-id" x="339" y="51">ID C21E</text></g>
-        <g class="map-service"><rect x="357" y="247" width="85" height="34" rx="17"/><text x="400" y="268">Shopping</text><text class="map-id" x="400" y="295">ID 94B0</text></g>
-        <g class="map-service"><rect x="190" y="363" width="100" height="34" rx="17"/><text x="240" y="384">Government</text><text class="map-id" x="240" y="411">ID 5D8C</text></g>
-        <g class="map-service"><rect x="34" y="247" width="93" height="34" rx="17"/><text x="80" y="268">Streaming</text><text class="map-id" x="80" y="295">ID E61F</text></g>
-        <circle class="map-you-halo" cx="240" cy="212" r="60"/><circle class="map-you" cx="240" cy="212" r="44"/>
-        <text class="map-you-label" x="240" y="214">YOU</text><text class="map-you-key" x="240" y="230">your identity</text>
+        <circle class="map-ring" fill="none" stroke="#dcdcf8" cx="240" cy="212" r="168"/>
+        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="141" y2="76"/>
+        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="339" y2="76"/>
+        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="400" y2="264"/>
+        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="240" y2="380"/>
+        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="80" y2="264"/>
+        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="150" y="125" width="69" height="22" rx="11"/><text x="185" y="140">Toronto</text></g>
+        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="257" y="125" width="76" height="22" rx="11"/><text x="295" y="140">New York</text></g>
+        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="298" y="230" width="63" height="22" rx="11"/><text x="329" y="245">London</text></g>
+        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="202" y="295" width="76" height="22" rx="11"/><text x="240" y="310">Montreal</text></g>
+        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="110" y="230" width="82" height="22" rx="11"/><text x="151" y="245">Amsterdam</text></g>
+        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="113" y="59" width="56" height="34" rx="17"/><text x="141" y="80">Bank</text><text class="map-id" fill="#5f6b85" font-size="10" x="141" y="51">ID 7F3A</text></g>
+        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="296" y="59" width="85" height="34" rx="17"/><text x="339" y="80">Employer</text><text class="map-id" fill="#5f6b85" font-size="10" x="339" y="51">ID C21E</text></g>
+        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="357" y="247" width="85" height="34" rx="17"/><text x="400" y="268">Shopping</text><text class="map-id" fill="#5f6b85" font-size="10" x="400" y="295">ID 94B0</text></g>
+        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="190" y="363" width="100" height="34" rx="17"/><text x="240" y="384">Government</text><text class="map-id" fill="#5f6b85" font-size="10" x="240" y="411">ID 5D8C</text></g>
+        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="34" y="247" width="93" height="34" rx="17"/><text x="80" y="268">Streaming</text><text class="map-id" fill="#5f6b85" font-size="10" x="80" y="295">ID E61F</text></g>
+        <circle class="map-you-halo" fill="#eef0ff" cx="240" cy="212" r="60"/><circle class="map-you" fill="#5659dd" cx="240" cy="212" r="44"/>
+        <text class="map-you-label" fill="#ffffff" font-size="17" font-weight="900" text-anchor="middle" x="240" y="214">YOU</text><text class="map-you-key" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle" x="240" y="230">your identity</text>
         </svg>
         <p class="diagram-caption">One identity, held only by you. Each service sees its own ID, through the location you choose.</p>
       </div>
