@@ -216,7 +216,7 @@ h3 {
 .microcopy {
   max-width: 690px;
   margin: 22px 0 0;
-  color: #7a8499;
+  color: var(--ink); /* owner 2026-09-28: was #7a8499 (3.5:1), unreadable on phones */
   font-size: 13px;
   line-height: 1.6;
 }
@@ -355,7 +355,7 @@ h3 {
   bottom: 25px;
   left: 36px;
   margin: 0;
-  color: #7d869a;
+  color: var(--muted); /* was #7d869a (3.4:1), below the 4.5:1 readable minimum */
   font-size: 12px;
   line-height: 1.5;
   text-align: center;
