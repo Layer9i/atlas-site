@@ -1025,3 +1025,4 @@ h1 .h1-line { display:block; color:inherit; }
 .tester-cta .hero-actions { justify-content:center; }
 .protection-intro { max-width:780px; margin-bottom:40px; }
 .protection-next { margin:32px 0 0; }
+.hero h1.h1-long { font-size:clamp(40px, 4.6vw, 64px); line-height:1.04; }
