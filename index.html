@@ -3,181 +3,249 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Atlas lets you choose how apps and websites see your connection, keeps no record of the sites you visit, and gives you an account only you hold, wherever you connect. Beta by invitation.">
+  <meta name="description" content="Atlas Identity protects your devices, where you show up online, and your personal info. We don't track you and we don't sell you. Early access by invitation.">
   <link rel="canonical" href="https://layer9i.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Layer9i">
   <meta property="og:url" content="https://layer9i.com/">
-  <meta property="og:title" content="Atlas — control your internet identity and privacy | Layer9i">
-  <meta property="og:description" content="Atlas lets you choose how apps and websites see your connection, keeps no record of the sites you visit, and gives you an account only you hold, wherever you connect. Beta by invitation.">
-  <meta property="og:image" content="https://layer9i.com/assets/brand/atlas-share.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Layer9i Atlas: your own identity, across every service and network.">
+  <meta property="og:title" content="Atlas Identity: your presence, your control | Layer9i">
+  <meta property="og:description" content="Atlas Identity protects your devices, where you show up online, and your personal info. We don't track you and we don't sell you.">
+  <meta property="og:image" content="https://layer9i.com/assets/home/hero-poster.jpg">
+  <meta property="og:image:alt" content="Atlas Identity: the internet changes around you.">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://layer9i.com/#org","name":"Layer9i","legalName":"Layer9i, Inc.","url":"https://layer9i.com/","logo":"https://layer9i.com/assets/brand/atlas-share.png","email":"info@layer9i.com","sameAs":["https://research.layer9i.com/"]},{"@type":"WebSite","@id":"https://layer9i.com/#site","url":"https://layer9i.com/","name":"Layer9i","publisher":{"@id":"https://layer9i.com/#org"}},{"@type":"SoftwareApplication","name":"Atlas","applicationCategory":"SecurityApplication","operatingSystem":"iOS, iPadOS, macOS, Windows, Android","description":"Atlas gives a person their own identity across services and networks: an account only they hold, a choice of how apps and websites see their connection, and no record of the sites they visit.","publisher":{"@id":"https://layer9i.com/#org"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
-  <title>Atlas — control your internet identity and privacy | Layer9i</title>
-  <link rel="icon" type="image/svg+xml" href="assets/brand/layer9i-mark.svg">
-  <link rel="stylesheet" href="style.css?v=20260929">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://layer9i.com/#org","name":"Layer9i","legalName":"Layer9i, Inc.","url":"https://layer9i.com/","email":"info@layer9i.com","sameAs":["https://research.layer9i.com/"]},{"@type":"SoftwareApplication","name":"Atlas Identity","applicationCategory":"SecurityApplication","operatingSystem":"iOS, macOS, Windows, Android","publisher":{"@id":"https://layer9i.com/#org"}}]}</script>
+  <title>Atlas Identity: your presence, your control | Layer9i</title>
+  <link rel="icon" type="image/svg+xml" href="assets/brand/atlas-a.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+.ai{white-space:nowrap}.ai b{font-weight:700;letter-spacing:.01em}.ai i{font-style:normal;font-weight:300}
+
+:root{--night:#050A1C;--fg:#FFFFFF;color-scheme:dark}
+body{margin:0;background:var(--night);color:var(--fg)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #3FD8FF;outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+.phones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end}
+.plat{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.navlinks{display:flex;gap:28px}
+.herobox{background:#050A1C url('assets/home/hero-poster.jpg') center / cover no-repeat}
+.pledges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+@media (max-width: 1080px){.phones{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:56px}}
+@media (max-width: 760px){
+ .wrap{padding:0 16px}
+ .phones{grid-template-columns:minmax(0,1fr)}
+ .split{grid-template-columns:minmax(0,1fr);gap:28px}
+ .plat{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .pledges{grid-template-columns:minmax(0,1fr);gap:32px}
+ .navlinks{display:none}
+ .h1{font-size:44px !important}
+ .h2{font-size:34px !important}
+ .cap{font-size:20px !important}
+}
+@media (prefers-reduced-motion: reduce){video{display:none}}
+</style>
+
 </head>
 <body>
-<header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="./"><img class="brand-logo" src="assets/brand/layer9i-mark.svg" alt=""><span>Layer9i</span></a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" class="site-nav"><a href="./#for-you">What you get</a><a href="./#protection">Already have a VPN?</a><a href="./#how">How it works</a><a href="trust.html">Privacy &amp; data</a><a href="https://research.layer9i.com">Research ↗</a><a class="nav-button" href="mailto:info@layer9i.com?subject=Atlas%20tester%20request&amp;body=Which%20devices%20would%20you%20use%20Atlas%20on%20(Mac%2C%20iPhone%2C%20Windows%2C%20Android)%3F%0A%0A">Join the beta</a></nav>
-  </div>
+<div style="font-family: 'Montserrat', system-ui, sans-serif; color: #FFFFFF; background: #050A1C">
+
+<header class="site-header"><div style="position: relative; z-index: 2; background: #050A1C; color: #FFFFFF; font-family: 'Montserrat', system-ui, sans-serif">
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; height: 84px">
+<a href="index.html" aria-label="Atlas Identity home" style="display: flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none">
+<img src="assets/brand/atlas-a.svg" alt="" width="46" height="37" style="filter: drop-shadow(0 0 6px rgba(46,210,255,.5)); display: block">
+<span style="font-size: 20px; letter-spacing: 0.01em; white-space: nowrap;"><span style="font-weight: 700">ATLAS</span><span style="font-weight: 300; margin-left: 0.16em">identity</span></span>
+</a>
+<nav class="navlinks" aria-label="Main" style="font-size: 15px; font-weight: 500">
+<a href="index.html#story" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">How it works</a>
+<a href="index.html#app" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">The app</a>
+<a href="trust.html" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">Privacy</a>
+</nav>
+<a href="index.html#join" style="background: #FFFFFF; color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 12px 20px; border-radius: 999px">Get early access</a>
+</div>
+</div>
 </header>
 
-<main>
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <p class="eyebrow">Atlas · beta, by invitation</p>
-      <h1 class="h1-long">Control your internet identity and privacy, <span>wherever you connect.</span></h1>
-      <p class="hero-intro">Atlas lets you choose how apps and websites see your connection, while keeping no record of the sites you visit, wherever you are with your devices.</p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="mailto:info@layer9i.com?subject=Atlas%20tester%20request&amp;body=Which%20devices%20would%20you%20use%20Atlas%20on%20(Mac%2C%20iPhone%2C%20Windows%2C%20Android)%3F%0A%0A">Join the Atlas beta</a>
-        <a class="button button-secondary" href="#for-you">See what you get</a>
-      </div>
-      <p class="microcopy">The beta is invite-only for now, on Mac, iPhone, Windows and Android. Email Layer9i and you'll get a reply. Anyone can join once the last privacy step on <a href="trust.html#status">Privacy &amp; data</a> is done.</p>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-video-badge" aria-label="Atlas overview video"><video controls playsinline preload="metadata" poster="assets/video/atlas-identity-overview-poster.png"><source src="assets/video/atlas-identity-overview.mp4" type="video/mp4"></video><a class="hero-video-badge-download" href="assets/video/atlas-identity-overview.mp4" download title="Download video">⬇</a></div>
-      <div class="presence-card">
-        <svg class="identity-map" viewBox="0 0 480 430" role="img" aria-labelledby="identity-map-title">
-        <title id="identity-map-title">You hold one identity. Each service you use sees its own separate ID, reached through a location you choose: your bank through Toronto, your employer through New York, shopping through London, government through Montreal and streaming through Amsterdam.</title>
-        <circle class="map-ring" fill="none" stroke="#dcdcf8" cx="240" cy="212" r="168"/>
-        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="141" y2="76"/>
-        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="339" y2="76"/>
-        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="400" y2="264"/>
-        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="240" y2="380"/>
-        <line class="map-link" stroke="#a9aaee" stroke-width="1.5" x1="240" y1="212" x2="80" y2="264"/>
-        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="150" y="125" width="69" height="22" rx="11"/><text x="185" y="140">Toronto</text></g>
-        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="257" y="125" width="76" height="22" rx="11"/><text x="295" y="140">New York</text></g>
-        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="298" y="230" width="63" height="22" rx="11"/><text x="329" y="245">London</text></g>
-        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="202" y="295" width="76" height="22" rx="11"/><text x="240" y="310">Montreal</text></g>
-        <g class="map-city" fill="#4548c4" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#eef0ff" stroke="#c7c8f4" x="110" y="230" width="82" height="22" rx="11"/><text x="151" y="245">Amsterdam</text></g>
-        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="113" y="59" width="56" height="34" rx="17"/><text x="141" y="80">Bank</text><text class="map-id" fill="#5f6b85" font-size="10" x="141" y="51">ID 7F3A</text></g>
-        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="296" y="59" width="85" height="34" rx="17"/><text x="339" y="80">Employer</text><text class="map-id" fill="#5f6b85" font-size="10" x="339" y="51">ID C21E</text></g>
-        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="357" y="247" width="85" height="34" rx="17"/><text x="400" y="268">Shopping</text><text class="map-id" fill="#5f6b85" font-size="10" x="400" y="295">ID 94B0</text></g>
-        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="190" y="363" width="100" height="34" rx="17"/><text x="240" y="384">Government</text><text class="map-id" fill="#5f6b85" font-size="10" x="240" y="411">ID 5D8C</text></g>
-        <g class="map-service" fill="#121b35" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="34" y="247" width="93" height="34" rx="17"/><text x="80" y="268">Streaming</text><text class="map-id" fill="#5f6b85" font-size="10" x="80" y="295">ID E61F</text></g>
-        <circle class="map-you-halo" fill="#eef0ff" cx="240" cy="212" r="60"/><circle class="map-you" fill="#5659dd" cx="240" cy="212" r="44"/>
-        <text class="map-you-label" fill="#ffffff" font-size="17" font-weight="900" text-anchor="middle" x="240" y="214">YOU</text><text class="map-you-key" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle" x="240" y="230">your identity</text>
-        </svg>
-        <p class="diagram-caption">One identity, held only by you. Each service sees its own ID, through the location you choose.</p>
-      </div>
-    </div>
-  </div>
+<section id="top" style="padding: 8px 0 0">
+<div class="wrap">
+<div class="herobox" style="position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 1280 / 540; background-color: #050A1C">
+<video src="assets/home/hero.mp4" poster="assets/home/hero-poster.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" aria-hidden="true" style="display: block; width: 100%; height: 100%; object-fit: cover"></video>
+</div>
+<div style="text-align: center; padding: 72px 0 120px">
+<h1 class="h1" style="margin: 0; font-size: 76px; line-height: 1.02; font-weight: 300; letter-spacing: -0.02em">Your presence. <span style="font-weight: 600">Your control.</span></h1>
+<p style="margin: 24px auto 0; font-size: 21px; line-height: 1.5; color: #C9D3F2; max-width: 44ch">One app that protects your devices, where you show up online, and the most valuable thing you own online: you.</p>
+<div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 36px">
+<a href="#join" style="background: linear-gradient(100deg, #3FD8FF, #2F7BFF 50%, #7A5CFF); color: #FFFFFF; font-weight: 600; font-size: 17px; text-decoration: none; padding: 17px 30px; border-radius: 999px">Get early access</a>
+<a href="#app" style="color: #FFFFFF; font-weight: 500; font-size: 17px; text-decoration: none; padding: 17px 26px; border-radius: 999px; box-shadow: inset 0 0 0 1px #3A4A7A">See the app</a>
+</div>
+</div>
+</div>
 </section>
 
-<section class="statement">
-  <div class="container">
-    <h2>The network changes. You don't.</h2>
-    <p>Home Wi-Fi, your phone's data, a hotel or a café: every network you join is different. With Atlas, your account, your choices and where sites see you connecting from stay the same on all of them.</p>
-  </div>
+<section id="story" aria-label="How Atlas Identity works" style="padding: 0 0 40px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 96px">
+<figure style="margin: 0">
+<img src="assets/home/identity.jpg" alt="Identity first. A person at the centre, with their phone, laptop, car and home connected around them." style="display: block; width: 100%; height: auto; border-radius: 24px">
+<figcaption class="cap" style="margin: 28px 0 0; font-size: 26px; line-height: 1.4; font-weight: 400; color: #C9D3F2; max-width: 34ch"><span class="ai"><b>ATLAS</b> <i>identity</i></span> starts with <span style="color: #FFFFFF; font-weight: 600">you</span>. Not your device, not your Wi-Fi.</figcaption>
+</figure>
+<figure style="margin: 0">
+<img src="assets/home/follows.jpg" alt="Your presence follows you: home, office, mobile tower, flight, phone and laptop all around one person." style="display: block; width: 100%; height: auto; border-radius: 24px">
+<figcaption class="cap" style="margin: 28px 0 0 auto; font-size: 26px; line-height: 1.4; font-weight: 400; color: #C9D3F2; max-width: 34ch; text-align: right">Home, office, airport, hotel. <span style="color: #FFFFFF; font-weight: 600">You stay you.</span></figcaption>
+</figure>
+<figure style="margin: 0">
+<img src="assets/home/changed.jpg" alt="Your connection changed, your presence didn't. A woman walks from home Wi-Fi onto the street as her connection passes through protected checkpoints." style="display: block; width: 100%; height: auto; border-radius: 24px">
+<figcaption class="cap" style="margin: 28px 0 0; font-size: 26px; line-height: 1.4; font-weight: 400; color: #C9D3F2; max-width: 34ch">Walk out the door. Your bank, your apps and your accounts <span style="color: #FFFFFF; font-weight: 600">still see the same you.</span></figcaption>
+</figure>
+<figure style="margin: 0">
+<img src="assets/home/lens.jpg" alt="See the internet through your lens: work, finance, communications, streaming and privacy each take their own path from one person." style="display: block; width: 100%; height: auto; border-radius: 24px">
+<figcaption class="cap" style="margin: 28px 0 0 auto; font-size: 26px; line-height: 1.4; font-weight: 400; color: #C9D3F2; max-width: 34ch; text-align: right">Work, money, streaming. <span style="color: #FFFFFF; font-weight: 600">Each one goes where you send it.</span></figcaption>
+</figure>
+</div>
 </section>
 
-<section id="for-you" class="section section-white">
-  <div class="container">
-    <div class="section-heading"><div><p class="eyebrow">What you get</p><h2>Your device is personal. Make your connection more private.</h2></div></div>
-    <div class="prose protection-intro">
-      <p>At home, on mobile data or on public Wi-Fi, the network carrying your connection can learn about the sites you visit, and that information is valuable to the companies that collect it. Privacy includes having a say in what your connection reveals.</p>
-    </div>
-    <div class="definition-grid feature-grid">
-      <article><h3>Keep your browsing to yourself</h3><p>Layer9i keeps no record of the sites you visit, so there is nothing to sell and nothing to hand over.</p></article>
-      <article><h3>Choose where you connect from</h3><p>With Atlas, choose where you connect from for each site. Use a location in your home country for banking, or choose another location for browsing.</p><p>Available locations: Toronto, Montreal, New York, London, and Amsterdam.</p></article>
-      <article><h3>More than one way to connect</h3><p>Some sites work better on your own connection. Others can go through a trusted Atlas location. Atlas lets you use both, without changing the connection for everything else.</p></article>
-      <article><h3>Keep control across your devices</h3><p>Manage your choices in one app, on Mac, iPhone, Windows and Android. Your saved choices are encrypted on your device, so they stay private, even from Layer9i.</p></article>
-      <article><h3>Your account belongs to you</h3><p>It comes from a key only you hold. Layer9i can't take it over or hand it to anyone. The flip side: keep your key and recovery code safe, because Layer9i can't get them back for you.</p></article>
-      <article><h3>Know when something's wrong</h3><p>Atlas checks that your connection goes where you chose. If it can't confirm that, it's built to switch itself off, put your normal connection back and tell you.</p></article>
-    </div>
-  </div>
+<section id="app" aria-labelledby="app-h" style="padding: 140px 0 120px">
+<div class="wrap">
+<h2 id="app-h" class="h2" style="margin: 0; text-align: center; font-size: 60px; line-height: 1.05; font-weight: 300; letter-spacing: -0.02em">This is what you get.</h2>
+<p style="margin: 18px auto 0; text-align: center; font-size: 20px; color: #C9D3F2; max-width: 40ch">Four things, every time you connect.</p>
+
+<div class="phones" style="margin-top: 72px">
+<figure style="margin: 0; display: flex; flex-direction: column; align-items: center">
+<div style="width: 100%; max-width: 270px; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(47, 123, 255, 0.18)">
+<div role="img" aria-label="Atlas Identity home screen showing Protected, appearing from Toronto" style="background: #FAFAFC; border-radius: 38px; overflow: hidden; height: 540px; box-sizing: border-box; padding: 44px 16px 16px; font-family: -apple-system, system-ui, sans-serif; color: #12142B">
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px"><span style="width: 22px; height: 22px; border-radius: 6px; background: #5659DD; flex: none"></span><span style="font-size: 15px; font-weight: 700"><span class="ai"><b>ATLAS</b> <i>identity</i></span></span></div>
+<div style="display: flex; flex-direction: column; align-items: center; padding: 6px 0 10px">
+<div style="width: 104px; height: 104px; border-radius: 50%; background: #F4F4F9; box-shadow: inset 0 0 0 1px #E5E5EE; display: flex; align-items: center; justify-content: center"><svg viewBox="0 0 24 24" width="46" height="46" aria-hidden="true"><path d="M12 2.5 L20 5.5 V11.5 C20 16.5 16.6 20 12 21.5 C7.4 20 4 16.5 4 11.5 V5.5 Z" fill="#15803D"></path><path d="M8.2 12 L11 14.8 L16 9.2" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+<span style="margin-top: 12px; font-size: 12px; font-weight: 600; color: #15803D; background: rgba(21, 128, 61, 0.12); padding: 5px 12px; border-radius: 999px">Protected</span>
+<p style="margin: 12px 0 0; font-size: 14px; line-height: 1.4; text-align: center">Right now, websites see you as <strong>Toronto</strong>, through <span class="ai"><b>ATLAS</b> <i>identity</i></span>.</p>
+</div>
+<div style="background: #FFFFFF; border-radius: 14px; padding: 12px; box-shadow: inset 0 0 0 1px #E5E5EE"><p style="margin: 0 0 8px; font-size: 11px; font-weight: 600; color: #4A4F60">WHAT THIS GIVES YOU</p><p style="margin: 0 0 7px; font-size: 12.5px; line-height: 1.35; display: flex; gap: 6px"><span style="color: #15803D; font-weight: 700">&#10003;</span><span>Sites see you in Toronto, not where you really are.</span></p><p style="margin: 0 0 7px; font-size: 12.5px; line-height: 1.35; display: flex; gap: 6px"><span style="color: #15803D; font-weight: 700">&#10003;</span><span>This network can&#8217;t see what you do.</span></p><p style="margin: 0 0 7px; font-size: 12.5px; line-height: 1.35; display: flex; gap: 6px"><span style="color: #15803D; font-weight: 700">&#10003;</span><span>Ads and trackers filtered out.</span></p></div>
+</div>
+</div>
+<figcaption style="margin-top: 28px; text-align: center; max-width: 260px">
+<p style="margin: 0; font-size: 20px; font-weight: 600">Protects you.</p>
+<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: #C9D3F2">Nobody on the Wi-Fi can watch or tamper with what you do.</p>
+</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; align-items: center">
+<div style="width: 100%; max-width: 270px; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(47, 123, 255, 0.18)">
+<div role="img" aria-label="Atlas Identity paths screen listing where each kind of site appears from" style="background: #FAFAFC; border-radius: 38px; overflow: hidden; height: 540px; box-sizing: border-box; padding: 44px 16px 16px; font-family: -apple-system, system-ui, sans-serif; color: #12142B">
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px"><span style="width: 22px; height: 22px; border-radius: 6px; background: #5659DD; flex: none"></span><span style="font-size: 15px; font-weight: 700"><span class="ai"><b>ATLAS</b> <i>identity</i></span></span></div>
+<p style="margin: 0 0 4px; font-size: 22px; font-weight: 700">Your paths</p><p style="margin: 0 0 14px; font-size: 13px; color: #4A4F60">Change where any one path leaves from.</p><div style="background: #FFFFFF; border-radius: 14px; padding: 2px 12px; box-shadow: inset 0 0 0 1px #E5E5EE"><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Banking</span><span style="font-weight: 700; color: #5659DD;">Toronto</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Streaming</span><span style="font-weight: 700; color: #5659DD;">Home</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Work</span><span style="font-weight: 700; color: #5659DD;">Montreal</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Shopping</span><span style="font-weight: 700; color: #5659DD;">New York</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Everything else</span><span style="font-weight: 700; color: #5659DD;">Toronto</span></div></div><p style="margin: 14px 0 0; font-size: 12.5px; color: #4A4F60; line-height: 1.4">Sites see the city on each path, not where you are.</p>
+</div>
+</div>
+<figcaption style="margin-top: 28px; text-align: center; max-width: 260px">
+<p style="margin: 0; font-size: 20px; font-weight: 600">Sends you where you want.</p>
+<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: #C9D3F2">Pick the city for each app and site. Your bank always sees home.</p>
+</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; align-items: center">
+<div style="width: 100%; max-width: 270px; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(47, 123, 255, 0.18)">
+<div role="img" aria-label="Atlas Identity traffic screen showing what the phone has been talking to" style="background: #FAFAFC; border-radius: 38px; overflow: hidden; height: 540px; box-sizing: border-box; padding: 44px 16px 16px; font-family: -apple-system, system-ui, sans-serif; color: #12142B">
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px"><span style="width: 22px; height: 22px; border-radius: 6px; background: #5659DD; flex: none"></span><span style="font-size: 15px; font-weight: 700"><span class="ai"><b>ATLAS</b> <i>identity</i></span></span></div>
+<p style="margin: 0 0 14px; font-size: 20px; font-weight: 700; line-height: 1.2">What this iPhone has been talking to</p><div style="background: rgba(220, 38, 38, 0.1); border-radius: 12px; padding: 10px 12px; margin-bottom: 12px"><p style="margin: 0; font-size: 12.5px; line-height: 1.4; font-weight: 600; color: #8F1414">Something on this iPhone is checking in with a place nothing recognises.</p></div><div style="background: #FFFFFF; border-radius: 14px; padding: 2px 12px; box-shadow: inset 0 0 0 1px #E5E5EE"><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Weather app</span><span style="color: #4A4F60; font-weight: 600;">14 places</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Ad tracker</span><span style="color: #15803D; font-weight: 700;">Blocked</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Shopping app</span><span style="color: #4A4F60; font-weight: 600;">9 places</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Analytics</span><span style="color: #15803D; font-weight: 700;">Blocked</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="">Unknown server</span><span style="color: #DC2626; font-weight: 700;">Flagged</span></div></div>
+</div>
+</div>
+<figcaption style="margin-top: 28px; text-align: center; max-width: 260px">
+<p style="margin: 0; font-size: 20px; font-weight: 600">Cleans up what you visit.</p>
+<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: #C9D3F2">Ads, trackers and junk stopped. Snooping apps called out.</p>
+</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; align-items: center">
+<div style="width: 100%; max-width: 270px; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(47, 123, 255, 0.18)">
+<div role="img" aria-label="Atlas Identity screen showing how websites see you" style="background: #FAFAFC; border-radius: 38px; overflow: hidden; height: 540px; box-sizing: border-box; padding: 44px 16px 16px; font-family: -apple-system, system-ui, sans-serif; color: #12142B">
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px"><span style="width: 22px; height: 22px; border-radius: 6px; background: #5659DD; flex: none"></span><span style="font-size: 15px; font-weight: 700"><span class="ai"><b>ATLAS</b> <i>identity</i></span></span></div>
+<p style="margin: 0 0 6px; font-size: 22px; font-weight: 700">How websites see me</p><p style="margin: 0 0 14px; font-size: 13px; line-height: 1.4; color: #4A4F60">This is what a bank or a shop can work out about where you are, just from your connection.</p><div style="background: #FFFFFF; border-radius: 14px; padding: 2px 12px; box-shadow: inset 0 0 0 1px #E5E5EE"><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="color: #4A4F60;">City</span><span style="font-weight: 700;">Toronto</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="color: #4A4F60;">Country</span><span style="font-weight: 700;">Canada</span></div><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px"><span style="color: #4A4F60;">Your real location</span><span style="font-weight: 700;">Hidden</span></div></div><div style="margin-top: 12px; background: rgba(21, 128, 61, 0.1); border-radius: 12px; padding: 12px"><p style="margin: 0; font-size: 13px; font-weight: 700; color: #15803D">Intended vs. Observed</p><p style="margin: 4px 0 0; font-size: 12.5px">You asked for Toronto. Sites see Toronto.</p></div>
+</div>
+</div>
+<figcaption style="margin-top: 28px; text-align: center; max-width: 260px">
+<p style="margin: 0; font-size: 20px; font-weight: 600">Shows how sites see you.</p>
+<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: #C9D3F2">Check exactly what a bank or shop can tell about you. Anytime.</p>
+</figcaption>
+</figure>
+</div>
+</div>
 </section>
 
-<section id="protection" class="section">
-  <div class="container">
-    <div class="section-heading"><div><p class="eyebrow">Already have a VPN?</p><h2>A VPN hides your address. Atlas privately puts you in control.</h2></div></div>
-    <div class="prose protection-intro">
-      <p>A VPN app sends your connection through its own servers, so sites see its address instead of yours. That's useful, but you're still trusting that company with your account and with whatever it decides to keep about you.</p>
-      <p>Atlas starts from a different place:</p>
-    </div>
-    <div class="definition-grid feature-grid">
-      <article><h3>You hold the keys</h3><p>Your account comes from a phrase only you have. Layer9i keeps no copy, so there's nothing for anyone to take.</p></article>
-      <article><h3>Your choices stay private</h3><p>Which sites you send where is locked on your devices. Layer9i stores only the locked copy and has no way to open it.</p></article>
-      <article><h3>No record of where you go</h3><p>Layer9i doesn't log the sites you visit, and the servers you connect through keep no record of which account used them.</p></article>
-    </div>
-    <div class="prose protection-intro protection-next">
-      <p><strong>Coming next:</strong> signing in to websites with Atlas, where each site gets a different ID for you so sites can't compare notes about you. It already works on Layer9i's test site. Real websites come next.</p>
-    </div>
-  </div>
+<section aria-label="Under the hood" style="padding: 0 0 140px">
+<div class="wrap">
+<div class="split" style="border-top: 1px solid #1E2848; padding-top: 56px">
+<img src="assets/home/working.jpg" alt="Atlas Identity running on a phone, a laptop and a tablet, showing the global network, traffic flow and policy routing." style="display: block; width: 100%; height: auto; border-radius: 20px">
+<div>
+<p style="margin: 0; font-size: 15px; font-weight: 600; letter-spacing: 0.22em; color: #3FD8FF">UNDER THE HOOD</p>
+<p style="margin: 18px 0 0; font-size: 32px; line-height: 1.3; font-weight: 300">The same strong encryption that protects company networks seals every device. <span style="font-weight: 600">That's the engine. <span class="ai"><b>ATLAS</b> <i>identity</i></span> is the whole car.</span></p>
+</div>
+</div>
+</div>
 </section>
 
-<section id="how" class="section section-white">
-  <div class="container">
-    <div class="section-heading"><div><p class="eyebrow">How it works</p><h2>Three steps, then get on with your day.</h2></div></div>
-    <ol class="journey-list">
-      <li class="journey-item is-done"><span class="journey-num">1</span><div class="journey-body"><div class="journey-head"><h3>Install Atlas and save your key</h3></div><p>Your account is a private key that only your devices hold. Start on one device, then add the others from <strong>Devices</strong>, which shows your key: keep a copy somewhere safe, along with the one-time recovery code Atlas gives you. Lose a laptop and your account isn't lost with it: your key brings it back.</p></div></li>
-      <li class="journey-item is-done"><span class="journey-num">2</span><div class="journey-body"><div class="journey-head"><h3>Set your Rules</h3></div><p>Pick your Default City: where websites and apps see you from. Then, in <strong>Rules</strong>, add exceptions, such as your bank going through a trusted city in your own country, or local sites using your own connection.</p></div></li>
-      <li class="journey-item is-done"><span class="journey-num">3</span><div class="journey-body"><div class="journey-head"><h3>Go about your life</h3></div><p>As you move between home Wi-Fi, your phone's data and hotel networks, Atlas keeps your Rules in place and checks that you really appear where you chose (<strong>Intended vs. Observed</strong> on the Home screen). If it can't confirm that, it turns itself off and tells you, so your connection is never quietly wrong.</p></div></li>
-    </ol>
-  </div>
+<section id="privacy" aria-labelledby="privacy-h" style="padding: 128px 0; background: #FFFFFF; color: #0A1028">
+<div class="wrap">
+<div style="max-width: 900px; margin: 0 auto; text-align: center">
+<img src="assets/brand/layer9i-mark.svg" alt="" width="64" height="64" style="display: block; margin: 0 auto">
+<p style="margin: 24px 0 0; font-size: 15px; font-weight: 600; letter-spacing: 0.22em; color: #2F5BEA">THE LAYER9I COMMITMENT</p>
+<h2 id="privacy-h" class="h1" style="margin: 20px 0 0; font-size: 68px; line-height: 1.05; font-weight: 300; letter-spacing: -0.025em">We don't track you. <span style="font-weight: 600">We don't sell you.</span></h2>
+<p style="margin: 28px auto 0; font-size: 21px; line-height: 1.6; color: #3A4466; max-width: 46ch">At Layer9i, we believe your presence online belongs to you. We built <span class="ai"><b>ATLAS</b> <i>identity</i></span> to protect your traffic, your data and your identity, never to profit from them.</p>
+</div>
+<div class="pledges" style="margin-top: 72px">
+<div style="border-top: 2px solid #2F5BEA; padding-top: 22px">
+<p style="margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600">No tracking.</p>
+<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: #3A4466">We don&#8217;t keep a record of the sites you visit or the apps you use.</p>
+</div>
+<div style="border-top: 2px solid #2F5BEA; padding-top: 22px">
+<p style="margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600">No selling. To anyone.</p>
+<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: #3A4466">Your information is never sold, rented or shared for advertising.</p>
+</div>
+<div style="border-top: 2px solid #2F5BEA; padding-top: 22px">
+<p style="margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600">You stay in control.</p>
+<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: #3A4466">Your account belongs to you. You decide what goes where.</p>
+</div>
+</div>
+<p style="margin: 56px 0 0; text-align: center"><a href="trust.html" style="color: #2F5BEA; font-size: 18px; font-weight: 600; text-decoration: none; border-bottom: 2px solid #2F5BEA; padding-bottom: 3px">Read our privacy commitment</a></p>
+</div>
 </section>
 
-<section id="privacy" class="section">
-  <div class="container split">
-    <div><p class="eyebrow">Privacy &amp; data</p><h2>Your privacy, built in.</h2></div>
-    <div class="prose">
-      <p>With Atlas, the sites you visit stay yours. Layer9i keeps no record of them, keeps your account separate from the internet addresses you use, and encrypts your choices so only you can read them.</p>
-      <p>This privacy is part of how Atlas works, not a line in a policy.</p>
-      <p>The Privacy &amp; data page shows exactly what Layer9i holds and what it could hand over if a court asked. It also explains the one area that is protected by Layer9i's own rule today, and the work that will make it built in too.</p>
-      <div class="hero-actions"><a class="button button-primary" href="trust.html">Read Privacy &amp; data</a></div>
-    </div>
-  </div>
+<section aria-labelledby="plat-h" style="padding: 120px 0 80px">
+<div class="wrap">
+<h2 id="plat-h" class="h2" style="margin: 0 0 40px; font-size: 44px; font-weight: 300; letter-spacing: -0.02em">On everything you own.</h2>
+<ul class="plat" role="list" style="list-style: none; margin: 0; padding: 0">
+<li style="border-top: 2px solid #2F7BFF; padding-top: 18px; font-size: 20px; font-weight: 600">iPhone</li>
+<li style="border-top: 2px solid #2F7BFF; padding-top: 18px; font-size: 20px; font-weight: 600">Android</li>
+<li style="border-top: 2px solid #2F7BFF; padding-top: 18px; font-size: 20px; font-weight: 600">Mac</li>
+<li style="border-top: 2px solid #2F7BFF; padding-top: 18px; font-size: 20px; font-weight: 600">Windows</li>
+<li style="border-top: 2px solid #3A4A7A; padding-top: 18px; font-size: 20px; font-weight: 600; color: #C9D3F2"><span class="ai"><b>ATLAS</b> <i>identity</i></span> box <span style="display: block; margin-top: 4px; font-size: 15px; font-weight: 400">TVs and home. Coming soon</span></li>
+</ul>
+</div>
 </section>
 
-<section id="progress" class="section journey-section">
-  <div class="container">
-    <div class="section-heading"><div><p class="eyebrow">Where Atlas is today</p><h2>Built, tested, and nearly open.</h2></div></div>
-    <ol class="journey-list">
-      <li class="journey-item is-done"><span class="journey-num">1</span><div class="journey-body"><div class="journey-head"><h3>Experts first</h3><span class="status published">Done</span></div><p>Before building anything, Layer9i published the idea and asked networking and security experts to point out where it was wrong.</p><a class="card-link" href="https://research.layer9i.com/research/">Read the papers →</a></div></li>
-      <li class="journey-item is-done"><span class="journey-num">2</span><div class="journey-body"><div class="journey-head"><h3>Built</h3><span class="status live">Built</span></div><p>Your Atlas account comes from a private key that is created on your own device and held only by you. Keep a copy somewhere safe: if a phone or laptop is lost, your key brings your account back on a new device. Atlas also gives you a one-time recovery code that unlocks your saved choices. This works today in the Atlas apps for Mac, iPhone, Windows and Android.</p></div></li>
-      <li class="journey-item is-done"><span class="journey-num">3</span><div class="journey-body"><div class="journey-head"><h3>Tested end to end</h3><span class="status live">Tested</span></div><p>Layer9i connected Atlas to a test service and ran the whole sign-in from start to finish. The service accepted an Atlas account on its own, with no name, email address or password to share. The Atlas locations people connect through were checked too, and they keep your account separate from your connection.</p><a class="card-link" href="https://research.layer9i.com/research/papers/atlas-paper-003.html">Read how →</a></div></li>
-      <li class="journey-item is-now"><span class="journey-num">4</span><div class="journey-body"><div class="journey-head"><h3>Testers are using it now</h3><span class="status live">Happening now</span></div><p>Invited testers use the Mac, iPhone, Windows and Android apps every day. It's the real thing described here, not a demo.</p></div></li>
-      <li class="journey-item is-next"><span class="journey-num">5</span><div class="journey-body"><div class="journey-head"><h3>The final step before sign-up opens</h3><span class="status open">Coming next</span></div><p>Today, Layer9i follows a strict rule: it keeps nothing that links an Atlas ID back to the person using it. The final step builds that protection into Atlas itself, so no one, including Layer9i, can work it out. An outside security expert will review the work first, and then sign-up opens to everyone.</p><a class="card-link" href="trust.html#status">Why this matters →</a></div></li>
-    </ol>
-  </div>
+<section id="join" aria-labelledby="join-h" style="padding: 80px 0 140px">
+<div class="wrap" style="text-align: center">
+<img src="assets/brand/atlas-a.svg" alt="" width="144" height="116" style="filter: drop-shadow(0 0 18px rgba(46,210,255,.5)); display: block; margin: 0 auto">
+<h2 id="join-h" class="h1" style="margin: 32px 0 0; font-size: 64px; font-weight: 300; letter-spacing: -0.02em">Be one of the first.</h2>
+<form id="joinForm" style="margin: 36px auto 0; max-width: 560px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center">
+<label for="email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Your email</label>
+<input id="email" type="email" autocomplete="email" placeholder="Your email" style="flex: 1 1 280px; min-width: 0; height: 58px; border: 0; border-radius: 999px; padding: 0 24px; font-family: inherit; font-size: 17px; color: #0A1028; background: #FFFFFF">
+<button type="submit" style="height: 58px; padding: 0 30px; border: 0; border-radius: 999px; background: linear-gradient(100deg, #3FD8FF, #2F7BFF 50%, #7A5CFF); color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 17px; cursor: pointer">Get early access</button>
+</form>
+<p id="joinNote" style="margin: 16px 0 0; font-size: 15px; color: #C9D3F2">Invite-only for now. We&#8217;ll email you when your spot opens.</p>
+</div>
 </section>
 
-<section id="testers" class="section section-white tester-cta">
-  <div class="container">
-    <p class="eyebrow">The Atlas beta</p>
-    <h2>Help build Atlas.</h2>
-    <div class="prose">
-      <p>Layer9i is looking for people who travel, juggle several devices, or simply want their privacy back. Try Atlas, and say what makes sense, what doesn't, and what you wish it did.</p>
-      <div class="hero-actions"><a class="button button-primary" href="mailto:info@layer9i.com?subject=Atlas%20tester%20request&amp;body=Which%20devices%20would%20you%20use%20Atlas%20on%20(Mac%2C%20iPhone%2C%20Windows%2C%20Android)%3F%0A%0A">Join the Atlas beta</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-heading"><div><p class="eyebrow">Go deeper</p><h2>Research and investors</h2></div></div>
-    <div class="definition-grid">
-      <article><h3>Open research</h3><p>The thinking behind Atlas is published in the open, for networking, security and privacy experts to challenge.</p><div class="hero-actions card-actions"><a class="button button-secondary" href="https://research.layer9i.com">Visit the research site ↗</a></div></article>
-      <article><h3>For investors</h3><p>What is built, what the raise pays for, and what Atlas will not do before it charges anyone.</p><div class="hero-actions card-actions"><a class="button button-primary" href="atlas/one-pager/">One-pager</a><a class="button button-secondary" href="atlas/investors/">Investor overview</a></div></article>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div><a class="brand footer-brand" href="./"><img class="brand-logo" src="assets/brand/layer9i-mark.svg" alt=""><span>Layer9i</span></a><p>Makers of Atlas. Your privacy, in your hands. Layer9i, Inc.</p></div>
-    <div class="footer-links"><a href="./#for-you">Is it for me?</a><a href="trust.html">Privacy &amp; data</a><a href="https://research.layer9i.com">Research</a><a href="atlas/investors/">Investors</a></div>
-  </div>
+<footer style="border-top: 1px solid #1E2848">
+<div class="wrap" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding-top: 32px; padding-bottom: 40px; font-size: 14px; color: #8E9AC2">
+<span style="display: flex; align-items: center; gap: 10px"><img src="assets/brand/layer9i-mark.svg" alt="" width="26" height="26"><span class="ai"><b>ATLAS</b> <i>identity</i></span> is made by Layer9i, Inc.</span>
+<nav aria-label="Footer" style="display: flex; gap: 24px; flex-wrap: wrap">
+<a href="trust.html" style="color: #C9D3F2; text-decoration: none">Privacy</a>
+<a href="atlas/one-pager/" style="color: #C9D3F2; text-decoration: none">About Layer9i</a>
+<a href="atlas/investors/" style="color: #C9D3F2; text-decoration: none">Investors</a>
+<a href="https://research.layer9i.com" style="color: #C9D3F2; text-decoration: none">Research</a>
+</nav>
+</div>
 </footer>
-<script src="assets/js/site.js"></script>
+
+</div>
+<script>
+document.getElementById('joinForm').addEventListener('submit',function(e){e.preventDefault();var em=document.getElementById('email').value.trim();if(!em){document.getElementById('joinNote').textContent='Enter your email first.';return;}window.location.href='mailto:info@layer9i.com?subject='+encodeURIComponent('Atlas Identity early access')+'&body='+encodeURIComponent('Please add me to the Atlas Identity early access list: '+em);document.getElementById('joinNote').textContent='Your email app should open with the request ready to send. If it doesn\u2019t, email info@layer9i.com.';});
+</script>
 </body>
 </html>
