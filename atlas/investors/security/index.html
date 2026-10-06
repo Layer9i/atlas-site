@@ -26,6 +26,21 @@
     .tag-pending { background:#fff4dc; color:#7a5300; }
     .tag-planned { background:var(--accent-soft); color:var(--accent-dark); }
     .paper-body h2 { margin-top:40px; }
+    .glance-tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:16px 0 28px; }
+    .glance-tile { border:1px solid var(--line); border-radius:12px; padding:14px 16px; background:#fff; }
+    .glance-tile b { display:block; font-size:34px; line-height:1.1; color:var(--ink); }
+    .glance-tile span { font-size:14px; color:var(--ink); }
+    .sev-chart { margin:8px 0 28px; }
+    .sev-row { display:grid; grid-template-columns:80px 1fr 110px; align-items:center; gap:12px; margin:10px 0; font-size:15px; }
+    .sev-track { display:flex; gap:4px; }
+    .sev-block { height:22px; flex:0 0 22%; border-radius:4px; background:#1f7a46; display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:700; }
+    .sev-row em { font-style:normal; font-size:14px; color:var(--ink); }
+    .work-timeline { list-style:none; margin:16px 0 28px; padding:0 0 0 28px; border-left:2px solid var(--line); }
+    .work-timeline li { position:relative; margin:0 0 22px; padding-left:8px; }
+    .work-timeline li::before { content:"\2713"; position:absolute; left:-41px; top:0; width:24px; height:24px; border-radius:50%; background:#1f7a46; color:#fff; font-size:14px; font-weight:700; line-height:24px; text-align:center; box-shadow:0 0 0 4px #fff; }
+    .work-timeline time { display:block; font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--accent-dark); }
+    .work-timeline strong { display:block; font-size:16px; margin:2px 0; }
+    .work-timeline p { margin:0; font-size:15px; line-height:1.5; }
   </style>
 </head>
 <body>
@@ -73,6 +88,35 @@
         <li><strong>Nothing found was ever used against us.</strong> The server logs show no successful break-in.</li>
       </ul>
     </div>
+
+    <h2>At a glance</h2>
+    <div class="glance-tiles" role="list">
+      <div class="glance-tile" role="listitem"><b>9</b><span>kinds of check run</span></div>
+      <div class="glance-tile" role="listitem"><b>6</b><span>servers scanned on every port</span></div>
+      <div class="glance-tile" role="listitem"><b>7</b><span>issues found</span></div>
+      <div class="glance-tile" role="listitem"><b>7</b><span>issues fixed</span></div>
+      <div class="glance-tile" role="listitem"><b>0</b><span>issues still open</span></div>
+    </div>
+
+    <h3>Every issue found was fixed</h3>
+    <p class="microcopy">Each green block is one issue: found, fixed and checked on the live system.</p>
+    <div class="sev-chart" role="img" aria-label="High: 1 found, 1 fixed. Medium: 3 found, 3 fixed. Low: 3 found, 3 fixed.">
+      <div class="sev-row"><strong>High</strong><div class="sev-track"><span class="sev-block" title="Found and fixed">&#10003;</span></div><em>1 of 1 fixed</em></div>
+      <div class="sev-row"><strong>Medium</strong><div class="sev-track"><span class="sev-block" title="Found and fixed">&#10003;</span><span class="sev-block" title="Found and fixed">&#10003;</span><span class="sev-block" title="Found and fixed">&#10003;</span></div><em>3 of 3 fixed</em></div>
+      <div class="sev-row"><strong>Low</strong><div class="sev-track"><span class="sev-block" title="Found and fixed">&#10003;</span><span class="sev-block" title="Found and fixed">&#10003;</span><span class="sev-block" title="Found and fixed">&#10003;</span></div><em>3 of 3 fixed</em></div>
+    </div>
+
+    <h3>The work, in order</h3>
+    <ol class="work-timeline">
+      <li><time>4 Oct, afternoon</time><strong>Servers stop revealing what they run</strong><p>Software labels removed from every server and published API maps switched off.</p></li>
+      <li><time>4 Oct, late evening</time><strong>Source code scanned for secrets</strong><p>All 1,739 commits checked. Nothing live found, and the scanner now runs on every change.</p></li>
+      <li><time>4 Oct, late evening</time><strong>Control server reviewed</strong><p>Access rules, join keys and internal services all passed. Administrator login switched to keys only.</p></li>
+      <li><time>5 Oct, after midnight</time><strong>Every port on every server scanned</strong><p>IPv4 and IPv6. Only the services each server needs answer. The city exits switched to keys-only login.</p></li>
+      <li><time>5 Oct, morning</time><strong>Identity engine code fixed and live</strong><p>All four code review findings fixed, with 31 new tests. Security headers added to every Atlas web address.</p></li>
+      <li><time>5 Oct, afternoon</time><strong>Administrator login taken off the internet</strong><p>Now reachable only through Atlas's own private network.</p></li>
+      <li><time>5 Oct, afternoon</time><strong>Account isolation proven live</strong><p>Two test accounts on the real network couldn't reach each other, our servers or a subscriber's device.</p></li>
+      <li><time>5 Oct, afternoon</time><strong>Final follow-up fix</strong><p>One rare address format now refused. Nothing left open.</p></li>
+    </ol>
 
     <h2>What we checked</h2>
     <div class="review-wrap"><table class="review-table">
