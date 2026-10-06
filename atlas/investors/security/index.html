@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Owner, 2026-10-05: shared with investors by link, kept out of search. Not in sitemap.xml. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="Atlas security review, 4–5 October 2026: what was checked, what was found, what was fixed, and how it was proven.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Layer9i">
+  <meta property="og:url" content="https://layer9i.com/atlas/investors/security/">
+  <meta property="og:title" content="Security review — Atlas | Layer9i">
+  <meta property="og:description" content="What we checked, what we found, what we fixed, and how we proved it.">
+  <meta property="og:image" content="https://layer9i.com/assets/brand/atlas-share.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Security review — Atlas | Layer9i</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/brand/layer9i-mark.svg">
+  <link rel="stylesheet" href="../../../style.css?v=20260929">
+  <style>
+    .review-table { width:100%; border-collapse:collapse; margin:16px 0 28px; font-size:15px; line-height:1.5; }
+    .review-table th, .review-table td { text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--line); }
+    .review-table th { font-weight:600; background:var(--accent-soft); }
+    .review-wrap { overflow-x:auto; }
+    .tag { display:inline-block; padding:2px 10px; border-radius:999px; font-size:13px; font-weight:600; white-space:nowrap; }
+    .tag-pass, .tag-fixed { background:#e3f6ea; color:#14663a; }
+    .tag-pending { background:#fff4dc; color:#7a5300; }
+    .tag-planned { background:var(--accent-soft); color:var(--accent-dark); }
+    .paper-body h2 { margin-top:40px; }
+  </style>
+</head>
+<body>
+<header class="site-header"><div style="position: relative; z-index: 2; background: #050A1C; color: #FFFFFF; font-family: 'Montserrat', system-ui, sans-serif">
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; height: 84px">
+<a href="../../../index.html" aria-label="Atlas Identity home" style="display: flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none">
+<img src="../../../assets/brand/atlas-a.svg" alt="" width="46" height="37" style="filter: drop-shadow(0 0 6px rgba(46,210,255,.5)); display: block">
+<span style="font-size: 20px; letter-spacing: 0.01em; white-space: nowrap;"><span style="font-weight: 700">ATLAS</span><span style="font-weight: 300; margin-left: 0.16em">identity</span></span>
+</a>
+<nav class="navlinks" aria-label="Main" style="font-size: 15px; font-weight: 500">
+<a href="../../../index.html#story" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">How it works</a>
+<a href="../../../index.html#app" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">The app</a>
+<a href="../../../trust.html" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">Privacy</a>
+</nav>
+<a href="../../../index.html#join" style="background: #FFFFFF; color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 12px 20px; border-radius: 999px">Get early access</a>
+</div>
+</div>
+</header>
+
+<main>
+<section class="paper-hero">
+  <div class="paper-shell">
+    <p class="eyebrow">Investors</p>
+    <div class="paper-meta">
+      <span>Layer9i, Inc.</span>
+      <span>Review carried out 4–5 October 2026</span>
+      <span>Published 5 October 2026</span>
+    </div>
+    <h1 class="paper-title">Atlas security review</h1>
+    <p class="paper-deck">We checked every Atlas server from the outside, reviewed the identity engine's code, scanned the full history of our source code for leaked secrets, and proved account isolation on the live network. This is everything we found and what we did about it.</p>
+  </div>
+</section>
+
+<section class="paper-layout" style="display:block;">
+  <article class="paper-body" style="max-width:820px; margin:0 auto;">
+
+    <div class="thesis-card">
+      <span class="thesis-label">Summary</span>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.7;">
+        <li><strong>Six servers checked on every port</strong>, over IPv4 and IPv6. From the internet, each now answers only on secure web.</li>
+        <li><strong>Account isolation proven live:</strong> two test accounts on the real network could not reach each other, our servers, or a real subscriber's device.</li>
+        <li><strong>Code review of the identity engine found four issues</strong> (one high, two medium, one low). All four were fixed, tested and live the same morning.</li>
+        <li><strong>Two server weaknesses found</strong> (password login allowed, software versions visible). Both fixed the same night.</li>
+        <li><strong>No secrets in 1,739 commits</strong> of source-code history.</li>
+        <li><strong>Nothing found was ever used against us.</strong> The server logs show no successful break-in.</li>
+      </ul>
+    </div>
+
+    <h2>What we checked</h2>
+    <div class="review-wrap"><table class="review-table">
+      <tr><th>Check</th><th>How</th><th>Coverage</th></tr>
+      <tr><td>Open network ports</td><td>Scan of every TCP port (1–65,535) from outside each server</td><td>All 6 servers, IPv4 and IPv6</td></tr>
+      <tr><td>Common UDP services</td><td>Scan of the 100 most-used UDP ports</td><td>All 5 city exits</td></tr>
+      <tr><td>Administrator login</td><td>Which sign-in methods each server accepts, and from where</td><td>All 6 servers</td></tr>
+      <tr><td>Public DNS</td><td>Whether the control server answers DNS from the internet</td><td>Control server, IPv4 and IPv6</td></tr>
+      <tr><td>What servers reveal about themselves</td><td>Software labels in replies, published API maps, security headers</td><td>Every public Atlas web address</td></tr>
+      <tr><td>Private network access rules</td><td>Review of the access policy and every join key ever issued</td><td>Control server</td></tr>
+      <tr><td>Account isolation</td><td>Two throwaway test accounts on the live network, each trying to reach everything else</td><td>Live network</td></tr>
+      <tr><td>Identity engine code</td><td>AI-assisted security review of the code, each finding checked by hand</td><td>Identity engine (accounts, devices, network access)</td></tr>
+      <tr><td>Leaked secrets</td><td>Open-source secret scanner across the full history, every match reviewed by hand</td><td>All 1,739 commits</td></tr>
+    </table></div>
+
+    <h2>What we found and fixed</h2>
+    <div class="review-wrap"><table class="review-table">
+      <tr><th>Severity</th><th>What we found</th><th>What we did</th><th>Status</th></tr>
+      <tr>
+        <td>High</td>
+        <td>When setting up home access for an edge unit, the identity engine accepted any network range, not just a home one. An account could have named a range belonging to Atlas or to someone else.</td>
+        <td>Only private home-sized ranges are accepted now. Atlas's own ranges are refused, one account per range, and only for an account that has its own edge unit. 31 new tests.</td>
+        <td><span class="tag tag-fixed">Fixed, live 5 Oct</span></td>
+      </tr>
+      <tr>
+        <td>Medium</td>
+        <td>A change to the private network's access rules was checked against the old rules, not the new ones, before going live.</td>
+        <td>The new rules are now checked before they replace the live ones. A failed check changes nothing.</td>
+        <td><span class="tag tag-fixed">Fixed, live 5 Oct</span></td>
+      </tr>
+      <tr>
+        <td>Medium</td>
+        <td>Removing an edge or home device from an account left it on the private network.</td>
+        <td>Removing a device now removes it from the network too.</td>
+        <td><span class="tag tag-fixed">Fixed, live 5 Oct</span></td>
+      </tr>
+      <tr>
+        <td>Low</td>
+        <td>A per-account limit could be slightly exceeded by many requests sent at the same moment.</td>
+        <td>The limit is now reserved in one step. A test with 40 simultaneous requests stops exactly at the limit.</td>
+        <td><span class="tag tag-fixed">Fixed, live 5 Oct</span></td>
+      </tr>
+      <tr>
+        <td>Low</td>
+        <td>Follow-up from the high finding: one rare address format passed the new check but couldn't be used by the network.</td>
+        <td>That format is now refused with a plain message. Test added.</td>
+        <td><span class="tag tag-pending">Fixed in code; live with the next server update</span></td>
+      </tr>
+      <tr>
+        <td>Medium</td>
+        <td>Administrator login accepted passwords on five of six servers, so anyone could keep guessing. The control server logged 15,391 failed attempts, ordinary internet background noise. None succeeded.</td>
+        <td>All six servers now accept only cryptographic keys, and new servers are built that way. Then we went further: administrator login is no longer reachable from the public internet at all, only through Atlas's own private network.</td>
+        <td><span class="tag tag-fixed">Fixed 5 Oct</span></td>
+      </tr>
+      <tr>
+        <td>Low</td>
+        <td>Servers named their software and versions in replies, and two services published a full map of their endpoints.</td>
+        <td>Software labels removed on every server, API maps switched off, and standard security headers added to every Atlas web address.</td>
+        <td><span class="tag tag-fixed">Fixed 4–5 Oct</span></td>
+      </tr>
+    </table></div>
+    <p class="microcopy">Every fix was backed up before the change, verified on the live system after it, and recorded in our internal change log.</p>
+
+    <h2>What passed with nothing to fix</h2>
+    <div class="review-wrap"><table class="review-table">
+      <tr><th>Check</th><th>Result</th></tr>
+      <tr><td>Open ports</td><td><span class="tag tag-pass">Pass</span> Only the services each server needs answer. The other 65,532 TCP ports stay silent. IPv6 matches IPv4 exactly, so there's no side door.</td></tr>
+      <tr><td>Device connection port</td><td><span class="tag tag-pass">Pass</span> Each exit answers only to genuine Atlas devices and is invisible to a scanner.</td></tr>
+      <tr><td>Internal services</td><td><span class="tag tag-pass">Pass</span> DNS, management and admin pages on the control server can't be reached from outside.</td></tr>
+      <tr><td>Access rules</td><td><span class="tag tag-pass">Pass</span> Every account's devices sit in their own group and can reach only each other.</td></tr>
+      <tr><td>Join keys</td><td><span class="tag tag-pass">Pass</span> Every join key ever issued has expired. There are no standing keys.</td></tr>
+      <tr><td>Secrets in code</td><td><span class="tag tag-pass">Pass</span> None of the 53 possible matches is a live Layer9i secret. They are examples in third-party documentation, public labels and test data. The scanner now runs on every change, and we confirmed it catches a planted test secret.</td></tr>
+    </table></div>
+    <p>One historical item, for completeness: in September an Android signing key was found in an earlier public copy of the app. It was retired and replaced at the time, and every Android release since has been signed with a new key.</p>
+
+    <h2>Isolation, proven on the live network</h2>
+    <p>Separation between accounts is the core promise, so we tested it on the real network rather than on paper. We created two throwaway test accounts, each with its own server, set up exactly as a new subscriber's would be.</p>
+    <div class="review-wrap"><table class="review-table">
+      <tr><th>From a test account, trying to reach…</th><th>Result</th></tr>
+      <tr><td>The other test account</td><td><span class="tag tag-pass">Blocked</span></td></tr>
+      <tr><td>Atlas's control server and an exit</td><td><span class="tag tag-pass">Blocked</span></td></tr>
+      <tr><td>The administrator's computer</td><td><span class="tag tag-pass">Blocked</span></td></tr>
+      <tr><td>A real subscriber's edge unit</td><td><span class="tag tag-pass">Blocked</span></td></tr>
+    </table></div>
+    <p>Each test account could see only itself. The administrator's own computer couldn't reach a subscriber's device either: Atlas staff have no path into customer devices. Afterwards the test accounts, their access groups and both test servers were deleted.</p>
+
+    <h2>Protecting the source code</h2>
+    <ul>
+      <li>Two-factor sign-in is on for the code host account, and only the founder has access.</li>
+      <li>An encrypted offline copy of all source code and its history is kept, and a test restore succeeded.</li>
+      <li>The foundation code is tagged by date from the first app onward, as a record of authorship.</li>
+    </ul>
+
+    <h2>Next steps</h2>
+    <div class="review-wrap"><table class="review-table">
+      <tr><th>Item</th><th>Why</th><th>Status</th></tr>
+      <tr><td>Independent third-party penetration test</td><td>Outside confirmation of everything above</td><td><span class="tag tag-planned">Before public launch</span></td></tr>
+      <tr><td>Extend the code review to the apps and the older dashboard service</td><td>Same depth of review across all code</td><td><span class="tag tag-planned">Planned</span></td></tr>
+      <tr><td>Retire the older dashboard service and an unused network listener</td><td>Less to defend, even though both are already closed off</td><td><span class="tag tag-planned">Planned</span></td></tr>
+      <tr><td>Repeat this review</td><td>After every new server, and every quarter</td><td><span class="tag tag-planned">Ongoing</span></td></tr>
+    </table></div>
+
+    <div class="review-cta">
+      <h3>Questions</h3>
+      <p>Server addresses, scan output and the detailed change records are kept internally and are available under NDA.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:14px;">
+        <a class="button button-primary" href="../">Back to investor overview</a>
+        <a class="button button-secondary" href="mailto:info@layer9i.com">Contact Layer9i, Inc.</a>
+      </div>
+    </div>
+
+    <footer class="paper-status">
+      <p><strong>Prepared by:</strong> Layer9i, Inc.</p>
+      <p><strong>Last updated:</strong> 5 October 2026</p>
+    </footer>
+  </article>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="brand footer-brand" href="../../../"><img class="brand-logo" src="../../../assets/brand/layer9i-mark.svg" alt=""><span>Layer9i</span></a><p>Makers of Atlas. Your privacy, in your hands. Layer9i, Inc.</p></div>
+    <div class="footer-links"><a href="../../../#for-you">Is it for me?</a><a href="../../../trust.html">Privacy &amp; data</a><a href="https://research.layer9i.com">Research</a><a href="../">Investors</a></div>
+  </div>
+</footer>
+<script src="../../../assets/js/site.js"></script>
+</body>
+</html>
