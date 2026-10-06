@@ -67,7 +67,7 @@
       <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.7;">
         <li><strong>Six servers checked on every port</strong>, over IPv4 and IPv6. From the internet, each now answers only on secure web.</li>
         <li><strong>Account isolation proven live:</strong> two test accounts on the real network could not reach each other, our servers, or a real subscriber's device.</li>
-        <li><strong>Code review of the identity engine found four issues</strong> (one high, two medium, one low). All four were fixed, tested and live the same morning.</li>
+        <li><strong>Code review of the identity engine found four issues</strong> (one high, two medium, one low). All four were fixed, tested and live the same morning, plus one small follow-up the same day.</li>
         <li><strong>Two server weaknesses found</strong> (password login allowed, software versions visible). Both fixed the same night.</li>
         <li><strong>No secrets in 1,739 commits</strong> of source-code history.</li>
         <li><strong>Nothing found was ever used against us.</strong> The server logs show no successful break-in.</li>
@@ -119,7 +119,7 @@
         <td>Low</td>
         <td>Follow-up from the high finding: one rare address format passed the new check but couldn't be used by the network.</td>
         <td>That format is now refused with a plain message. Test added.</td>
-        <td><span class="tag tag-pending">Fixed in code; live with the next server update</span></td>
+        <td><span class="tag tag-fixed">Fixed, live 5 Oct</span></td>
       </tr>
       <tr>
         <td>Medium</td>
