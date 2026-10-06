@@ -1,0 +1,6 @@
+# Layer9i Inc. (AS403034) geofeed, RFC 8805. Published 2026-10-06.
+# Contact: info@layer9i.com
+# prefix,country,region,city,postal
+204.68.238.0/26,US,US-NY,New York,
+204.68.238.64/26,CA,CA-ON,Toronto,
+204.68.238.192/26,NL,NL-NH,Amsterdam,
