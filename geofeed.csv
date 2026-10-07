@@ -1,6 +1,6 @@
 # Layer9i Inc. (AS403034) geofeed, RFC 8805. Updated 2026-10-07.
 # Contact: info@layer9i.com
-# One /29 per site: +1 and +2 kept for a firewall or what stands in front; +3 is the egress that peers BGP.
+# One /29 and one /48 per site (site N: 204.68.238.(8xN)/29 and 2602:f2be:N::/48): +1 and +2 kept for a firewall or what stands in front; +3 is the egress that peers BGP.
 # Sites listed here may not be serving yet; each block is reserved for its city.
 # prefix,country,region,city,postal
 204.68.238.0/29,US,US-NY,New York,
@@ -13,3 +13,12 @@
 204.68.238.56/29,US,US-CA,Los Angeles,
 204.68.238.64/29,CA,CA-BC,Vancouver,
 204.68.238.72/29,DE,DE-HE,Frankfurt am Main,
+2602:f2be:1::/48,US,US-NY,New York,
+2602:f2be:2::/48,CA,CA-ON,Toronto,
+2602:f2be:3::/48,NL,NL-NH,Amsterdam,
+2602:f2be:4::/48,CA,CA-QC,Montreal,
+2602:f2be:5::/48,GB,GB-ENG,London,
+2602:f2be:6::/48,US,US-IL,Chicago,
+2602:f2be:7::/48,US,US-CA,Los Angeles,
+2602:f2be:8::/48,CA,CA-BC,Vancouver,
+2602:f2be:9::/48,DE,DE-HE,Frankfurt am Main,
