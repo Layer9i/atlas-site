@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /i/
 
 Sitemap: https://layer9i.com/sitemap.xml
