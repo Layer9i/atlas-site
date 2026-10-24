@@ -14,7 +14,10 @@
   <meta property="og:image" content="https://layer9i.com/assets/brand/atlas-share.png">
   <meta name="twitter:card" content="summary_large_image">
   <title>Security review — Atlas | Layer9i</title>
-  <link rel="icon" type="image/svg+xml" href="../../../assets/brand/layer9i-mark.svg">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="../../../style.css?v=20260929">
   <style>
     .review-table { width:100%; border-collapse:collapse; margin:16px 0 28px; font-size:15px; line-height:1.5; }
@@ -187,7 +190,7 @@
     <div class="review-wrap"><table class="review-table">
       <tr><th>Check</th><th>Result</th></tr>
       <tr><td>Open ports</td><td><span class="tag tag-pass">Pass</span> Only the services each server needs answer. The other 65,532 TCP ports stay silent. IPv6 matches IPv4 exactly, so there's no side door.</td></tr>
-      <tr><td>Device connection port</td><td><span class="tag tag-pass">Pass</span> Each exit answers only to genuine Atlas devices and is invisible to a scanner.</td></tr>
+      <tr><td>Device connection port</td><td><span class="tag tag-pass">Pass</span> Each city server answers only to genuine Atlas devices and is invisible to a scanner.</td></tr>
       <tr><td>Internal services</td><td><span class="tag tag-pass">Pass</span> DNS, management and admin pages on the control server can't be reached from outside.</td></tr>
       <tr><td>Access rules</td><td><span class="tag tag-pass">Pass</span> Every account's devices sit in their own group and can reach only each other.</td></tr>
       <tr><td>Join keys</td><td><span class="tag tag-pass">Pass</span> Every join key ever issued has expired. There are no standing keys.</td></tr>
@@ -200,7 +203,7 @@
     <div class="review-wrap"><table class="review-table">
       <tr><th>From a test account, trying to reach…</th><th>Result</th></tr>
       <tr><td>The other test account</td><td><span class="tag tag-pass">Blocked</span></td></tr>
-      <tr><td>Atlas's control server and an exit</td><td><span class="tag tag-pass">Blocked</span></td></tr>
+      <tr><td>Atlas's control server and a city server</td><td><span class="tag tag-pass">Blocked</span></td></tr>
       <tr><td>The administrator's computer</td><td><span class="tag tag-pass">Blocked</span></td></tr>
       <tr><td>A real subscriber's edge unit</td><td><span class="tag tag-pass">Blocked</span></td></tr>
     </table></div>
