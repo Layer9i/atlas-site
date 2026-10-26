@@ -6,7 +6,6 @@
     <atom:link href="https://layer9i.com/news/feed.xml" rel="self" type="application/rss+xml"/>
     <description>What&#x27;s new at Layer9i and Atlas Identity: the latest news, where Atlas is today, what&#x27;s coming next, and how it works.</description>
     <language>en</language>
-    <item><title>The Identity Routing Fabric</title><link>https://layer9i.com/news/identity-routing-fabric/</link><guid>https://layer9i.com/news/identity-routing-fabric/</guid><pubDate>Thu, 22 Oct 2026 21:30:00 +0000</pubDate><description>Atlas Identity now describes itself as the engine behind the Identity Routing Fabric: each part of your online life is a persona, mapped to its own city, all at the same time. Here is what changed on layer9i.com and what it means.</description></item>
     <item><title>A new look for Atlas Identity and Layer9i</title><link>https://layer9i.com/news/new-look/</link><guid>https://layer9i.com/news/new-look/</guid><pubDate>Sat, 10 Oct 2026 12:00:00 +0000</pubDate><description>Atlas Identity and Layer9i have new logos. Here is what they stand for, and what Atlas does for you today.</description></item>
   </channel>
 </rss>
