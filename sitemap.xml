@@ -40,8 +40,8 @@
     <image:image><image:loc>https://layer9i.com/assets/brand/atlas-identity-logo.png</image:loc></image:image>
     <video:video>
       <video:thumbnail_loc>https://layer9i.com/assets/video/atlas-identity-overview-poster.jpg</video:thumbnail_loc>
-      <video:title>Atlas Identity overview</video:title>
-      <video:description>A three-minute overview of Atlas Identity: one identity you hold, that follows you across every device, and that sites can trust.</video:description>
+      <video:title>ATLAS identity overview</video:title>
+      <video:description>A three-minute overview of ATLAS identity: one identity you hold, that follows you across every device, and that sites can trust.</video:description>
       <video:content_loc>https://layer9i.com/assets/video/atlas-identity-overview.mp4</video:content_loc>
       <video:duration>194</video:duration>
       <video:publication_date>2026-09-17</video:publication_date>
