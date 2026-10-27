@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="What a VPN does, what Layer9i built instead, and how the Identity Routing Fabric works: one identity you hold, split into personas, each with its own city.">
+  <link rel="canonical" href="https://layer9i.com/atlas/how-it-works/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Layer9i">
+  <meta property="og:url" content="https://layer9i.com/atlas/how-it-works/">
+  <meta property="og:title" content="How Atlas Identity works | Layer9i">
+  <meta property="og:description" content="What a VPN does, what Layer9i built instead, and how the Identity Routing Fabric works: one identity you hold, split into personas, each with its own city.">
+  <meta property="og:image" content="https://layer9i.com/assets/brand/atlas-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Layer9i Atlas: your own identity, across every service and network.">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"How Atlas Identity works | Layer9i","url":"https://layer9i.com/atlas/how-it-works/","description":"What a VPN does, what Layer9i built instead, and how the Identity Routing Fabric works: one identity you hold, split into personas, each with its own city.","isPartOf":{"@id":"https://layer9i.com/#site"},"publisher":{"@id":"https://layer9i.com/#org"},"about":{"@id":"https://layer9i.com/#app"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://layer9i.com/"},{"@type":"ListItem","position":2,"name":"How it works","item":"https://layer9i.com/atlas/how-it-works/"}]}}</script>
+  <title>How Atlas Identity works | Layer9i</title>
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../style.css?v=20260929">
+  <style>
+    .hiw-dark { background: #050A1C; color: #FFFFFF; }
+    .hiw-dark h2 { color: #FFFFFF; }
+    .hiw-dark .pitch-block p { color: #C9D3F2; }
+    .hiw-dark .pitch-tag { background: rgba(63, 216, 255, 0.14); color: #3FD8FF; }
+    .hiw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 40px; }
+    .hiw-panel { border: 1px solid #1E2848; border-radius: 24px; padding: 24px; background: #0A1230; box-sizing: border-box; min-width: 0; }
+    .hiw-panel h3 { margin: 0; font-size: 22px; font-weight: 600; color: #FFFFFF; }
+    .hiw-panel .hiw-sub { margin: 6px 0 0; font-size: 15px; color: #C9D3F2; line-height: 1.5; }
+    .hiw-stage { position: relative; height: 230px; margin-top: 22px; border-radius: 18px; background: #050A1C; border: 1px solid #1E2848; overflow: hidden; }
+    .hiw-city { position: absolute; top: 14px; transform: translateX(-50%); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #8E9AC2; text-transform: uppercase; white-space: nowrap; }
+    .hiw-city::after { content: ""; display: block; width: 1px; height: 170px; margin: 6px auto 0; background: linear-gradient(#1E2848, transparent); }
+    .hiw-dot { position: absolute; top: 0; left: 0; display: flex; align-items: center; gap: 7px; padding: 6px 11px; border-radius: 999px; background: #FFFFFF; color: #050A1C; font-size: 12.5px; font-weight: 700; white-space: nowrap; transition: transform 700ms cubic-bezier(.2,.8,.2,1); will-change: transform; }
+    .hiw-dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--c, #2F7BFF); flex: none; }
+    .hiw-control { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .hiw-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14.5px; }
+    .hiw-row label { color: #C9D3F2; }
+    .hiw-select { appearance: none; -webkit-appearance: none; background: #FFFFFF; color: #050A1C; border: 1px solid #C3D1F7; border-radius: 999px; padding: 8px 32px 8px 14px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23050A1C' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+    .hiw-select:focus-visible { outline: 3px solid #3FD8FF; outline-offset: 2px; }
+    .hiw-note { margin: 16px 0 0; font-size: 14px; color: #8E9AC2; line-height: 1.5; }
+    .hiw-note strong { color: #FFFFFF; font-weight: 600; }
+    .hiw-try { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 40px; align-items: start; margin-top: 40px; }
+    .hiw-phone { width: 100%; max-width: 300px; margin: 0 auto; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(47, 123, 255, 0.18); }
+    .hiw-screen { background: #FAFAFC; border-radius: 38px; overflow: hidden; min-height: 520px; box-sizing: border-box; padding: 40px 16px 20px; font-family: -apple-system, system-ui, sans-serif; color: #12142B; }
+    .hiw-screen-head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .hiw-screen-head span:first-child { width: 22px; height: 22px; border-radius: 6px; background: #5659DD; flex: none; }
+    .hiw-screen-head span:last-child { font-size: 15px; font-weight: 700; }
+    .hiw-screen h3 { margin: 0 0 4px; font-size: 22px; font-weight: 700; color: #12142B; }
+    .hiw-screen .hiw-hint { margin: 0 0 14px; font-size: 13px; color: #4A4F60; }
+    .hiw-paths { background: #FFFFFF; border-radius: 14px; padding: 2px 12px; box-shadow: inset 0 0 0 1px #E5E5EE; }
+    .hiw-path { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 9px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px; }
+    .hiw-path:last-child { border-bottom: 0; }
+    .hiw-path select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: #5659DD; font: inherit; font-size: 13.5px; font-weight: 700; text-align: right; padding: 4px 18px 4px 4px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235659DD' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 2px center; }
+    .hiw-path select:focus-visible { outline: 3px solid #5659DD; outline-offset: 2px; border-radius: 6px; }
+    .hiw-card { background: #FFFFFF; border: 1px solid #DCE4FA; border-radius: 24px; padding: 28px; box-sizing: border-box; color: #0A1028; }
+    .hiw-card h3 { margin: 0; font-size: 22px; font-weight: 700; }
+    .hiw-card .hiw-hint { margin: 6px 0 18px; font-size: 14px; color: #3A4466; }
+    .hiw-sees { margin: 0; padding: 0; list-style: none; }
+    .hiw-sees li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF1F8; font-size: 16px; }
+    .hiw-sees li span:first-child { color: #3A4466; }
+    .hiw-sees li strong { font-weight: 700; color: #0A1028; transition: color 300ms; }
+    .hiw-sees li strong.is-fresh { color: #2F5BEA; }
+    .hiw-verdict { margin: 18px 0 0; padding: 14px 16px; border-radius: 14px; background: #EEF3FF; color: #2346C8; font-size: 15px; line-height: 1.5; font-weight: 600; }
+    .hiw-story { margin: 14px 0 0; font-size: 15.5px; line-height: 1.65; color: #3A4466; }
+    .hiw-promises { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 40px; }
+    .hiw-promise { border-top: 2px solid #2F5BEA; padding-top: 20px; }
+    .hiw-promise h3 { margin: 0; font-size: 24px; font-weight: 700; }
+    .hiw-promise p { margin: 10px 0 0; font-size: 16.5px; line-height: 1.6; color: #3A4466; }
+    .hiw-promise .hiw-example { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: #F3F6FD; font-size: 15px; color: #0A1028; }
+    .hiw-proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
+    .hiw-proof div { border-top: 2px solid #3FD8FF; padding-top: 20px; }
+    .hiw-proof p { margin: 0; }
+    .hiw-proof .hiw-num { font-size: 26px; line-height: 1.25; font-weight: 600; color: #FFFFFF; }
+    .hiw-proof .hiw-num span { font-size: 40px; font-weight: 300; line-height: 1; }
+    .hiw-proof .hiw-txt { margin-top: 10px; font-size: 16px; line-height: 1.55; color: #C9D3F2; }
+    .hiw-proof a { color: #3FD8FF; }
+    .hiw-links { display: flex; flex-wrap: wrap; gap: 14px 28px; margin: 36px 0 0; }
+    .hiw-links a { color: #FFFFFF; font-weight: 600; text-decoration: none; border-bottom: 2px solid #3FD8FF; padding-bottom: 3px; }
+    .hiw-dark .pitch-cta { background: #0A1230; border: 1px solid #1E2848; }
+    @media (max-width: 900px) {
+      .hiw-grid, .hiw-try { grid-template-columns: 1fr; }
+      .hiw-promises { grid-template-columns: 1fr; gap: 24px; }
+      .hiw-proof { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hiw-proof { grid-template-columns: 1fr; }
+      .hiw-stage { height: 250px; }
+      .hiw-dot { font-size: 11.5px; padding: 5px 9px; }
+      .hiw-panel { padding: 18px; }
+      .hiw-card { padding: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .hiw-dot { transition: none; } }
+  </style>
+</head>
+<body>
+<header class="site-header"><div style="position: relative; z-index: 2; background: #050A1C; color: #FFFFFF; font-family: 'Montserrat', system-ui, sans-serif">
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; height: 84px">
+<a href="../../index.html" aria-label="Layer9i, makers of Atlas Identity: home" style="display: flex; align-items: center; gap: clamp(8px, 1.6vw, 16px); text-decoration: none">
+<picture style="display: block"><source srcset="../../assets/brand/layer9i-logo.webp" type="image/webp"><img src="../../assets/brand/layer9i-logo.png" alt="Layer9i" width="900" height="260" style="height: clamp(18px, 5vw, 40px); width: auto; display: block"></picture>
+<span aria-hidden="true" style="align-self: center; width: 1px; height: clamp(22px, 6vw, 48px); background: linear-gradient(transparent, #3FD8FF, transparent)"></span>
+<picture style="display: block"><source srcset="../../assets/brand/atlas-identity-logo.webp" type="image/webp"><img src="../../assets/brand/atlas-identity-logo.png" alt="Atlas Identity" width="868" height="261" style="height: clamp(24px, 6.5vw, 54px); width: auto; display: block"></picture>
+</a>
+<nav class="navlinks" aria-label="Main" style="font-size: 15px; font-weight: 500">
+<a href="../../index.html#story" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">How it works</a>
+<a href="../../index.html#app" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">The app</a>
+<a href="../../trust.html" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">Privacy</a>
+<a href="../../index.html#pricing" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">Pricing</a>
+<a href="../../news/" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">What&#8217;s new</a>
+</nav>
+<a href="../../index.html#join" style="background: #FFFFFF; color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 12px 20px; border-radius: 999px">Get 1 month free</a>
+</div>
+</div>
+</header>
+
+<main>
+<section class="pitch-hero">
+  <div class="container">
+    <p class="eyebrow">How it works</p>
+    <h1>How Atlas works.</h1>
+    <p class="pitch-lead">A VPN moves all of you to one place at a time. Everything you do leaves through addresses shared with strangers, and the company in the middle can see where you go. When you switch places, all of you switches.</p>
+    <p class="pitch-lead">Layer9i is moving beyond a traditional VPN into an Identity Routing Fabric. Atlas Identity is the engine behind it: one identity you hold, split into personas, each with its own city, all at the same time, on a network Layer9i owns.</p>
+  </div>
+</section>
+
+<section class="pitch-section hiw-dark" aria-labelledby="side-h">
+  <div class="container">
+    <div class="pitch-block">
+      <span class="pitch-tag">Side by side</span>
+      <h2 id="side-h">A VPN and Atlas, side by side.</h2>
+      <p>Pick a city on each side. On the left, everything moves together. On the right, each part of your life goes where you send it, and the rest stays put.</p>
+    </div>
+    <div class="hiw-grid">
+      <div class="hiw-panel">
+        <h3>A traditional VPN</h3>
+        <p class="hiw-sub">One place for all of you. Change it, and your bank, your work and your shows all move at once.</p>
+        <div class="hiw-stage" id="vpn-stage" aria-live="polite" aria-label="Five parts of your life, all appearing from the one city chosen below">
+          <span class="hiw-city" style="left: 10%">Toronto</span><span class="hiw-city" style="left: 30%">Montreal</span><span class="hiw-city" style="left: 50%">New York</span><span class="hiw-city" style="left: 70%">London</span><span class="hiw-city" style="left: 90%">Amsterdam</span>
+        </div>
+        <div class="hiw-control">
+          <div class="hiw-row"><label for="vpn-city">Everything appears from</label><select class="hiw-select" id="vpn-city" aria-label="City for everything, VPN side"><option>Toronto</option><option>Montreal</option><option>New York</option><option>London</option><option>Amsterdam</option></select></div>
+        </div>
+        <p class="hiw-note">One city, one shared address, and the company in the middle can see where you go.</p>
+      </div>
+      <div class="hiw-panel">
+        <h3>Atlas Identity</h3>
+        <p class="hiw-sub">A city for each persona. Change one, and only that one moves.</p>
+        <div class="hiw-stage" id="atlas-stage" aria-live="polite" aria-label="Five parts of your life, each appearing from its own chosen city">
+          <span class="hiw-city" style="left: 10%">Toronto</span><span class="hiw-city" style="left: 30%">Montreal</span><span class="hiw-city" style="left: 50%">New York</span><span class="hiw-city" style="left: 70%">London</span><span class="hiw-city" style="left: 90%">Amsterdam</span>
+        </div>
+        <div class="hiw-control" id="atlas-controls"></div>
+        <p class="hiw-note"><strong>All at the same time, over one connection.</strong> Your personas never touch, and the network they leave from is one Layer9i owns and answers for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pitch-section section-white" aria-labelledby="try-h">
+  <div class="container">
+    <div class="pitch-block">
+      <span class="pitch-tag">Try it</span>
+      <h2 id="try-h">Set your paths.</h2>
+      <p>This is the real app's screen, drawn here so you can try it before you install. Change a city on the phone and watch what websites see.</p>
+    </div>
+    <div class="hiw-try">
+      <div class="hiw-phone">
+        <div class="hiw-screen" role="group" aria-label="Atlas Identity, Your paths screen">
+          <div class="hiw-screen-head"><span></span><span><span class="ai"><b>ATLAS</b> <i>identity</i></span></span></div>
+          <h3>Your paths</h3>
+          <p class="hiw-hint">Change where any one path leaves from.</p>
+          <div class="hiw-paths" id="try-paths"></div>
+          <p class="hiw-hint" style="margin: 14px 0 0">Sites see the city on each path, not where you are.</p>
+        </div>
+      </div>
+      <div class="hiw-card" aria-live="polite">
+        <h3>How websites see me</h3>
+        <p class="hiw-hint">This is what a bank or a shop can work out about where you are, just from your connection.</p>
+        <ul class="hiw-sees" id="try-sees"></ul>
+        <p class="hiw-verdict" id="try-verdict"></p>
+        <p class="hiw-story" id="try-story"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pitch-section hiw-dark" aria-labelledby="steps-h">
+  <div class="container">
+    <div class="pitch-block">
+      <span class="pitch-tag">Step by step</span>
+      <h2 id="steps-h">What happens, step by step.</h2>
+      <p>Six things, in order, every time you use Atlas.</p>
+    </div>
+    <ol class="journey-list" style="max-width: 760px">
+      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">1</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Your key is made on your own device.</h3></div><p style="color: #C9D3F2">Layer9i keeps no copy. Your recovery phrase is the only way back in, and only you have it.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">2</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">You decide your personas and rules on the device.</h3></div><p style="color: #C9D3F2">Which part of your life goes where is settled before a single thing leaves your phone or computer.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">3</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Each persona leaves through the city you chose.</h3></div><p style="color: #C9D3F2">On a network Layer9i owns and answers for, so sites see a network that stands behind the people on it.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">4</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Every site gets its own separate ID.</h3></div><p style="color: #C9D3F2">Your bank and your shop each know you, but they can't compare notes about you.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">5</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Atlas checks that sites really see the city you asked for.</h3></div><p style="color: #C9D3F2">"Intended vs. Observed" is a real screen in the app: what you asked for, and what sites actually see.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">6</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">If Atlas can't keep its promise, it tells you.</h3></div><p style="color: #C9D3F2">It steps aside so ordinary internet comes back, visibly. You are never left guessing.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="pitch-section section-white" aria-labelledby="get-h">
+  <div class="container">
+    <div class="pitch-block">
+      <span class="pitch-tag">What you get</span>
+      <h2 id="get-h">Three promises, every time you connect.</h2>
+    </div>
+    <div class="hiw-promises">
+      <div class="hiw-promise">
+        <h3>Trusted.</h3>
+        <p>Your bank, your work and your accounts see the same you, from a network Layer9i owns and answers for.</p>
+        <div class="hiw-example">At home and at the airport, your bank sees the same you. No extra checks because you moved.</div>
+      </div>
+      <div class="hiw-promise">
+        <h3>Private.</h3>
+        <p>No record of the sites you visit. Your key and your rules stay on your own devices. Every site gets its own separate ID.</p>
+        <div class="hiw-example">The coffee-shop Wi-Fi sees nothing. Neither does anyone between you and the site.</div>
+      </div>
+      <div class="hiw-promise">
+        <h3>In control.</h3>
+        <p>Choose the city each part of your life appears from, and see exactly what a site can tell about you.</p>
+        <div class="hiw-example">Appear from the city you choose, and services treat you as someone in that city. A shop shows you what it offers there.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pitch-section hiw-dark" aria-labelledby="built-h">
+  <div class="container">
+    <div class="pitch-block">
+      <span class="pitch-tag">Not a promise. Already running.</span>
+      <h2 id="built-h">Built, live, and checked in public.</h2>
+    </div>
+    <div class="hiw-proof">
+      <div><p class="hiw-num"><span>4</span> platforms</p><p class="hiw-txt">iPhone and iPad, Mac, Android and Windows. One identity across all of them.</p></div>
+      <div><p class="hiw-num"><span>5</span> cities</p><p class="hiw-txt">Toronto, Montreal, New York, London and Amsterdam, with more on the way.</p></div>
+      <div><p class="hiw-num"><span>1</span> network of our own</p><p class="hiw-txt">Layer9i has its own registered internet addresses, secured end to end, so sites see a network that answers for itself.</p></div>
+      <div><p class="hiw-num"><span>7 of 7</span> security issues fixed</p><p class="hiw-txt">We tested every server and proved accounts can&#8217;t reach each other. <a href="../investors/security/">Read the review</a>.</p></div>
+    </div>
+    <div class="hiw-links">
+      <a href="../video/">Watch the overview (3 minutes)</a>
+      <a href="../pitch/">What Atlas is</a>
+    </div>
+    <div class="pitch-cta">
+      <div>
+        <h3>One identity. Every device you own.</h3>
+        <p>$7.99 a month or $69.99 a year. Launch offer, for a limited time: one month free with a monthly subscription.</p>
+      </div>
+      <div>
+        <a class="button button-primary" href="../../index.html#join">Get 1 month free</a>
+        <a class="button button-secondary" href="https://play.google.com/store/apps/details?id=com.layer9i.atlas">Atlas Identity on Google Play</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot" style="border-top: 1px solid #1E2848; background: #050A1C; font-family: 'Montserrat', system-ui, sans-serif">
+<div style="max-width: 1240px; margin: 0 auto; padding-left: clamp(16px, 3vw, 40px); padding-right: clamp(16px, 3vw, 40px); box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding-top: 32px; padding-bottom: 40px; font-size: 14px; color: #8E9AC2">
+<span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><picture style="display: block"><source srcset="../../assets/brand/atlas-identity-logo.webp" type="image/webp"><img loading="lazy" decoding="async" src="../../assets/brand/atlas-identity-logo.png" alt="Atlas Identity" width="868" height="261" style="height: 44px; width: auto"></picture><span>is made by</span><picture style="display: block"><source srcset="../../assets/brand/layer9i-logo.webp" type="image/webp"><img loading="lazy" decoding="async" src="../../assets/brand/layer9i-logo.png" alt="Layer9i" width="900" height="260" style="height: 24px; width: auto"></picture></span>
+<nav aria-label="Footer" style="display: flex; gap: 24px; flex-wrap: wrap">
+<a href="../../news/" style="color: #C9D3F2; text-decoration: none">News</a>
+<a href="../../trust.html" style="color: #C9D3F2; text-decoration: none">Privacy</a>
+<a href="../../privacy.html" style="color: #C9D3F2; text-decoration: none">Privacy policy</a>
+<a href="../../terms.html" style="color: #C9D3F2; text-decoration: none">Terms</a>
+<a href="../../atlas/pitch/" style="color: #C9D3F2; text-decoration: none">What Atlas is</a>
+<a href="../../atlas/how-it-works/" style="color: #C9D3F2; text-decoration: none">How it works</a>
+<a href="../../atlas/video/" style="color: #C9D3F2; text-decoration: none">Overview video</a>
+<a href="../../atlas/investors/security/" style="color: #C9D3F2; text-decoration: none">Security</a>
+<a href="https://research.layer9i.com" style="color: #C9D3F2; text-decoration: none">Research</a>
+</nav>
+</div>
+</footer>
+<script src="../../assets/js/site.js"></script>
+<script>
+(function () {
+  var CITIES = ["Toronto", "Montreal", "New York", "London", "Amsterdam"];
+  var LANE = { "Toronto": 10, "Montreal": 30, "New York": 50, "London": 70, "Amsterdam": 90 };
+  var PARTS = [
+    { key: "bank", label: "Bank", color: "#2F7BFF" },
+    { key: "work", label: "Work", color: "#7A5CFF" },
+    { key: "shows", label: "Shows", color: "#3FD8FF" },
+    { key: "shop", label: "Shopping", color: "#15803D" },
+    { key: "rest", label: "Everything else", color: "#F59E0B" }
+  ];
+
+  function stageWidth(stage) { return stage.clientWidth || 300; }
+
+  function placeDot(stage, dot, city, index) {
+    var x = stageWidth(stage) * LANE[city] / 100 - dot.offsetWidth / 2;
+    var y = 48 + index * 34;
+    dot.style.transform = "translate(" + Math.round(x) + "px, " + y + "px)";
+  }
+
+  function makeDots(stage) {
+    return PARTS.map(function (p) {
+      var d = document.createElement("span");
+      d.className = "hiw-dot";
+      d.style.setProperty("--c", p.color);
+      d.textContent = p.label;
+      stage.appendChild(d);
+      return d;
+    });
+  }
+
+  function makeSelect(id, label, value) {
+    var sel = document.createElement("select");
+    sel.className = "hiw-select";
+    sel.id = id;
+    sel.setAttribute("aria-label", label);
+    CITIES.forEach(function (c) {
+      var o = document.createElement("option");
+      o.textContent = c;
+      if (c === value) o.selected = true;
+      sel.appendChild(o);
+    });
+    return sel;
+  }
+
+  /* Side by side: VPN moves everything; Atlas moves one at a time. */
+  var vpnStage = document.getElementById("vpn-stage");
+  var atlasStage = document.getElementById("atlas-stage");
+  var vpnSelect = document.getElementById("vpn-city");
+  if (vpnStage && atlasStage && vpnSelect) {
+    var vpnDots = makeDots(vpnStage);
+    var atlasDots = makeDots(atlasStage);
+    var atlasCities = ["Toronto", "Montreal", "London", "New York", "Toronto"];
+    var controls = document.getElementById("atlas-controls");
+
+    function layoutVpn() {
+      vpnDots.forEach(function (d, i) { placeDot(vpnStage, d, vpnSelect.value, i); });
+    }
+    function layoutAtlas() {
+      atlasDots.forEach(function (d, i) { placeDot(atlasStage, d, atlasCities[i], i); });
+    }
+
+    PARTS.forEach(function (p, i) {
+      var row = document.createElement("div");
+      row.className = "hiw-row";
+      var lab = document.createElement("label");
+      lab.setAttribute("for", "atlas-" + p.key);
+      lab.textContent = p.label + " appears from";
+      var sel = makeSelect("atlas-" + p.key, p.label + " city, Atlas side", atlasCities[i]);
+      sel.addEventListener("change", function () { atlasCities[i] = sel.value; layoutAtlas(); });
+      row.appendChild(lab);
+      row.appendChild(sel);
+      controls.appendChild(row);
+    });
+
+    vpnSelect.addEventListener("change", layoutVpn);
+    layoutVpn();
+    layoutAtlas();
+    var resizeTimer;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { layoutVpn(); layoutAtlas(); }, 120);
+    });
+  }
+
+  /* Try it: the paths screen and what websites see. */
+  var PATHS = [
+    { key: "banking", label: "Banking", who: "Your bank", city: "Toronto" },
+    { key: "streaming", label: "Streaming", who: "Your streaming", city: "London" },
+    { key: "work", label: "Work", who: "Your work", city: "Montreal" },
+    { key: "shopping", label: "Shopping", who: "A shop", city: "New York" },
+    { key: "rest", label: "Everything else", who: "Everything else", city: "Toronto" }
+  ];
+  var pathsBox = document.getElementById("try-paths");
+  var seesList = document.getElementById("try-sees");
+  var verdict = document.getElementById("try-verdict");
+  var story = document.getElementById("try-story");
+  if (pathsBox && seesList && verdict && story) {
+    var rows = {};
+    PATHS.forEach(function (p) {
+      var row = document.createElement("div");
+      row.className = "hiw-path";
+      var lab = document.createElement("label");
+      lab.setAttribute("for", "try-" + p.key);
+      lab.textContent = p.label;
+      var sel = document.createElement("select");
+      sel.id = "try-" + p.key;
+      sel.setAttribute("aria-label", p.label + " path city");
+      CITIES.forEach(function (c) {
+        var o = document.createElement("option");
+        o.textContent = c;
+        if (c === p.city) o.selected = true;
+        sel.appendChild(o);
+      });
+      sel.addEventListener("change", function () { p.city = sel.value; render(p.key); });
+      row.appendChild(lab);
+      row.appendChild(sel);
+      pathsBox.appendChild(row);
+
+      var li = document.createElement("li");
+      var who = document.createElement("span");
+      who.textContent = p.who + " sees";
+      var val = document.createElement("strong");
+      li.appendChild(who);
+      li.appendChild(val);
+      seesList.appendChild(li);
+      rows[p.key] = val;
+    });
+    var real = document.createElement("li");
+    real.innerHTML = "<span>Your real location</span><strong>Hidden</strong>";
+    seesList.appendChild(real);
+
+    function render(changed) {
+      PATHS.forEach(function (p) {
+        var val = rows[p.key];
+        val.textContent = p.city;
+        if (p.key === changed) {
+          val.classList.add("is-fresh");
+          setTimeout(function () { val.classList.remove("is-fresh"); }, 900);
+        }
+      });
+      var ch = changed ? PATHS.filter(function (p) { return p.key === changed; })[0] : PATHS[0];
+      verdict.textContent = "You asked for " + ch.city + ". Sites on your " + ch.label.toLowerCase() + " path see " + ch.city + ".";
+      var bank = PATHS[0].city, shows = PATHS[1].city, shop = PATHS[3].city;
+      story.textContent = "Your bank sees " + bank + ". Your shows see " + shows + ". A shop sees " + shop + " and shows you what it offers there. All at the same time, over one connection, and your real location stays hidden.";
+    }
+    render(null);
+  }
+})();
+</script>
+</body>
+</html>
