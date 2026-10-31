@@ -75,7 +75,7 @@
     .hiw-sees li strong.is-fresh { color: #2F5BEA; }
     .hiw-verdict { margin: 18px 0 0; padding: 14px 16px; border-radius: 14px; background: #EEF3FF; color: #2346C8; font-size: 15px; line-height: 1.5; font-weight: 600; }
     .hiw-story { margin: 14px 0 0; font-size: 15.5px; line-height: 1.65; color: #3A4466; }
-    .hiw-promises { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 40px; }
+    .hiw-promises { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
     .hiw-promise { border-top: 2px solid #2F5BEA; padding-top: 20px; }
     .hiw-promise h3 { margin: 0; font-size: 24px; font-weight: 700; }
     .hiw-promise p { margin: 10px 0 0; font-size: 16.5px; line-height: 1.6; color: #3A4466; }
@@ -93,10 +93,11 @@
     @media (max-width: 900px) {
       .hiw-grid, .hiw-try { grid-template-columns: 1fr; }
       .hiw-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .hiw-promises { grid-template-columns: 1fr; gap: 24px; }
+      .hiw-promises { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
       .hiw-proof { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 560px) {
+      .hiw-promises { grid-template-columns: 1fr; }
       .hiw-proof { grid-template-columns: 1fr; }
       .hiw-stage { height: 250px; }
       .hiw-dot { font-size: 11.5px; padding: 5px 9px; }
@@ -212,8 +213,8 @@
       <p>Six things, in order, every time you use Atlas.</p>
     </div>
     <ol class="journey-list" style="max-width: 760px">
-      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">1</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Your key is made on your own device.</h3></div><p style="color: #C9D3F2">Layer9i keeps no copy. Your recovery phrase is the only way back in, and only you have it.</p></div></li>
-      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">2</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">You create your personas on the device.</h3></div><p style="color: #C9D3F2">Business, Personal or Other, each with its own settings and geographic endpoints, settled before a single thing leaves your phone or computer. Your key and your rules stay on your own devices.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">1</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">You set up one account for all your devices.</h3></div><p style="color: #C9D3F2">Your identity, your personas and your rules come with you to every device you own.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">2</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">You create your personas and set your rules.</h3></div><p style="color: #C9D3F2">Business, Personal or Other, each with its own settings and geographic endpoints. You decide where your internet connections go, and the rules you set are the ones that apply.</p></div></li>
       <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">3</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Each persona connects through the geographic endpoints you chose.</h3></div><p style="color: #C9D3F2">On a network Layer9i owns and answers for, so sites see a network that stands behind the people on it.</p></div></li>
       <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">4</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Every site gets its own separate ID.</h3></div><p style="color: #C9D3F2">Your bank and your shop each know you, but they can't compare notes about you.</p></div></li>
       <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">5</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Atlas checks that sites really see the city you asked for.</h3></div><p style="color: #C9D3F2">"Intended vs. Observed" is a real screen in the app: what you asked for, and what sites actually see.</p></div></li>
@@ -240,6 +241,10 @@
       <div class="hiw-promise">
         <h3>Geographic endpoints.</h3>
         <p>Map a persona to multiple geographic endpoints, and change them as needed without changing the settings or endpoints of any other persona.</p>
+      </div>
+      <div class="hiw-promise">
+        <h3>Identity Routing Fabric.</h3>
+        <p>The system that brings it all together. One account on all your devices, and you control where your internet connections go with the rules you set up.</p>
       </div>
     </div>
     <p class="pitch-lead" style="margin-top: 40px">Atlas gives individuals greater flexibility and control over how different parts of their digital lives connect to the internet.</p>
