@@ -47,11 +47,20 @@
     .hiw-phone { width: 100%; max-width: 300px; margin: 0 auto; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(47, 123, 255, 0.18); }
     .hiw-screen { background: #FAFAFC; border-radius: 38px; overflow: hidden; min-height: 520px; box-sizing: border-box; padding: 40px 16px 20px; font-family: -apple-system, system-ui, sans-serif; color: #12142B; }
     .hiw-screen-head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-    .hiw-screen-head span:first-child { width: 22px; height: 22px; border-radius: 6px; background: #5659DD; flex: none; }
-    .hiw-screen-head span:last-child { font-size: 15px; font-weight: 700; }
+    .hiw-screen-head > span:first-child { width: 22px; height: 22px; border-radius: 6px; background: #5659DD; flex: none; }
+    .hiw-screen-head > span:last-child { font-size: 15px; font-weight: 700; }
     .hiw-screen h3 { margin: 0 0 4px; font-size: 22px; font-weight: 700; color: #12142B; }
     .hiw-screen .hiw-hint { margin: 0 0 14px; font-size: 13px; color: #4A4F60; }
     .hiw-paths { background: #FFFFFF; border-radius: 14px; padding: 2px 12px; box-shadow: inset 0 0 0 1px #E5E5EE; }
+    .hiw-eyebrow { margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: #5659DD; }
+    .hiw-eyebrow-grey { margin: 12px 0 4px; color: #4A4F60; }
+    .hiw-info { margin: 10px 0 0; padding: 10px 12px; border-radius: 12px; background: #E9E9F8; font-size: 12.5px; line-height: 1.45; color: #12142B; }
+    .hiw-path small { display: block; font-size: 11.5px; font-weight: 400; color: #4A4F60; }
+    .hiw-path label { font-weight: 700; }
+    .hiw-shots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin: 56px 0 0; padding: 0; list-style: none; }
+    .hiw-shots figure { margin: 0; }
+    .hiw-shots img { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 0 0 1px #DCE4FA, 0 18px 40px rgba(47, 91, 234, 0.12); }
+    .hiw-shots figcaption { margin: 12px 0 0; font-size: 14.5px; line-height: 1.45; color: #3A4466; text-align: center; }
     .hiw-path { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 9px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px; }
     .hiw-path:last-child { border-bottom: 0; }
     .hiw-path select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: #5659DD; font: inherit; font-size: 13.5px; font-weight: 700; text-align: right; padding: 4px 18px 4px 4px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235659DD' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 2px center; }
@@ -83,6 +92,7 @@
     .hiw-dark .pitch-cta { background: #0A1230; border: 1px solid #1E2848; }
     @media (max-width: 900px) {
       .hiw-grid, .hiw-try { grid-template-columns: 1fr; }
+      .hiw-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hiw-promises { grid-template-columns: 1fr; gap: 24px; }
       .hiw-proof { grid-template-columns: 1fr 1fr; }
     }
@@ -163,16 +173,18 @@
     <div class="pitch-block">
       <span class="pitch-tag">Try it</span>
       <h2 id="try-h">Set your paths.</h2>
-      <p>This is the real app's screen, drawn here so you can try it before you install. Change a city on the phone and watch what websites see.</p>
+      <p>This is the real app's Your paths screen, drawn here so you can try it before you install. Change a city on the phone and watch what websites see. Real screenshots from the app follow below.</p>
     </div>
     <div class="hiw-try">
       <div class="hiw-phone">
         <div class="hiw-screen" role="group" aria-label="ATLAS identity, Your paths screen">
           <div class="hiw-screen-head"><span></span><span><span class="ai"><b>ATLAS</b> <i>identity</i></span></span></div>
+          <p class="hiw-eyebrow">ATLAS LENS</p>
           <h3>Your paths</h3>
-          <p class="hiw-hint">Change where any one path leaves from.</p>
+          <p class="hiw-hint">A path takes the sites you choose to the city they see you from. Tap any city to move its sites somewhere else, or tap one site to send just that one.</p>
+          <p class="hiw-eyebrow hiw-eyebrow-grey">WHERE YOU APPEAR</p>
           <div class="hiw-paths" id="try-paths"></div>
-          <p class="hiw-hint" style="margin: 14px 0 0">Sites see the city on each path, not where you are.</p>
+          <p class="hiw-info" id="try-info"></p>
         </div>
       </div>
       <div class="hiw-card" aria-live="polite">
@@ -183,6 +195,12 @@
         <p class="hiw-story" id="try-story"></p>
       </div>
     </div>
+    <ul class="hiw-shots" aria-label="The ATLAS identity app on an iPhone">
+      <li><figure><picture><source srcset="../../assets/app/home.webp" type="image/webp"><img loading="lazy" decoding="async" width="590" height="1279" src="../../assets/app/home.png" alt="ATLAS identity Home screen on an iPhone: Protected, default city New York, location confirmed in New York, connection sealed all the way to Atlas."></picture><figcaption>Home: Protected, and the city confirmed.</figcaption></figure></li>
+      <li><figure><picture><source srcset="../../assets/app/paths.webp" type="image/webp"><img loading="lazy" decoding="async" width="590" height="1279" src="../../assets/app/paths.png" alt="ATLAS identity Your paths screen: Default City New York, Personal New York, Work Toronto."></picture><figcaption>Your paths: a city for each persona.</figcaption></figure></li>
+      <li><figure><picture><source srcset="../../assets/app/devices.webp" type="image/webp"><img loading="lazy" decoding="async" width="590" height="1279" src="../../assets/app/devices.png" alt="ATLAS identity Devices screen listing the devices on one account, each with a Remove button."></picture><figcaption>Devices: one account, every device you own.</figcaption></figure></li>
+      <li><figure><picture><source srcset="../../assets/app/advanced.webp" type="image/webp"><img loading="lazy" decoding="async" width="590" height="1279" src="../../assets/app/advanced.png" alt="ATLAS identity Advanced screen: protection on, active path New York, 5 devices."></picture><figcaption>Advanced: what is on, and where.</figcaption></figure></li>
+    </ul>
   </div>
 </section>
 
@@ -364,11 +382,9 @@
 
   /* Try it: the paths screen and what websites see. */
   var PATHS = [
-    { key: "banking", label: "Banking", who: "Your bank", city: "Toronto" },
-    { key: "streaming", label: "Streaming", who: "Your streaming", city: "London" },
-    { key: "work", label: "Work", who: "Your work", city: "Montreal" },
-    { key: "shopping", label: "Shopping", who: "A shop", city: "New York" },
-    { key: "rest", label: "Everything else", who: "Everything else", city: "Toronto" }
+    { key: "default", label: "Default City", sub: "Every site not listed on a path", who: "Every other site", verb: "sees", city: "New York" },
+    { key: "personal", label: "Personal", sub: "Only the sites listed under Personal", who: "Your Personal sites", verb: "see", city: "New York" },
+    { key: "work", label: "Work", sub: "Only the sites listed under Work", who: "Your Work sites", verb: "see", city: "Toronto" }
   ];
   var pathsBox = document.getElementById("try-paths");
   var seesList = document.getElementById("try-sees");
@@ -382,6 +398,9 @@
       var lab = document.createElement("label");
       lab.setAttribute("for", "try-" + p.key);
       lab.textContent = p.label;
+      var sub = document.createElement("small");
+      sub.textContent = p.sub;
+      lab.appendChild(sub);
       var sel = document.createElement("select");
       sel.id = "try-" + p.key;
       sel.setAttribute("aria-label", p.label + " path city");
@@ -398,7 +417,7 @@
 
       var li = document.createElement("li");
       var who = document.createElement("span");
-      who.textContent = p.who + " sees";
+      who.textContent = p.who + " " + p.verb;
       var val = document.createElement("strong");
       li.appendChild(who);
       li.appendChild(val);
@@ -419,9 +438,10 @@
         }
       });
       var ch = changed ? PATHS.filter(function (p) { return p.key === changed; })[0] : PATHS[0];
-      verdict.textContent = "You asked for " + ch.city + ". Sites on your " + ch.label.toLowerCase() + " path see " + ch.city + ".";
-      var bank = PATHS[0].city, shows = PATHS[1].city, shop = PATHS[3].city;
-      story.textContent = "Your bank sees " + bank + ". Your shows see " + shows + ". A shop sees " + shop + " and shows you what it offers there. All at the same time, over one connection, and your real location stays hidden.";
+      verdict.textContent = "You asked for " + ch.city + ". " + ch.who + " " + ch.verb + " " + ch.city + ".";
+      var dflt = PATHS[0].city, personal = PATHS[1].city, work = PATHS[2].city;
+      document.getElementById("try-info").textContent = "Personal and Work only move the sites listed on their paths. Every other site, app and check follows your Default City, " + dflt + ".";
+      story.textContent = "Your Personal sites see " + personal + ". Your Work sites see " + work + ". Every other site sees " + dflt + ". All at the same time, over one connection, and your real location stays hidden.";
     }
     render(null);
   }
