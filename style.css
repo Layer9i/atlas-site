@@ -4,9 +4,9 @@
   --line: #e4e8f2;
   --surface: #f6f7fb;
   --white: #ffffff;
-  --accent: #5659dd;
-  --accent-dark: #4548c4;
-  --accent-soft: #eef0ff;
+  --accent: #0FA83E;
+  --accent-dark: #087F2F;
+  --accent-soft: #E6FBEA;
   --dark: #111831;
   --max: 1180px;
   --radius: 24px;
@@ -109,7 +109,7 @@ a {
   overflow: hidden;
   padding: 40px 0 98px;
   background:
-    radial-gradient(circle at 82% 25%, rgba(86, 89, 221, 0.12), transparent 31%),
+    radial-gradient(circle at 82% 25%, rgba(15, 168, 62, 0.12), transparent 31%),
     linear-gradient(180deg, #fff 0%, #f8f9fd 100%);
 }
 
@@ -278,7 +278,7 @@ h3 {
 .orbit {
   position: absolute;
   inset: 50%;
-  border: 1px solid rgba(86, 89, 221, 0.22);
+  border: 1px solid rgba(15, 168, 62, 0.22);
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
@@ -467,7 +467,7 @@ h3 {
 }
 
 .section-heading.light .eyebrow {
-  color: #a7a9ff;
+  color: #8CFFA9;
 }
 
 .principle-grid {
@@ -489,7 +489,7 @@ h3 {
 .principle-grid span {
   display: block;
   margin-bottom: 58px;
-  color: #a7a9ff;
+  color: #8CFFA9;
   font-size: 13px;
   font-weight: 850;
 }
@@ -501,7 +501,7 @@ h3 {
 
 .section-review {
   background:
-    radial-gradient(circle at 15% 65%, rgba(86, 89, 221, 0.13), transparent 27%),
+    radial-gradient(circle at 15% 65%, rgba(15, 168, 62, 0.13), transparent 27%),
     var(--white);
 }
 
@@ -724,7 +724,7 @@ h3 {
 .paper-meta { display:flex; flex-wrap:wrap; gap:10px 20px; margin-bottom:24px; color:var(--muted); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
 .paper-title { max-width:900px; margin-bottom:20px; font-size:clamp(48px,7vw,78px); line-height:1; letter-spacing:-.06em; }
 .paper-deck { max-width:760px; color:var(--muted); font-size:23px; line-height:1.55; }
-.thesis-card { margin-top:42px; padding:28px 30px; background:var(--accent-soft); border:1px solid #dfe2ff; border-radius:20px; }
+.thesis-card { margin-top:42px; padding:28px 30px; background:var(--accent-soft); border:1px solid #D5F5DE; border-radius:20px; }
 .thesis-label { display:block; margin-bottom:10px; color:var(--accent-dark); font-size:11px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
 .thesis-card p { margin:0; font-size:20px; line-height:1.6; font-weight:700; }
 .paper-layout { width:min(calc(100% - 40px),1180px); margin:0 auto; display:grid; grid-template-columns:220px minmax(0,760px); gap:70px; justify-content:center; padding:72px 0 104px; }
@@ -755,7 +755,7 @@ h3 {
 .review-cta { margin-top:36px; padding:30px; background:var(--surface); border:1px solid var(--line); border-radius:20px; }
 .review-cta .button { margin:8px 8px 0 0; }
 .paper-status { padding-top:30px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
-.review-template { overflow-x:auto; padding:24px; background:#111831; color:#edf0ff; border-radius:18px; font:14px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; white-space:pre-wrap; }
+.review-template { overflow-x:auto; padding:24px; background:#111831; color:#E6FBEA; border-radius:18px; font:14px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; white-space:pre-wrap; }
 @media (max-width:900px) {
   .paper-layout { grid-template-columns:minmax(0,1fr); gap:36px; }
   .paper-body { min-width:0; }
@@ -862,7 +862,7 @@ h3 {
   margin: 38px 0;
   padding: 28px 30px;
   background: var(--accent-soft);
-  border: 1px solid #dfe2ff;
+  border: 1px solid #D5F5DE;
   border-radius: 20px;
 }
 
@@ -939,7 +939,7 @@ h3 {
 .journey-head h3 { margin: 0; font-size: 20px; }
 .journey-body p { margin: 0 0 10px; color: var(--muted); font-size: 15.5px; line-height: 1.65; }
 .journey-body .card-link { font-size: 14px; font-weight: 750; }
-.status.live { color: #1f6fb2; background: #e9f2fb; }
+.status.live { color: #0A9F3A; background: #E6FBEA; }
 .status.open { color: #9a6b12; background: #fdf3e0; }
 @media (max-width: 650px) {
   .journey-item { grid-template-columns: 40px 1fr; gap: 16px; }
@@ -947,7 +947,7 @@ h3 {
 }
 
 /* Atlas Pitch — single-page explainer */
-.pitch-hero { padding: 96px 0 70px; background: radial-gradient(circle at 82% 20%, rgba(86,89,221,.14), transparent 32%), linear-gradient(180deg,#fff 0%,#f8f9fd 100%); border-bottom: 1px solid var(--line); }
+.pitch-hero { padding: 96px 0 70px; background: radial-gradient(circle at 82% 20%, rgba(15, 168, 62,.14), transparent 32%), linear-gradient(180deg,#fff 0%,#f8f9fd 100%); border-bottom: 1px solid var(--line); }
 .pitch-hero h1 { max-width: 880px; }
 .pitch-lead { max-width: 720px; color: var(--muted); font-size: 21px; line-height: 1.65; }
 .pitch-section { padding: 88px 0; }
@@ -972,7 +972,7 @@ h3 {
 .deck-wrap { padding: 56px 0 104px; background: var(--surface); }
 .deck-slide { max-width: 980px; margin: 0 auto 40px; padding: 64px 72px; background: var(--white); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); }
 .deck-slide-dark { background: var(--dark); color: var(--white); border-color: rgba(255,255,255,.08); }
-.deck-slide-dark .deck-num, .deck-slide-dark .eyebrow { color: #a7a9ff; }
+.deck-slide-dark .deck-num, .deck-slide-dark .eyebrow { color: #8CFFA9; }
 .deck-slide-dark p, .deck-slide-dark li { color: #c7cbe0; }
 .deck-num { margin-bottom: 16px; color: var(--accent); font-size: 12px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
 .deck-slide h2 { font-size: clamp(28px,3.2vw,42px); margin-bottom: 22px; }
@@ -1034,9 +1034,9 @@ h1 .h1-line { display:block; color:inherit; }
 .identity-map { display:block; width:min(92%, 460px); margin:0 auto; overflow:visible; font-family:inherit; }
 .presence-card .diagram-caption { position:static; margin:6px 28px 0; }
 .identity-map text { text-anchor:middle; }
-.map-ring { fill:none; stroke:rgba(86, 89, 221, 0.16); stroke-width:1; }
+.map-ring { fill:none; stroke:rgba(15, 168, 62, 0.16); stroke-width:1; }
 .map-link { stroke:var(--accent); stroke-opacity:0.45; stroke-width:1.5; }
-.map-city rect { fill:var(--accent-soft); stroke:rgba(86, 89, 221, 0.3); }
+.map-city rect { fill:var(--accent-soft); stroke:rgba(15, 168, 62, 0.3); }
 .map-city text { fill:var(--accent-dark); font-size:10.5px; font-weight:700; }
 .map-service rect { fill:var(--white); stroke:#dce1ed; filter:drop-shadow(0 6px 12px rgba(30, 39, 79, 0.06)); }
 .map-service text { fill:var(--ink); font-size:12.5px; font-weight:800; }
@@ -1045,3 +1045,6 @@ h1 .h1-line { display:block; color:inherit; }
 .map-you { fill:var(--accent); }
 .map-you-label { fill:var(--white); font-size:17px; font-weight:900; }
 .map-you-key { fill:rgba(255, 255, 255, 0.85); font-size:10px; font-weight:700; }
+
+/* Green brand (owner, 2026-11-02): the blue photos are shifted to green until new artwork exists. */
+img[src*="assets/home/"],.herobox video{filter:hue-rotate(-85deg) saturate(1.05)}

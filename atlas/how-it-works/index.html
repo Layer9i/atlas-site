@@ -21,12 +21,12 @@
   <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="../../style.css?v=20260929">
+  <link rel="stylesheet" href="../../style.css?v=20261102">
   <style>
     .hiw-dark { background: #050A1C; color: #FFFFFF; }
     .hiw-dark h2 { color: #FFFFFF; }
     .hiw-dark .pitch-block p { color: #C9D3F2; }
-    .hiw-dark .pitch-tag { background: rgba(63, 216, 255, 0.14); color: #3FD8FF; }
+    .hiw-dark .pitch-tag { background: rgba(0, 255, 77, 0.14); color: #00FF4D; }
     .hiw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 40px; }
     .hiw-panel { border: 1px solid #1E2848; border-radius: 24px; padding: 24px; background: #0A1230; box-sizing: border-box; min-width: 0; }
     .hiw-panel h3 { margin: 0; font-size: 22px; font-weight: 600; color: #FFFFFF; }
@@ -35,60 +35,60 @@
     .hiw-city { position: absolute; top: 14px; transform: translateX(-50%); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #8E9AC2; text-transform: uppercase; white-space: nowrap; }
     .hiw-city::after { content: ""; display: block; width: 1px; height: 170px; margin: 6px auto 0; background: linear-gradient(#1E2848, transparent); }
     .hiw-dot { position: absolute; top: 0; left: 0; display: flex; align-items: center; gap: 7px; padding: 6px 11px; border-radius: 999px; background: #FFFFFF; color: #050A1C; font-size: 12.5px; font-weight: 700; white-space: nowrap; transition: transform 700ms cubic-bezier(.2,.8,.2,1); will-change: transform; }
-    .hiw-dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--c, #2F7BFF); flex: none; }
+    .hiw-dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--c, #00D63F); flex: none; }
     .hiw-control { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
     .hiw-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14.5px; }
     .hiw-row label { color: #C9D3F2; }
-    .hiw-select { appearance: none; -webkit-appearance: none; background: #FFFFFF; color: #050A1C; border: 1px solid #C3D1F7; border-radius: 999px; padding: 8px 32px 8px 14px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23050A1C' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
-    .hiw-select:focus-visible { outline: 3px solid #3FD8FF; outline-offset: 2px; }
+    .hiw-select { appearance: none; -webkit-appearance: none; background: #FFFFFF; color: #050A1C; border: 1px solid #C9F7D6; border-radius: 999px; padding: 8px 32px 8px 14px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23050A1C' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+    .hiw-select:focus-visible { outline: 3px solid #00FF4D; outline-offset: 2px; }
     .hiw-note { margin: 16px 0 0; font-size: 14px; color: #8E9AC2; line-height: 1.5; }
     .hiw-note strong { color: #FFFFFF; font-weight: 600; }
     .hiw-try { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 40px; align-items: start; margin-top: 40px; }
-    .hiw-phone { width: 100%; max-width: 300px; margin: 0 auto; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(47, 123, 255, 0.18); }
+    .hiw-phone { width: 100%; max-width: 300px; margin: 0 auto; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(0, 255, 77, 0.18); }
     .hiw-screen { background: #FAFAFC; border-radius: 38px; overflow: hidden; min-height: 520px; box-sizing: border-box; padding: 40px 16px 20px; font-family: -apple-system, system-ui, sans-serif; color: #12142B; }
     .hiw-screen-head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-    .hiw-screen-head > span:first-child { width: 22px; height: 22px; border-radius: 6px; background: #5659DD; flex: none; }
+    .hiw-screen-head > span:first-child { width: 22px; height: 22px; border-radius: 6px; background: #0FA83E; flex: none; }
     .hiw-screen-head > span:last-child { font-size: 15px; font-weight: 700; }
     .hiw-screen h3 { margin: 0 0 4px; font-size: 22px; font-weight: 700; color: #12142B; }
     .hiw-screen .hiw-hint { margin: 0 0 14px; font-size: 13px; color: #4A4F60; }
     .hiw-paths { background: #FFFFFF; border-radius: 14px; padding: 2px 12px; box-shadow: inset 0 0 0 1px #E5E5EE; }
-    .hiw-eyebrow { margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: #5659DD; }
+    .hiw-eyebrow { margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: #0FA83E; }
     .hiw-eyebrow-grey { margin: 12px 0 4px; color: #4A4F60; }
-    .hiw-info { margin: 10px 0 0; padding: 10px 12px; border-radius: 12px; background: #E9E9F8; font-size: 12.5px; line-height: 1.45; color: #12142B; }
+    .hiw-info { margin: 10px 0 0; padding: 10px 12px; border-radius: 12px; background: #E6FBEA; font-size: 12.5px; line-height: 1.45; color: #12142B; }
     .hiw-path small { display: block; font-size: 11.5px; font-weight: 400; color: #4A4F60; }
     .hiw-path label { font-weight: 700; }
     .hiw-shots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin: 56px 0 0; padding: 0; list-style: none; }
     .hiw-shots figure { margin: 0; }
-    .hiw-shots img { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 0 0 1px #DCE4FA, 0 18px 40px rgba(47, 91, 234, 0.12); }
+    .hiw-shots img { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 0 0 1px #D5F5DE, 0 18px 40px rgba(47, 91, 234, 0.12); }
     .hiw-shots figcaption { margin: 12px 0 0; font-size: 14.5px; line-height: 1.45; color: #3A4466; text-align: center; }
     .hiw-path { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 9px 0; border-bottom: 1px solid #EEEEF4; font-size: 13.5px; }
     .hiw-path:last-child { border-bottom: 0; }
-    .hiw-path select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: #5659DD; font: inherit; font-size: 13.5px; font-weight: 700; text-align: right; padding: 4px 18px 4px 4px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235659DD' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 2px center; }
-    .hiw-path select:focus-visible { outline: 3px solid #5659DD; outline-offset: 2px; border-radius: 6px; }
-    .hiw-card { background: #FFFFFF; border: 1px solid #DCE4FA; border-radius: 24px; padding: 28px; box-sizing: border-box; color: #0A1028; }
+    .hiw-path select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; color: #0FA83E; font: inherit; font-size: 13.5px; font-weight: 700; text-align: right; padding: 4px 18px 4px 4px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235659DD' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 2px center; }
+    .hiw-path select:focus-visible { outline: 3px solid #0FA83E; outline-offset: 2px; border-radius: 6px; }
+    .hiw-card { background: #FFFFFF; border: 1px solid #D5F5DE; border-radius: 24px; padding: 28px; box-sizing: border-box; color: #0A1028; }
     .hiw-card h3 { margin: 0; font-size: 22px; font-weight: 700; }
     .hiw-card .hiw-hint { margin: 6px 0 18px; font-size: 14px; color: #3A4466; }
     .hiw-sees { margin: 0; padding: 0; list-style: none; }
     .hiw-sees li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF1F8; font-size: 16px; }
     .hiw-sees li span:first-child { color: #3A4466; }
     .hiw-sees li strong { font-weight: 700; color: #0A1028; transition: color 300ms; }
-    .hiw-sees li strong.is-fresh { color: #2F5BEA; }
-    .hiw-verdict { margin: 18px 0 0; padding: 14px 16px; border-radius: 14px; background: #EEF3FF; color: #2346C8; font-size: 15px; line-height: 1.5; font-weight: 600; }
+    .hiw-sees li strong.is-fresh { color: #0A9F3A; }
+    .hiw-verdict { margin: 18px 0 0; padding: 14px 16px; border-radius: 14px; background: #E6FBEA; color: #087F2F; font-size: 15px; line-height: 1.5; font-weight: 600; }
     .hiw-story { margin: 14px 0 0; font-size: 15.5px; line-height: 1.65; color: #3A4466; }
     .hiw-promises { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
-    .hiw-promise { border-top: 2px solid #2F5BEA; padding-top: 20px; }
+    .hiw-promise { border-top: 2px solid #0A9F3A; padding-top: 20px; }
     .hiw-promise h3 { margin: 0; font-size: 24px; font-weight: 700; }
     .hiw-promise p { margin: 10px 0 0; font-size: 16.5px; line-height: 1.6; color: #3A4466; }
     .hiw-promise .hiw-example { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: #F3F6FD; font-size: 15px; color: #0A1028; }
     .hiw-proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
-    .hiw-proof div { border-top: 2px solid #3FD8FF; padding-top: 20px; }
+    .hiw-proof div { border-top: 2px solid #00FF4D; padding-top: 20px; }
     .hiw-proof p { margin: 0; }
     .hiw-proof .hiw-num { font-size: 26px; line-height: 1.25; font-weight: 600; color: #FFFFFF; }
     .hiw-proof .hiw-num span { font-size: 40px; font-weight: 300; line-height: 1; }
     .hiw-proof .hiw-txt { margin-top: 10px; font-size: 16px; line-height: 1.55; color: #C9D3F2; }
-    .hiw-proof a { color: #3FD8FF; }
+    .hiw-proof a { color: #00FF4D; }
     .hiw-links { display: flex; flex-wrap: wrap; gap: 14px 28px; margin: 36px 0 0; }
-    .hiw-links a { color: #FFFFFF; font-weight: 600; text-decoration: none; border-bottom: 2px solid #3FD8FF; padding-bottom: 3px; }
+    .hiw-links a { color: #FFFFFF; font-weight: 600; text-decoration: none; border-bottom: 2px solid #00FF4D; padding-bottom: 3px; }
     .hiw-dark .pitch-cta { background: #0A1230; border: 1px solid #1E2848; }
     @media (max-width: 900px) {
       .hiw-grid, .hiw-try { grid-template-columns: 1fr; }
@@ -112,8 +112,8 @@
 <div style="max-width: 1240px; margin: 0 auto; padding: 0 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; height: 84px">
 <a href="../../index.html" aria-label="Layer9i, makers of ATLAS identity: home" style="display: flex; align-items: center; gap: clamp(8px, 1.6vw, 16px); text-decoration: none">
 <picture style="display: block"><source srcset="../../assets/brand/layer9i-logo.webp" type="image/webp"><img src="../../assets/brand/layer9i-logo.png" alt="Layer9i" width="900" height="260" style="height: clamp(18px, 5vw, 40px); width: auto; display: block"></picture>
-<span aria-hidden="true" style="align-self: center; width: 1px; height: clamp(22px, 6vw, 48px); background: linear-gradient(transparent, #3FD8FF, transparent)"></span>
-<picture style="display: block"><source srcset="../../assets/brand/atlas-identity-logo.webp" type="image/webp"><img src="../../assets/brand/atlas-identity-logo.png" alt="ATLAS identity" width="868" height="261" style="height: clamp(24px, 6.5vw, 54px); width: auto; display: block"></picture>
+<span aria-hidden="true" style="align-self: center; width: 1px; height: clamp(22px, 6vw, 48px); background: linear-gradient(transparent, #00FF4D, transparent)"></span>
+<picture style="display: block"><source srcset="../../assets/brand/atlas-lockup-green.webp" type="image/webp"><img src="../../assets/brand/atlas-lockup-green.png" alt="ATLAS identity" width="1812" height="928" style="height: clamp(34px, 8vw, 72px); width: auto; display: block"></picture>
 </a>
 <nav class="navlinks" aria-label="Main" style="font-size: 15px; font-weight: 500">
 <a href="../../index.html#story" style="color: #C9D3F2; text-decoration: none; margin: 0 12px">How it works</a>
@@ -213,12 +213,12 @@
       <p>Six things, in order, every time you use Atlas.</p>
     </div>
     <ol class="journey-list" style="max-width: 760px">
-      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">1</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">You set up one account for all your devices.</h3></div><p style="color: #C9D3F2">Your identity, your personas and your rules come with you to every device you own.</p></div></li>
-      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">2</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">You create your personas and set your rules.</h3></div><p style="color: #C9D3F2">Business, Personal or Other, each with its own settings and geographic endpoints. You decide where your internet connections go, and the rules you set are the ones that apply.</p></div></li>
-      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">3</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Each persona connects through the geographic endpoints you chose.</h3></div><p style="color: #C9D3F2">On a network Layer9i owns and answers for, so sites see a network that stands behind the people on it.</p></div></li>
-      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">4</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Every site gets its own separate ID.</h3></div><p style="color: #C9D3F2">Each site knows you, but they can't compare notes about you.</p></div></li>
-      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">5</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Atlas checks that sites really see the city you asked for.</h3></div><p style="color: #C9D3F2">"Intended vs. Observed" is a real screen in the app: what you asked for, and what sites actually see.</p></div></li>
-      <li class="journey-item"><span class="journey-num" style="background: #2F7BFF">6</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">If Atlas can't keep its promise, it tells you.</h3></div><p style="color: #C9D3F2">It steps aside so ordinary internet comes back, visibly. You are never left guessing.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #00D63F">1</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">You set up one account for all your devices.</h3></div><p style="color: #C9D3F2">Your identity, your personas and your rules come with you to every device you own.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #00D63F">2</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">You create your personas and set your rules.</h3></div><p style="color: #C9D3F2">Business, Personal or Other, each with its own settings and geographic endpoints. You decide where your internet connections go, and the rules you set are the ones that apply.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #00D63F">3</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Each persona connects through the geographic endpoints you chose.</h3></div><p style="color: #C9D3F2">On a network Layer9i owns and answers for, so sites see a network that stands behind the people on it.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #00D63F">4</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Every site gets its own separate ID.</h3></div><p style="color: #C9D3F2">Each site knows you, but they can't compare notes about you.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #00D63F">5</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">Atlas checks that sites really see the city you asked for.</h3></div><p style="color: #C9D3F2">"Intended vs. Observed" is a real screen in the app: what you asked for, and what sites actually see.</p></div></li>
+      <li class="journey-item"><span class="journey-num" style="background: #00D63F">6</span><div class="journey-body"><div class="journey-head"><h3 style="color: #FFFFFF">If Atlas can't keep its promise, it tells you.</h3></div><p style="color: #C9D3F2">It steps aside so ordinary internet comes back, visibly. You are never left guessing.</p></div></li>
     </ol>
   </div>
 </section>
@@ -303,9 +303,9 @@
   var CITIES = ["Toronto", "Montreal", "New York", "London", "Amsterdam"];
   var LANE = { "Toronto": 10, "Montreal": 30, "New York": 50, "London": 70, "Amsterdam": 90 };
   var PARTS = [
-    { key: "bank", label: "Personal", color: "#2F7BFF" },
-    { key: "work", label: "Business", color: "#7A5CFF" },
-    { key: "shows", label: "Shows", color: "#3FD8FF" },
+    { key: "bank", label: "Personal", color: "#00D63F" },
+    { key: "work", label: "Business", color: "#00B836" },
+    { key: "shows", label: "Shows", color: "#00FF4D" },
     { key: "shop", label: "Shopping", color: "#15803D" },
     { key: "rest", label: "Everything else", color: "#F59E0B" }
   ];
