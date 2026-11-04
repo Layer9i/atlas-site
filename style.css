@@ -1048,4 +1048,4 @@ h1 .h1-line { display:block; color:inherit; }
 
 /* Green brand (owner, 2026-11-02): the blue photos are shifted to green until new artwork exists. */
 img[src*="assets/home/"]{filter:hue-rotate(-85deg) saturate(1.05)}
-img[src*="assets/home/changed"],img[src*="assets/home/working"],img[src*="assets/home/identity-v2"]{filter:none}
+img[src*="assets/home/changed"],img[src*="assets/home/working"],img[src*="assets/home/identity-v3"]{filter:none}
