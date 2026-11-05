@@ -33,7 +33,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #00FF
 .phones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end}
 .plat{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
-.navlinks{display:flex;gap:28px}
+.navlinks{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 28px;min-width:0}
 img[src*="assets/home/"]{filter:hue-rotate(-85deg) saturate(1.05)}
 img[src*="assets/home/changed"],img[src*="assets/home/working"],img[src*="assets/home/identity-v3"]{filter:none}
 .herobox{background-color:#050A1C}
