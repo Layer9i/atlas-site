@@ -70,6 +70,31 @@ img[src*="assets/home/app-"],img[src*="assets/home/changed"],img[src*="assets/ho
  .cap{font-size:20px !important}
 }
 @media (prefers-reduced-motion: reduce){video{display:none}}
+
+#morebtn{all:unset;cursor:pointer;box-sizing:border-box;padding:14px 34px;border:2px solid #009A00;border-radius:999px;font:600 18px Montserrat,system-ui,sans-serif;color:#fff;background:rgba(0,154,0,.12);transition:background .2s}
+#morebtn:hover{background:rgba(0,154,0,.3)}#morebtn:focus-visible{outline:3px solid #6CFF8A;outline-offset:3px}
+#morebtn:after{content:" \25BE";color:#009A00}#morebtn[aria-expanded=true]:after{content:" \25B4"}
+/* v4: Layer tabs stick out of the left edge of the screen; click one and its panel slides out, the tabs ride on the panel edge (desktop and phone) */
+:root{--pw:min(380px,86vw)}
+.ltabs{position:absolute;left:0;top:150px;transform:none;z-index:62;display:flex;flex-direction:column;gap:10px;transition:transform .28s ease}
+body.lopen .ltabs{transform:translateX(var(--pw))}
+.ltab{all:unset;box-sizing:border-box;cursor:pointer;width:44px;padding:18px 0;border-radius:0 14px 14px 0;background:linear-gradient(180deg,#0B7A2C,#009A00);color:#fff;box-shadow:4px 6px 18px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;transition:width .2s,filter .2s}
+.ltab:hover{width:50px;filter:brightness(1.12)}
+.ltab[aria-expanded=true]{background:linear-gradient(180deg,#0A1230,#0F1C4A);box-shadow:none;border:2px solid #009A00;border-left:0}
+.ltab:focus-visible{outline:3px solid #6CFF8A;outline-offset:2px}
+.ltab .lt-k{writing-mode:vertical-rl;transform:rotate(180deg);font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;white-space:nowrap}
+.ltab .lt-n{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+#lscrim{position:fixed;inset:0;background:rgba(2,5,16,.55);z-index:60;opacity:0;transition:opacity .25s}
+#lscrim.on{opacity:1}
+#ldrawer{position:fixed;top:0;left:0;bottom:0;width:var(--pw);z-index:61;background:#0A1230;color:#fff;border-right:3px solid #009A00;box-shadow:12px 0 40px rgba(0,0,0,.5);padding:72px 28px 28px;transform:translateX(-102%);transition:transform .28s ease;visibility:hidden;overflow:auto}
+#ldrawer.on{transform:none;visibility:visible}
+#ldrawer #ld-k{margin:0;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#009A00;font-weight:700}
+#ldrawer h3{margin:8px 0 0;font-size:34px;line-height:1.1;font-weight:700}
+#ldrawer #ld-t{margin:16px 0 0;font-size:19px;line-height:1.5;color:#C9D3F2}
+#lclose{all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-size:40px;line-height:1;color:#C9D3F2;padding:4px 10px}
+#lclose:focus-visible{outline:3px solid #6CFF8A}
+@media (max-width:560px){section{padding-left:30px !important;padding-right:0 !important}.ltab{width:30px;padding:12px 0}.ltab:hover{width:30px}.ltab .lt-k{font-size:11px;letter-spacing:.12em}#ldrawer{padding:64px 20px 24px}}
+@media (prefers-reduced-motion:reduce){#ldrawer,#lscrim,.ltabs{transition:none}}
 </style>
 
 <style>body, section, .wrap, figcaption, .hero-para, p, h1, h2 { font-family: "Montserrat", system-ui, sans-serif; }</style><style>
@@ -114,15 +139,14 @@ img.row{display:block;width:min(300px,70vw);height:auto;filter:drop-shadow(0 26p
 </header>
 
 <section id="top" style="padding: 20px 0 32px">
-<div class="wrap" style="margin-top:0; margin-bottom:20px"><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:32px">
-<div style="border-top:2px solid #009A00; padding-top:16px"><p style="margin:0; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#009A00; font-weight:700">Layer 1</p><h3 style="margin:6px 0 0; font-size:22px; font-weight:600">Protect</h3><p style="margin:6px 0 0; font-size:16px; line-height:1.45; color:#C9D3F2">Your connection is sealed, and your DNS is cleaned and kept private.</p></div>
-<div style="border-top:2px solid #009A00; padding-top:16px"><p style="margin:0; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#009A00; font-weight:700">Layer 2</p><h3 style="margin:6px 0 0; font-size:22px; font-weight:600">Personas</h3><p style="margin:6px 0 0; font-size:16px; line-height:1.45; color:#C9D3F2">Work, Personal and more, each with its own location.</p></div>
-<div style="border-top:2px solid #009A00; padding-top:16px"><p style="margin:0; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#009A00; font-weight:700">Layer 3</p><h3 style="margin:6px 0 0; font-size:22px; font-weight:600">Paths</h3><p style="margin:6px 0 0; font-size:16px; line-height:1.45; color:#C9D3F2">Choose which sites go where. Add or change them any time.</p></div>
-</div></div>
+
+<nav class="ltabs" aria-label="The three layers"><button type="button" class="ltab" data-i="0" aria-expanded="false" aria-controls="ldrawer"><span class="lt-k">Layer 1</span><span class="lt-n">Protect</span></button><button type="button" class="ltab" data-i="1" aria-expanded="false" aria-controls="ldrawer"><span class="lt-k">Layer 2</span><span class="lt-n">Personas</span></button><button type="button" class="ltab" data-i="2" aria-expanded="false" aria-controls="ldrawer"><span class="lt-k">Layer 3</span><span class="lt-n">Paths</span></button></nav>
+<div id="lscrim" hidden></div>
+<aside id="ldrawer" role="dialog" aria-modal="true" aria-labelledby="ld-h" aria-hidden="true"><button type="button" id="lclose" aria-label="Close">&times;</button><p id="ld-k"></p><h3 id="ld-h"></h3><p id="ld-t"></p></aside>
 
 <div class="wrap" style="display:flex; gap:88px; align-items:center; justify-content:center; flex-wrap:wrap">
 <div style="flex:0 1 440px">
-<h1 style="margin:0; font-size:clamp(30px,3.3vw,44px); line-height:1.1; font-weight:300; letter-spacing:-.025em; color:#fff">Multi-layer protection for your <span style="font-weight:700"><span style="color:#009A00">internet</span> <span style="color:#009A00">identity.</span></span></h1>
+<h1 style="margin:0; white-space:nowrap; font-size:clamp(22px,5.6vw,40px); line-height:1.1; font-weight:300; letter-spacing:-.025em; color:#fff">Next level <span style="font-weight:700"><span style="color:#009A00">VPN</span> <span style="color:#009A00">protection</span></span></h1>
 <p style="margin:18px 0 0; font-size:20px; line-height:1.45; color:#fff; font-weight:500">The app that keeps your connection private and lets you choose where you appear online.</p>
 <p style="margin:12px 0 0; font-size:16px; line-height:1.5; color:#C9D3F2">Today, every site and network sees where you connect from. You decide.</p>
 <div style="margin-top:26px"><p style="margin: 0 0 8px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A96BF">Available on</p>
@@ -210,6 +234,8 @@ img.row{display:block;width:min(300px,70vw);height:auto;filter:drop-shadow(0 26p
 </div>
 </section>
 <section aria-label="Under the hood" style="padding: 40px 0 24px"><div class="wrap" style="text-align:center"><p style="margin:0; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#009A00; font-weight:600">If you want to know how it works</p><h2 style="margin:12px 0 0; font-size:clamp(28px,3.6vw,44px); font-weight:300; letter-spacing:-.02em">Under the hood, <span style="font-weight:700">the Identity Routing Fabric.</span></h2></div></section>
+<div class="wrap" style="text-align:center; padding:8px 0 72px"><button type="button" id="morebtn" aria-expanded="false" aria-controls="more">Read more</button></div>
+<div id="more" hidden>
 <section id="story" aria-label="How ATLAS identity works" style="padding: 0 0 40px">
 <div class="wrap" style="display: flex; flex-direction: column; gap: 96px">
 <figure style="margin: 0">
@@ -327,6 +353,7 @@ img.row{display:block;width:min(300px,70vw);height:auto;filter:drop-shadow(0 26p
 <p style="margin: 14px auto 0; max-width: 56ch; font-size: 15px; line-height: 1.5; color: #C9D3F2"><b>Launch offer, for a limited time:</b> pay for your first month and get your second month free with any monthly plan.<br>Individual plan, up to 2 devices: $7.99 a month or $69.99 a year.<br>Family plan, up to 5 devices: $11.99 a month or $129.99 a year.<br>All prices are in US dollars.<br>Use the same email you sign up with in the app.</p></div>
 </section>
 
+</div>
 <footer class="site-foot" style="border-top: 1px solid #1E2848; background: #050A1C; font-family: 'Montserrat', system-ui, sans-serif">
 <div style="max-width: 1240px; margin: 0 auto; padding-left: clamp(16px, 3vw, 40px); padding-right: clamp(16px, 3vw, 40px); box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding-top: 32px; padding-bottom: 40px; font-size: 14px; color: #8E9AC2">
 <span style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><picture style="display: block"><source srcset="assets/brand/atlas-identity-logo.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/atlas-identity-logo.png" alt="ATLAS identity" width="1569" height="657" style="height: 44px; width: auto"></picture><span>is made by</span><picture style="display: block"><source srcset="assets/brand/layer9i-logo.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/layer9i-logo.png" alt="Layer9i" width="900" height="260" style="height: 24px; width: auto"></picture></span>
@@ -346,5 +373,23 @@ img.row{display:block;width:min(300px,70vw);height:auto;filter:drop-shadow(0 26p
 </footer>
 
 </div>
+<script>
+(function(){var D=[["Layer 1","Protect","Your connection is sealed, and your DNS is cleaned and kept private."],["Layer 2","Personas","Work, Personal and more, each with its own location."],["Layer 3","Paths","Choose which sites go where. Add or change them any time."]];
+var dr=document.getElementById("ldrawer"),sc=document.getElementById("lscrim"),tabs=[].slice.call(document.querySelectorAll(".ltab")),last=null;
+function open(i,t){document.getElementById("ld-k").textContent=D[i][0];document.getElementById("ld-h").textContent=D[i][1];document.getElementById("ld-t").textContent=D[i][2];
+tabs.forEach(function(x){x.setAttribute("aria-expanded",x===t?"true":"false")});last=t;document.body.classList.add("lopen");sc.hidden=false;requestAnimationFrame(function(){sc.classList.add("on");dr.classList.add("on")});dr.setAttribute("aria-hidden","false");document.getElementById("lclose").focus()}
+function close(){document.body.classList.remove("lopen");dr.classList.remove("on");sc.classList.remove("on");dr.setAttribute("aria-hidden","true");tabs.forEach(function(x){x.setAttribute("aria-expanded","false")});setTimeout(function(){sc.hidden=true},260);if(last)last.focus()}
+tabs.forEach(function(t){t.addEventListener("click",function(){var i=+t.dataset.i;if(dr.classList.contains("on")&&t.getAttribute("aria-expanded")==="true"){close()}else{open(i,t)}})});
+sc.addEventListener("click",close);document.getElementById("lclose").addEventListener("click",close);
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&dr.classList.contains("on"))close()});})();
+</script>
+<script>
+(function(){var m=document.getElementById("more"),b=document.getElementById("morebtn");
+function set(o){m.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false");b.firstChild.nodeValue=o?"Show less":"Read more"}
+b.addEventListener("click",function(){var o=m.hidden;set(o);if(!o){var r=b.getBoundingClientRect();if(r.top<0)b.scrollIntoView({block:"center"})}});
+function go(id,e){var t=document.getElementById(id);if(t&&m.contains(t)&&m.hidden){if(e)e.preventDefault();set(true);t.scrollIntoView()}}
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href*='#']");if(!a)return;var h=a.getAttribute("href");var p=h.split("#");if(p[0]!==""&&p[0]!=="index.html")return;go(p[1],e)});
+if(location.hash)go(location.hash.slice(1));})();
+</script>
 </body>
 </html>
