@@ -28,7 +28,7 @@
 
 :root{--night:#050A1C;--fg:#FFFFFF;color-scheme:dark}
 body{margin:0;background:var(--night);color:var(--fg)}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #00FF4D;outline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #009A00;outline-offset:3px}
 .wrap{max-width:1240px;margin:0 auto;padding:0 40px;box-sizing:border-box}
 .phones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end}
@@ -72,7 +72,24 @@ img[src*="assets/home/app-"],img[src*="assets/home/changed"],img[src*="assets/ho
 @media (prefers-reduced-motion: reduce){video{display:none}}
 </style>
 
-<style>body, section, .wrap, figcaption, .hero-para, p, h1, h2 { font-family: "Montserrat", system-ui, sans-serif; }</style></head>
+<style>body, section, .wrap, figcaption, .hero-para, p, h1, h2 { font-family: "Montserrat", system-ui, sans-serif; }</style><style>
+/* v3 phone style, copied from the "Coming Soon" ad outline: brushed-silver rim, black screen border, big pill island, buttons both sides */
+.phone{position:relative;display:inline-block;padding:1.3%;border-radius:13.2%/6.5%;background:linear-gradient(120deg,#f4f6f7 0%,#9aa1a8 14%,#e3e6e9 30%,#6c737a 55%,#dfe2e5 78%,#8b9298 100%);box-shadow:0 40px 60px -20px rgba(0,120,40,.40),0 18px 34px rgba(5,20,12,.35),inset 0 0 0 1px rgba(255,255,255,.85)}
+.phone img{display:block;width:100%;height:auto;box-sizing:border-box;border:3px solid #07090b;padding-top:11%;border-radius:12.4%/6.1%;background:#fff}
+.phone:before{content:"";position:absolute;top:3.6%;left:50%;transform:translateX(-50%);width:29%;aspect-ratio:3.4;border-radius:99px;background:#05070a;z-index:2}
+.phone:after{content:"";position:absolute;right:-3px;top:24%;width:3px;height:13%;border-radius:0 3px 3px 0;background:linear-gradient(#c3c8cd,#6c737a)}
+.phone .sb{position:absolute;z-index:3;top:3.3%;left:10%;right:9%;height:20px;display:flex;justify-content:space-between;align-items:center;font:600 11px Montserrat,Arial,sans-serif;color:#111;pointer-events:none}
+.phone .sb i{display:inline-block;width:22px;height:10px;border:1.5px solid #111;border-radius:3px;position:relative}.phone .sb i:after{content:"";position:absolute;inset:1px;background:#111;border-radius:1px}
+.pair .cut{display:block;width:min(560px,92vw);height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}.pair{position:relative;display:flex;justify-content:center;align-items:flex-start;margin:64px auto 0;max-width:640px;padding-bottom:70px;background:radial-gradient(ellipse 60% 20% at 50% 80%,rgba(21,149,57,.5),transparent 100%)}
+.pair .phone{width:min(300px,46vw);transform:rotate(4deg)}
+.pair .phone:first-child{z-index:2}.pair .phone+.phone{width:min(270px,42vw);margin-left:6px;margin-top:70px;transform:rotate(4deg)}
+.stage{position:relative;width:100%;max-width:520px}
+.stage svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:46%}
+.stage .p1{position:absolute;left:6%;top:0%;width:41%;transform:rotate(-4deg);z-index:2}
+.stage .p2{position:absolute;right:5%;top:7%;width:41%;transform:rotate(4deg);z-index:1}
+</style>
+<style>:root{--accent:#009A00;--accent-dark:#009A00}</style>
+</head>
 <body>
 <div style="font-family: 'Montserrat', system-ui, sans-serif; color: #FFFFFF; background: #050A1C">
 
@@ -80,7 +97,7 @@ img[src*="assets/home/app-"],img[src*="assets/home/changed"],img[src*="assets/ho
 <div style="max-width: 1240px; margin: 0 auto; padding: 0 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; height: 84px">
 <a href="index.html" aria-label="Layer9i, makers of ATLAS identity: home" style="display: flex; align-items: center; gap: clamp(8px, 1.6vw, 16px); text-decoration: none">
 <picture style="display: block"><source srcset="assets/brand/layer9i-logo.webp" type="image/webp"><img src="assets/brand/layer9i-logo.png" alt="Layer9i" width="900" height="260" style="height: clamp(18px, 5vw, 40px); width: auto; display: block"></picture>
-<span aria-hidden="true" style="align-self: center; width: 1px; height: clamp(22px, 6vw, 48px); background: linear-gradient(transparent, #00FF4D, transparent)"></span>
+<span aria-hidden="true" style="align-self: center; width: 1px; height: clamp(22px, 6vw, 48px); background: linear-gradient(transparent, #009A00, transparent)"></span>
 <picture style="display: block"><source srcset="assets/brand/atlas-lockup-green.webp" type="image/webp"><img src="assets/brand/atlas-lockup-green.png" alt="ATLAS identity" width="1569" height="657" style="height: clamp(34px, 8vw, 72px); width: auto; display: block"></picture>
 </a>
 <nav class="navlinks" aria-label="Main" style="font-size: 15px; font-weight: 500">
@@ -95,43 +112,103 @@ img[src*="assets/home/app-"],img[src*="assets/home/changed"],img[src*="assets/ho
 </div>
 </header>
 
-<section id="top" style="padding: 8px 0 0">
-<div class="wrap">
-<div class="herobox" style="position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 1280 / 540; background-color: #050A1C">
-<video src="assets/home/hero-v4.mp4" poster="assets/home/hero-poster-v4.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" aria-hidden="true" style="display: block; width: 100%; height: 100%; object-fit: cover"></video>
-<h2 style="position: absolute; left: 4%; top: 7%; margin: 0; white-space: nowrap; color: #FFFFFF; font-size: clamp(12px, 2.3vw, 33px); line-height: 1.2; font-weight: 300; letter-spacing: -0.01em; text-shadow: 0 2px 24px rgba(2,6,20,.85); pointer-events: none">Your connection can change.<br>Your identity stays yours.<span style="display:block;margin-top:.7em;font-size:.62em;line-height:1.35;font-weight:400;color:#EAF0FF;white-space:normal;max-width:30ch"><span class="ai"><b>ATLAS</b> <i>identity</i></span> gives you control over how you connect and where you appear online.</span></h2>
+<section id="top" style="padding: 20px 0 32px">
+<div class="wrap" style="margin-top:0; margin-bottom:20px"><div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:32px">
+<div style="border-top:2px solid #009A00; padding-top:16px"><p style="margin:0; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#009A00; font-weight:700">Layer 1</p><h3 style="margin:6px 0 0; font-size:22px; font-weight:600">Protect</h3><p style="margin:6px 0 0; font-size:16px; line-height:1.45; color:#C9D3F2">Your connection is sealed, and your DNS is cleaned and kept private.</p></div>
+<div style="border-top:2px solid #009A00; padding-top:16px"><p style="margin:0; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#009A00; font-weight:700">Layer 2</p><h3 style="margin:6px 0 0; font-size:22px; font-weight:600">Personas</h3><p style="margin:6px 0 0; font-size:16px; line-height:1.45; color:#C9D3F2">Work, Personal and more, each with its own location.</p></div>
+<div style="border-top:2px solid #009A00; padding-top:16px"><p style="margin:0; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:#009A00; font-weight:700">Layer 3</p><h3 style="margin:6px 0 0; font-size:22px; font-weight:600">Paths</h3><p style="margin:6px 0 0; font-size:16px; line-height:1.45; color:#C9D3F2">Choose which sites go where. Add or change them any time.</p></div>
+</div></div>
 
-<div class="hero-shade" style="position: absolute; left: 0; right: 0; bottom: 0; height: 38%; background: linear-gradient(transparent, rgba(3,8,24,.72)); pointer-events: none"></div>
-<div class="hero-para" style="position: absolute; left: 4%; bottom: 3.5%; width: 92%; text-align: left; color: #EAF0FF; font-size: clamp(11px, 1.9vw, 28px); line-height: 1.4; text-shadow: 0 1px 14px rgba(2,6,20,.95), 0 0 3px rgba(2,6,20,.9); pointer-events: none"><p style="margin:0 0 .7em; line-height:1.3"><span style="font-size:1.7em; color:#FFFFFF; font-weight:300; letter-spacing:-0.01em">The Identity <b style="font-weight:700">Routing Fabric</b></span> brings your personal internet identity, personas and internet pathways together in one system.</p><p style="margin:0">With <span class="ai"><b>ATLAS</b> <i>identity</i></span>, you manage how different parts of your online life connect, where they appear online, and the pathways they use &mdash; all from one account.</p></div>
-</div>
-<div style="text-align: center; padding: 40px 0 120px">
-<div style="margin: 0 auto"><p style="margin: 0 0 0.5em; color: #FFFFFF; font-size: clamp(16px, 2.3vw, 31px); line-height: 1.2; font-weight: 300">Layer9i's commitment to you...</p>
-<p style="margin: 0; color: #FFFFFF; font-size: clamp(22px, 3vw, 40px); line-height: 1.12; font-weight: 300; letter-spacing: -0.02em">We don't track you.<br><span style="font-weight: 700">We don't sell you.</span></p></div>
-<p style="margin: 20px auto 0; font-size: 21px; line-height: 1.5; font-weight: 600; color: #FFFFFF; max-width: 48ch">One identity. Multiple personas. Your choice of geographic endpoints. One connected system.</p>
-<div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 28px">
-<a href="#join" style="background: linear-gradient(100deg, #00FF4D, #00D63F 55%, #00B836);color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 11px 22px; border-radius: 999px">Download the app</a>
-<a href="https://identity.layer9i.com/subscribe" style="background: linear-gradient(100deg, #00FF4D, #00D63F 55%, #00B836);color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 11px 22px; border-radius: 999px">Subscribe</a>
-<div style="flex-basis: 100%; width: 100%"><p style="margin: 4px auto 10px; max-width: 640px; text-align: center; font-size: 14px; color: #8A96BF"><span class="ai"><b>ATLAS</b> <i>identity</i></span> Edge products for Travel and Home will be coming soon.</p><p style="margin: 0 auto; max-width: 640px; text-align: center; font-size: 14px; line-height: 1.5; color: #C9D3F2">Launch offer, for a limited time: pay for your first month and get your second month free with any monthly plan. All prices are in US dollars.</p></div>
-</div>
-</div>
-</div>
-</section>
-
-<section aria-label="Get the app" style="padding: 0 0 56px; margin-top: -48px">
-<div class="wrap" style="text-align: center">
-<p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A96BF">Available on</p>
-<div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap">
+<div class="wrap" style="display:flex; gap:88px; align-items:center; justify-content:center; flex-wrap:wrap">
+<div style="flex:0 1 440px">
+<h1 style="margin:0; font-size:clamp(30px,3.3vw,44px); line-height:1.1; font-weight:300; letter-spacing:-.025em; color:#fff">Multi-layer protection for your <span style="font-weight:700"><span style="color:#009A00">internet</span> <span style="color:#009A00">identity.</span></span></h1>
+<p style="margin:18px 0 0; font-size:20px; line-height:1.45; color:#fff; font-weight:500">The app that keeps your connection private and lets you choose where you appear online.</p>
+<p style="margin:12px 0 0; font-size:16px; line-height:1.5; color:#C9D3F2">Today, every site and network sees where you connect from. You decide.</p>
+<div style="margin-top:26px"><p style="margin: 0 0 8px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A96BF">Available on</p>
+<div style="display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap">
 <a href="https://apps.apple.com/us/app/atlas-identity/id6808464373" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 156px; height: 46px; box-sizing: border-box; padding: 0 8px; border: 1px solid #5A6690; border-radius: 10px; background: #000000; color: #FFFFFF; text-decoration: none" target="_blank" rel="noopener noreferrer"><picture style="display: block; width: 34px; height: 34px; overflow: hidden; border-radius: 8px"><source srcset="assets/brand/atlas-app-icon.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/atlas-app-icon.png" alt="ATLAS identity app icon" width="160" height="160" style="display: block; width: 45px; max-width: none; height: auto; margin: -5.5px 0 0 -5.5px"></picture><span style="display: block; white-space: nowrap; text-align: left; font-size: 10px; line-height: 1.2; font-weight: 400">Download on the<br><b style="font-size: 15px; font-weight: 600">App Store</b></span></a>
 <a href="https://play.google.com/store/apps/details?id=com.layer9i.atlas" style="display: block; width: 156px; height: 46px; overflow: hidden; border-radius: 10px" target="_blank" rel="noopener noreferrer"><picture style="display: block"><source srcset="assets/brand/google-play-badge.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/google-play-badge.png" alt="Get it on Google Play" width="646" height="250" style="display: block; width: 179px; max-width: none; height: auto; margin: -11.3px 0 0 -11.3px"></picture></a>
 <div style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 156px; height: 46px; box-sizing: border-box; padding: 0 8px; border: 1px solid #5A6690; border-radius: 10px; background: #000000; color: #FFFFFF; text-decoration: none"><picture style="display: block; width: 34px; height: 34px; overflow: hidden; border-radius: 8px"><source srcset="assets/brand/atlas-app-icon.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/atlas-app-icon.png" alt="ATLAS identity app icon" width="160" height="160" style="display: block; width: 45px; max-width: none; height: auto; margin: -5.5px 0 0 -5.5px"></picture><span style="display: block; white-space: nowrap; text-align: left; font-size: 10px; line-height: 1.2; font-weight: 400">Coming soon<br><b style="font-size: 15px; font-weight: 600">Mac</b></span></div>
 <a href="https://identity.layer9i.com/downloads.html" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 156px; height: 46px; box-sizing: border-box; padding: 0 8px; border: 1px solid #5A6690; border-radius: 10px; background: #000000; color: #FFFFFF; text-decoration: none" target="_blank" rel="noopener noreferrer"><picture style="display: block; width: 34px; height: 34px; overflow: hidden; border-radius: 8px"><source srcset="assets/brand/atlas-app-icon.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/atlas-app-icon.png" alt="ATLAS identity app icon" width="160" height="160" style="display: block; width: 45px; max-width: none; height: auto; margin: -5.5px 0 0 -5.5px"></picture><span style="display: block; white-space: nowrap; text-align: left; font-size: 10px; line-height: 1.2; font-weight: 400">Download for<br><b style="font-size: 15px; font-weight: 600">Windows</b></span></a>
+</div></div>
+
 </div>
+<div style="flex:0 1 400px; display:flex; flex-direction:column; align-items:stretch"><div class="stage" aria-label="ATLAS identity app screens">
+<img src="assets/home/phones-tilted.png" alt="ATLAS identity on iPhone: the Lens screen, Your paths, behind the Home screen showing Protected" style="display:block;width:100%;height:auto;filter:drop-shadow(0 26px 34px rgba(0,0,0,.5))">
+</div>
+<div style="display:flex; flex-wrap:nowrap; gap:10px; margin-top:14px; justify-content:center"><a href="https://identity.layer9i.com/subscribe" style="background: linear-gradient(100deg, #009A00, #009A00 55%, #009A00);color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 13px 20px; border-radius: 999px; text-align:center; white-space:nowrap">Subscribe $7.99/mo</a><a href="#get" style="border:1px solid #5A6690; color:#fff; font-weight:600; font-size:15px; text-decoration:none; padding:12px 20px; border-radius:999px; text-align:center; white-space:nowrap">Get the app</a></div>
+<p style="margin:10px 0 0; font-size:14px; color:#A9B4D6; text-align:center">Pay for your first month and get your second month free. On iPhone and Android.</p>
+</div>
+</div>
+</section>
+
+<section id="get" aria-label="Get the app" style="padding: 8px 0 56px; margin-top: 0">
+<div class="wrap" style="text-align: center">
+
 <p style="margin: 14px 0 0; font-size: 14px; color: #8A96BF"><span class="ai"><b>ATLAS</b> <i>identity</i></span> Edge products for Travel and Home will be coming soon.</p>
-<p style="margin: 28px auto 0; max-width: 60ch; font-size: 15px; line-height: 1.5; color: #C9D3F2"><b>Launch offer, for a limited time:</b> pay for your first month and get your second month free with any monthly plan.<br>Individual plan, up to 2 devices: $7.99 a month or $69.99 a year.<br>Family plan, up to 5 devices: $11.99 a month or $129.99 a year.<br>All prices are in US dollars.</p>
 <p style="margin: 18px 0 0; font-size: 12px; color: #8A96BF">Google Play and the Google Play logo are trademarks of Google LLC. App Store is a service mark of Apple Inc.</p>
 </div>
 </section>
 
+
+
+<section id="use" aria-labelledby="use-h" style="padding: 40px 0 100px">
+<div class="wrap">
+<h2 id="use-h" style="margin:0; text-align:center; font-size:clamp(34px,4.6vw,56px); line-height:1.08; font-weight:300; letter-spacing:-.02em">What you can do with <span style="font-weight:700">ATLAS identity.</span></h2>
+<div class="pair"><img class="cut" src="assets/home/phones-tilted.png" alt="ATLAS identity on iPhone: the Lens screen, Your paths, behind the Home screen showing Protected"></div><div style="display:flex; gap:56px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:88px; flex-direction:row">
+<div class="phone" style="width:240px"><span class="sb"><b>06:18</b><i></i></span><img loading="lazy" src="assets/home/app-home-v3.webp" alt="ATLAS identity home screen showing Protected, with Toronto as the default city and location confirmed"></div>
+<div style="flex:1 1 360px; max-width:520px"><h3 style="margin:0; font-size:40px; line-height:1.1; font-weight:700; letter-spacing:-.02em; color:#009A00">Travel</h3><p style="margin:10px 0 0; font-size:26px; line-height:1.2; font-weight:600; letter-spacing:-.01em; color:#fff">Away from home, still you.</p><p style="margin:14px 0 0; font-size:18px; line-height:1.55; color:#C9D3F2">Choose the location you appear from, so the sites you use see you from your usual place. The home screen tells you when you are protected and where you appear.</p></div>
+</div>
+<div style="display:flex; gap:56px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:88px; flex-direction:row-reverse">
+<div class="phone" style="width:240px"><span class="sb"><b>06:18</b><i></i></span><img loading="lazy" src="assets/home/app-paths-3loc.webp" alt="ATLAS identity Lens screen, Your paths"></div>
+<div style="flex:1 1 360px; max-width:520px"><h3 style="margin:0; font-size:40px; line-height:1.1; font-weight:700; letter-spacing:-.02em; color:#009A00">Work and personal</h3><p style="margin:10px 0 0; font-size:26px; line-height:1.2; font-weight:600; letter-spacing:-.01em; color:#fff">Keep them apart.</p><p style="margin:14px 0 0; font-size:18px; line-height:1.55; color:#C9D3F2">A Business persona and a Personal persona, each with its own location. In Lens, send Personal through New York, Work through the Netherlands, and everything else through Toronto. Only the sites you list move; the rest stays on your normal connection.</p></div>
+</div>
+<div style="display:flex; gap:56px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:88px; flex-direction:row">
+<div class="phone" style="width:240px"><span class="sb"><b>06:18</b><i></i></span><img loading="lazy" src="assets/home/app-devices-v3.webp" alt="ATLAS identity Devices screen listing devices and Add a device"></div>
+<div style="flex:1 1 360px; max-width:520px"><h3 style="margin:0; font-size:40px; line-height:1.1; font-weight:700; letter-spacing:-.02em; color:#009A00">One account</h3><p style="margin:10px 0 0; font-size:26px; line-height:1.2; font-weight:600; letter-spacing:-.01em; color:#fff">Your whole family.</p><p style="margin:14px 0 0; font-size:18px; line-height:1.55; color:#C9D3F2">Add a phone, a tablet or a laptop in a minute. Individual covers 2 devices. Family covers 5.</p></div>
+</div>
+<div style="display:flex; gap:56px; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:88px; flex-direction:row-reverse">
+<div class="phone" style="width:240px"><span class="sb"><b>06:18</b><i></i></span><img loading="lazy" src="assets/home/app-advanced-v3.webp" alt="ATLAS identity Advanced screen showing protection on and ad and tracker cleaning"></div>
+<div style="flex:1 1 360px; max-width:520px"><h3 style="margin:0; font-size:40px; line-height:1.1; font-weight:700; letter-spacing:-.02em; color:#009A00">Clean DNS</h3><p style="margin:10px 0 0; font-size:26px; line-height:1.2; font-weight:600; letter-spacing:-.01em; color:#fff">Cleaner, and private by default.</p><p style="margin:14px 0 0; font-size:18px; line-height:1.55; color:#C9D3F2">We clean your DNS and keep no record of your lookups. Ad and tracker cleaning is in the app today.</p></div>
+</div>
+<div class="g3" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:32px; margin-top:96px">
+<div style="border-top:2px solid #009A00; padding-top:16px"><h3 style="margin:0; font-size:28px; line-height:1.15; font-weight:700; letter-spacing:-.01em; color:#009A00">A way out</h3><p style="margin:8px 0 0; font-size:19px; font-weight:600; color:#fff">Never stuck.</p><p style="margin:8px 0 0; font-size:16px; line-height:1.5; color:#C9D3F2">If Atlas cannot connect, it puts you back on the normal internet and tells you.</p></div>
+<div style="border-top:2px solid #009A00; padding-top:16px"><h3 style="margin:0; font-size:28px; line-height:1.15; font-weight:700; letter-spacing:-.01em; color:#009A00">Our own network</h3><p style="margin:8px 0 0; font-size:19px; font-weight:600; color:#fff">Sites see a network that answers for itself.</p><p style="margin:8px 0 0; font-size:16px; line-height:1.5; color:#C9D3F2">Layer9i is a registered network operator with its own addresses, in Toronto, Montreal, New York, London and Amsterdam.</p></div>
+<div style="border-top:2px solid #009A00; padding-top:16px"><h3 style="margin:0; font-size:28px; line-height:1.15; font-weight:700; letter-spacing:-.01em; color:#009A00">Coming next</h3><p style="margin:8px 0 0; font-size:19px; font-weight:600; color:#fff">The home unit.</p><p style="margin:8px 0 0; font-size:16px; line-height:1.5; color:#C9D3F2">Plug one in at home and the devices that cannot run an app come with you.</p></div>
+</div>
+</div>
+</section>
+
+<section id="how" aria-labelledby="how-h" style="padding: 0 0 100px">
+<div class="wrap">
+<h2 id="how-h" style="margin:0; text-align:center; font-size:clamp(30px,4vw,48px); font-weight:300; letter-spacing:-.02em">Up and running <span style="font-weight:700">in three steps.</span></h2>
+<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:32px; margin-top:48px">
+<div style="border-top:2px solid #009A00; padding-top:16px"><h3 style="margin:0; font-size:28px; line-height:1.15; font-weight:700; letter-spacing:-.01em; color:#009A00">1</h3><p style="margin:8px 0 0; font-size:19px; font-weight:600; color:#fff">Get the app and sign in.</p><p style="margin:8px 0 0; font-size:16px; line-height:1.5; color:#C9D3F2">Free to download. Subscribe when you are ready.</p></div>
+<div style="border-top:2px solid #009A00; padding-top:16px"><h3 style="margin:0; font-size:28px; line-height:1.15; font-weight:700; letter-spacing:-.01em; color:#009A00">2</h3><p style="margin:8px 0 0; font-size:19px; font-weight:600; color:#fff">Choose your locations.</p><p style="margin:8px 0 0; font-size:16px; line-height:1.5; color:#C9D3F2">Set a default location, then a location for each persona.</p></div>
+<div style="border-top:2px solid #009A00; padding-top:16px"><h3 style="margin:0; font-size:28px; line-height:1.15; font-weight:700; letter-spacing:-.01em; color:#009A00">3</h3><p style="margin:8px 0 0; font-size:19px; font-weight:600; color:#fff">Add your sites.</p><p style="margin:8px 0 0; font-size:16px; line-height:1.5; color:#C9D3F2">Tell Lens which sites go on which path. Add or change them any time. Protected shows on the home screen.</p></div>
+</div>
+<p style="margin:48px 0 0; text-align:center; font-size:17px; color:#C9D3F2">Curious how it works underneath? <a href="#story" style="color:#009A00; font-weight:600; text-decoration:none">Read how the Identity Routing Fabric carries you &rarr;</a></p>
+</div>
+</section>
+<section id="pricing" aria-labelledby="pricing-h" style="padding: 40px 0 0">
+<div class="wrap" style="text-align: center">
+<h2 id="pricing-h" class="h2" style="margin: 0 0 16px; font-size: 44px; font-weight: 300; letter-spacing: -0.02em">Simple plans. <span style="font-weight: 600">Clear pricing.</span></h2>
+<p style="margin: 0 auto; max-width: 620px; font-size: 18px; line-height: 1.6; color: #C9D3F2">Choose the plan that fits your devices. Monthly or annual billing.<br><b style="color:#FFFFFF">All prices in US dollars.</b></p>
+<p style="margin: 44px 0 0; font-size: 22px; font-weight: 600">Individual plan <span style="font-weight: 300; color: #C9D3F2">2 devices</span></p>
+<div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin: 20px 0 0">
+<div style="flex: 0 1 260px; border-top: 2px solid #009A00; padding-top: 18px"><div style="font-size: 44px; font-weight: 300">$7.99</div><div style="font-size: 17px; color: #C9D3F2">a month</div></div>
+<div style="flex: 0 1 260px; border-top: 2px solid #009A00; padding-top: 18px"><div style="font-size: 44px; font-weight: 300">$69.99</div><div style="font-size: 17px; color: #C9D3F2">a year</div></div>
+</div>
+<p style="margin: 44px 0 0; font-size: 22px; font-weight: 600">Family plan <span style="font-weight: 300; color: #C9D3F2">up to 5 devices</span></p>
+<div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin: 20px 0 0">
+<div style="flex: 0 1 260px; border-top: 2px solid #009A00; padding-top: 18px"><div style="font-size: 44px; font-weight: 300">$11.99</div><div style="font-size: 17px; color: #C9D3F2">a month</div></div>
+<div style="flex: 0 1 260px; border-top: 2px solid #009A00; padding-top: 18px"><div style="font-size: 44px; font-weight: 300">$129.99</div><div style="font-size: 17px; color: #C9D3F2">a year</div></div>
+</div>
+<p style="margin: 28px auto 0; max-width: 700px; text-align: justify; text-align-last: center; font-size: 16px; line-height: 1.6; color: #C9D3F2">Launch offer, for a limited time: pay for your first month and get your second month free with any monthly plan. All prices are in US dollars.</p>
+<div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 24px"><a href="#join" style="background: linear-gradient(100deg, #009A00, #009A00 55%, #009A00);color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 11px 22px; border-radius: 999px">Download the app</a><a href="https://identity.layer9i.com/subscribe" style="background: linear-gradient(100deg, #009A00, #009A00 55%, #009A00);color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 11px 22px; border-radius: 999px">Subscribe</a></div>
+</div>
+</section>
+<section aria-label="Under the hood" style="padding: 40px 0 24px"><div class="wrap" style="text-align:center"><p style="margin:0; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#009A00; font-weight:600">If you want to know how it works</p><h2 style="margin:12px 0 0; font-size:clamp(28px,3.6vw,44px); font-weight:300; letter-spacing:-.02em">Under the hood, <span style="font-weight:700">the Identity Routing Fabric.</span></h2></div></section>
 <section id="story" aria-label="How ATLAS identity works" style="padding: 0 0 40px">
 <div class="wrap" style="display: flex; flex-direction: column; gap: 96px">
 <figure style="margin: 0">
@@ -147,55 +224,9 @@ img[src*="assets/home/app-"],img[src*="assets/home/changed"],img[src*="assets/ho
 </div>
 </section>
 
-<section id="app" aria-labelledby="app-h" style="padding: 56px 0 120px">
-<div class="wrap">
-<h2 id="app-h" class="h2" style="margin: 0; text-align: center; font-size: 60px; line-height: 1.05; font-weight: 300; letter-spacing: -0.02em">What <span class="ai"><b>ATLAS</b> <i>identity</i></span> puts in your hands.</h2>
-<p style="margin: 18px auto 0; text-align: center; font-size: 20px; color: #C9D3F2; max-width: 40ch">Four ways to take control of your internet presence.</p>
-
-<div class="phones" style="margin-top: 72px">
-<figure style="margin: 0; display: flex; flex-direction: column; align-items: center">
-<div style="width: 100%; max-width: 270px; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(0, 255, 77, 0.18)">
-<div style="background: #FAFAFC; border-radius: 38px; overflow: hidden; height: 540px"><img src="assets/home/app-home-v3.webp" alt="ATLAS identity home screen showing Protected, with Toronto as the default city and location confirmed" width="600" height="1222" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: top"></div>
-</div>
-<figcaption style="margin-top: 28px; text-align: center; max-width: 260px">
-<p style="margin: 0; font-size: 20px; font-weight: 600">Protection when you connect.</p>
-<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: #C9D3F2">Atlas helps protect your connection, including when you're using public Wi-Fi.</p>
-</figcaption>
-</figure>
-<figure style="margin: 0; display: flex; flex-direction: column; align-items: center">
-<div style="width: 100%; max-width: 270px; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(0, 255, 77, 0.18)">
-<div style="background: #FAFAFC; border-radius: 38px; overflow: hidden; height: 540px"><img src="assets/home/app-paths-v3.webp" alt="ATLAS identity Lens screen, Your paths, showing Default City, Personal and Work all set to Toronto" width="600" height="1222" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: top"></div>
-</div>
-<figcaption style="margin-top: 28px; text-align: center; max-width: 260px">
-<p style="margin: 0; font-size: 20px; font-weight: 600">Your pathways. Your choice.</p>
-<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: #C9D3F2">Choose geographic endpoints for different online activities, from personal browsing to business and shopping.</p>
-</figcaption>
-</figure>
-<figure style="margin: 0; display: flex; flex-direction: column; align-items: center">
-<div style="width: 100%; max-width: 270px; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(0, 255, 77, 0.18)">
-<div style="background: #FAFAFC; border-radius: 38px; overflow: hidden; height: 540px"><img src="assets/home/app-devices-v3.webp" alt="ATLAS identity Devices screen listing an iPad and this iPhone, with Add a device" width="600" height="1222" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: top"></div>
-</div>
-<figcaption style="margin-top: 28px; text-align: center; max-width: 260px">
-<p style="margin: 0; font-size: 20px; font-weight: 600">One identity. Across your devices.</p>
-<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: #C9D3F2">Manage your supported phones and computers from one <span class="ai"><b>ATLAS</b> <i>identity</i></span> account.</p>
-</figcaption>
-</figure>
-<figure style="margin: 0; display: flex; flex-direction: column; align-items: center">
-<div style="width: 100%; max-width: 270px; background: #000000; border-radius: 46px; padding: 9px; box-sizing: border-box; box-shadow: 0 0 0 1px #2A3352, 0 40px 80px rgba(0, 255, 77, 0.18)">
-<div style="background: #FAFAFC; border-radius: 38px; overflow: hidden; height: 540px"><img src="assets/home/app-advanced-v3.webp" alt="ATLAS identity Advanced screen showing protection on, active path Toronto, two devices and ad and tracker cleaning" width="600" height="1222" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: top"></div>
-</div>
-<figcaption style="margin-top: 28px; text-align: center; max-width: 260px">
-<p style="margin: 0; font-size: 20px; font-weight: 600">See what websites see.</p>
-<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5; color: #C9D3F2">See what a website can determine about your connection, including the city and country it sees.</p>
-</figcaption>
-</figure>
-</div>
-</div>
-</section>
-
 <section aria-label="Within the fabric of ATLAS identity" style="padding: 0 0 140px">
 <div class="wrap">
-<div style="border-top: 1px solid #1E2848; padding-top: 56px"><p style="margin: 0 0 28px; white-space: nowrap; font-size: clamp(18px, 4.2vw, 52px); line-height: 1.08; font-weight: 300; letter-spacing: -0.02em; color: #00FF4D">Separate personas. One connected fabric.</p></div>
+<div style="border-top: 1px solid #1E2848; padding-top: 56px"><p style="margin: 0 0 28px; white-space: nowrap; font-size: clamp(18px, 4.2vw, 52px); line-height: 1.08; font-weight: 300; letter-spacing: -0.02em; color: #009A00">Separate personas. One connected fabric.</p></div>
 <div class="split">
 <picture style="display: block"><source srcset="assets/home/working-v3.webp" type="image/webp"><img loading="lazy" decoding="async" width="1280" height="612" src="assets/home/working-v3.jpg" alt="ATLAS identity on a phone, a computer and a laptop: the phone shows Connected in New York, the computer a map of the cities Atlas appears from." style="display: block; width: 100%; height: auto; border-radius: 20px"></picture>
 <div>
@@ -209,21 +240,21 @@ img[src*="assets/home/app-"],img[src*="assets/home/changed"],img[src*="assets/ho
 <div class="wrap">
 <h2 id="real-h" class="h2" style="margin: 0; text-align: center; font-size: 52px; line-height: 1.08; font-weight: 300; letter-spacing: -0.02em">Built. Live. <span style="font-weight: 600">Tested. Validated.</span></h2>
 <div class="pledges" style="margin-top: 64px; grid-template-columns: repeat(4, minmax(0, 1fr))">
-<div style="border-top: 2px solid #00FF4D; padding-top: 22px">
+<div style="border-top: 2px solid #009A00; padding-top: 22px">
 <p style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 600"><span style="font-size: 40px; font-weight: 300; line-height: 1">4</span> platforms</p>
 <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: #C9D3F2">iPhone and iPad, Mac, Android and Windows. One identity across all of them.</p>
 </div>
-<div style="border-top: 2px solid #00FF4D; padding-top: 22px">
+<div style="border-top: 2px solid #009A00; padding-top: 22px">
 <p style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 600"><span style="font-size: 40px; font-weight: 300; line-height: 1">5</span> cities</p>
 <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: #C9D3F2">Toronto, Montreal, New York, London and Amsterdam, with more on the way.</p>
 </div>
-<div style="border-top: 2px solid #00FF4D; padding-top: 22px">
+<div style="border-top: 2px solid #009A00; padding-top: 22px">
 <p style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 600"><span style="font-size: 40px; font-weight: 300; line-height: 1">1</span> network of our own</p>
 <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: #C9D3F2">Layer9i has its own registered internet addresses, secured end to end, so sites see a network that answers for itself.</p>
 </div>
-<div style="border-top: 2px solid #00FF4D; padding-top: 22px">
+<div style="border-top: 2px solid #009A00; padding-top: 22px">
 <p style="margin: 0; font-size: 26px; line-height: 1.25; font-weight: 600"><span style="font-size: 40px; font-weight: 300; line-height: 1">7 of 7</span> security issues fixed</p>
-<p style="margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: #C9D3F2">We tested every server and proved accounts can&#8217;t reach each other. <a href="atlas/investors/security/" style="color: #00FF4D">Read the review</a>.</p>
+<p style="margin: 10px 0 0; font-size: 16px; line-height: 1.55; color: #C9D3F2">We tested every server and proved accounts can&#8217;t reach each other. <a href="atlas/investors/security/" style="color: #009A00">Read the review</a>.</p>
 </div>
 </div>
 </div>
@@ -233,7 +264,7 @@ img[src*="assets/home/app-"],img[src*="assets/home/changed"],img[src*="assets/ho
 <div class="wrap">
 <div style="max-width: 900px; margin: 0 auto; text-align: center">
 <picture style="display: block"><source srcset="assets/brand/layer9i-logo-light-bg.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/layer9i-logo-light-bg.png" alt="Layer9i" width="900" height="260" style="display: block; margin: 0 auto; height: 60px; width: auto"></picture>
-<p style="margin: 24px 0 0; font-size: 15px; font-weight: 600; letter-spacing: 0.22em; color: #0A9F3A">The Layer9i commitment</p>
+<p style="margin: 24px 0 0; font-size: 15px; font-weight: 600; letter-spacing: 0.22em; color: #009A00">The Layer9i commitment</p>
 <h2 id="privacy-h" class="h1" style="margin: 20px 0 0; font-size: 68px; line-height: 1.05; font-weight: 300; letter-spacing: -0.025em">We don't track you. <span style="font-weight: 600">We don't sell you.</span></h2>
 <p style="margin: 28px auto 0; font-size: 21px; line-height: 1.6; color: #3A4466; max-width: 46ch">Your internet presence belongs to you.<br><br><span class="ai"><b>ATLAS</b> <i>identity</i></span> is built to protect your connection and give you control over your online identity &mdash; not to turn your browsing activity into a product.</p>
 </div>
@@ -241,62 +272,45 @@ img[src*="assets/home/app-"],img[src*="assets/home/changed"],img[src*="assets/ho
 <svg class="identity-map" style="display: block; width: 100%; height: auto; overflow: visible" viewBox="0 0 480 430" role="img" aria-labelledby="identity-map-title">
         <title id="identity-map-title">You hold one identity. Each service you use sees its own separate ID, reached through a location you choose: your Personal persona through Toronto, your Business persona through New York, shopping through London, government through Montreal and streaming through Amsterdam.</title>
         <circle class="map-ring" fill="none" stroke="#D5F5DE" cx="240" cy="212" r="168"/>
-        <line class="map-link" stroke="#8CFFA9" stroke-width="1.5" x1="240" y1="212" x2="141" y2="76"/>
-        <line class="map-link" stroke="#8CFFA9" stroke-width="1.5" x1="240" y1="212" x2="339" y2="76"/>
-        <line class="map-link" stroke="#8CFFA9" stroke-width="1.5" x1="240" y1="212" x2="400" y2="264"/>
-        <line class="map-link" stroke="#8CFFA9" stroke-width="1.5" x1="240" y1="212" x2="240" y2="380"/>
-        <line class="map-link" stroke="#8CFFA9" stroke-width="1.5" x1="240" y1="212" x2="80" y2="264"/>
-        <g class="map-city" fill="#087F2F" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="150" y="125" width="69" height="22" rx="11"/><text x="185" y="140">Toronto</text></g>
-        <g class="map-city" fill="#087F2F" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="257" y="125" width="76" height="22" rx="11"/><text x="295" y="140">New York</text></g>
-        <g class="map-city" fill="#087F2F" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="298" y="230" width="63" height="22" rx="11"/><text x="329" y="245">London</text></g>
-        <g class="map-city" fill="#087F2F" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="202" y="295" width="76" height="22" rx="11"/><text x="240" y="310">Montreal</text></g>
-        <g class="map-city" fill="#087F2F" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="110" y="230" width="82" height="22" rx="11"/><text x="151" y="245">Amsterdam</text></g>
+        <line class="map-link" stroke="#009A00" stroke-width="1.5" x1="240" y1="212" x2="141" y2="76"/>
+        <line class="map-link" stroke="#009A00" stroke-width="1.5" x1="240" y1="212" x2="339" y2="76"/>
+        <line class="map-link" stroke="#009A00" stroke-width="1.5" x1="240" y1="212" x2="400" y2="264"/>
+        <line class="map-link" stroke="#009A00" stroke-width="1.5" x1="240" y1="212" x2="240" y2="380"/>
+        <line class="map-link" stroke="#009A00" stroke-width="1.5" x1="240" y1="212" x2="80" y2="264"/>
+        <g class="map-city" fill="#009A00" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="150" y="125" width="69" height="22" rx="11"/><text x="185" y="140">Toronto</text></g>
+        <g class="map-city" fill="#009A00" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="257" y="125" width="76" height="22" rx="11"/><text x="295" y="140">New York</text></g>
+        <g class="map-city" fill="#009A00" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="298" y="230" width="63" height="22" rx="11"/><text x="329" y="245">London</text></g>
+        <g class="map-city" fill="#009A00" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="202" y="295" width="76" height="22" rx="11"/><text x="240" y="310">Montreal</text></g>
+        <g class="map-city" fill="#009A00" font-size="10.5" font-weight="700" text-anchor="middle"><rect fill="#E6FBEA" stroke="#C9F7D6" x="110" y="230" width="82" height="22" rx="11"/><text x="151" y="245">Amsterdam</text></g>
         <g class="map-service" fill="#0A1028" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="98" y="59" width="86" height="34" rx="17"/><text x="141" y="80">Personal</text></g>
         <g class="map-service" fill="#0A1028" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="296" y="59" width="85" height="34" rx="17"/><text x="339" y="80">Business</text></g>
         <g class="map-service" fill="#0A1028" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="357" y="247" width="85" height="34" rx="17"/><text x="400" y="268">Shopping</text></g>
         <g class="map-service" fill="#0A1028" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="190" y="363" width="100" height="34" rx="17"/><text x="240" y="384">Government</text></g>
         <g class="map-service" fill="#0A1028" font-size="12.5" font-weight="800" text-anchor="middle"><rect fill="#ffffff" stroke="#dce1ed" x="34" y="247" width="93" height="34" rx="17"/><text x="80" y="268">Streaming</text></g>
-        <circle class="map-you-halo" fill="#E6FBEA" cx="240" cy="212" r="60"/><circle class="map-you" fill="#0A9F3A" cx="240" cy="212" r="44"/>
+        <circle class="map-you-halo" fill="#E6FBEA" cx="240" cy="212" r="60"/><circle class="map-you" fill="#009A00" cx="240" cy="212" r="44"/>
         <text class="map-you-label" fill="#ffffff" font-size="17" font-weight="900" text-anchor="middle" x="240" y="214">YOU</text><text class="map-you-key" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle" x="240" y="230">your identity</text>
         </svg>
 <figcaption style="margin: 14px 0 0; font-size: 16px; line-height: 1.5; color: #3A4466">One identity, held only by you. Each service sees its own ID, through the location you choose.</figcaption>
 </figure>
 <div class="pledges" style="margin-top: 72px">
-<div style="border-top: 2px solid #0A9F3A; padding-top: 22px">
+<div style="border-top: 2px solid #009A00; padding-top: 22px">
 <p style="margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600">We don&#8217;t track your traffic.</p>
 <p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: #3A4466">Atlas keeps no record of the sites you visit or the apps you use.</p>
 </div>
-<div style="border-top: 2px solid #0A9F3A; padding-top: 22px">
+<div style="border-top: 2px solid #009A00; padding-top: 22px">
 <p style="margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600">We never sell your patterns.</p>
 <p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: #3A4466">Where you go online, when and how often is never sold, rented or shared. Not for advertising, not for anything.</p>
 </div>
-<div style="border-top: 2px solid #0A9F3A; padding-top: 22px">
+<div style="border-top: 2px solid #009A00; padding-top: 22px">
 <p style="margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600">Your data stays with you.</p>
 <p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: #3A4466">Your key and your rules are locked on your own phone and computer. Atlas can&#8217;t read them.</p>
 </div>
 </div>
-<p style="margin: 56px 0 0; text-align: center"><a href="trust.html" style="color: #0A9F3A; font-size: 18px; font-weight: 600; text-decoration: none; border-bottom: 2px solid #0A9F3A; padding-bottom: 3px">Read our privacy commitment</a></p>
+<p style="margin: 56px 0 0; text-align: center"><a href="trust.html" style="color: #009A00; font-size: 18px; font-weight: 600; text-decoration: none; border-bottom: 2px solid #009A00; padding-bottom: 3px">Read our privacy commitment</a></p>
 </div>
 </section>
 
-<section id="pricing" aria-labelledby="pricing-h" style="padding: 40px 0 0">
-<div class="wrap" style="text-align: center">
-<h2 id="pricing-h" class="h2" style="margin: 0 0 16px; font-size: 44px; font-weight: 300; letter-spacing: -0.02em">Simple plans. <span style="font-weight: 600">Clear pricing.</span></h2>
-<p style="margin: 0 auto; max-width: 620px; font-size: 18px; line-height: 1.6; color: #C9D3F2">Choose the plan that fits your devices. Monthly or annual billing.<br><b style="color:#FFFFFF">All prices in US dollars.</b></p>
-<p style="margin: 44px 0 0; font-size: 22px; font-weight: 600">Individual plan <span style="font-weight: 300; color: #C9D3F2">2 devices</span></p>
-<div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin: 20px 0 0">
-<div style="flex: 0 1 260px; border-top: 2px solid #00D63F; padding-top: 18px"><div style="font-size: 44px; font-weight: 300">$7.99</div><div style="font-size: 17px; color: #C9D3F2">a month</div></div>
-<div style="flex: 0 1 260px; border-top: 2px solid #00D63F; padding-top: 18px"><div style="font-size: 44px; font-weight: 300">$69.99</div><div style="font-size: 17px; color: #C9D3F2">a year</div></div>
-</div>
-<p style="margin: 44px 0 0; font-size: 22px; font-weight: 600">Family plan <span style="font-weight: 300; color: #C9D3F2">up to 5 devices</span></p>
-<div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin: 20px 0 0">
-<div style="flex: 0 1 260px; border-top: 2px solid #00D63F; padding-top: 18px"><div style="font-size: 44px; font-weight: 300">$11.99</div><div style="font-size: 17px; color: #C9D3F2">a month</div></div>
-<div style="flex: 0 1 260px; border-top: 2px solid #00D63F; padding-top: 18px"><div style="font-size: 44px; font-weight: 300">$129.99</div><div style="font-size: 17px; color: #C9D3F2">a year</div></div>
-</div>
-<p style="margin: 28px auto 0; max-width: 700px; text-align: justify; text-align-last: center; font-size: 16px; line-height: 1.6; color: #C9D3F2">Launch offer, for a limited time: pay for your first month and get your second month free with any monthly plan. All prices are in US dollars.</p>
-<div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 24px"><a href="#join" style="background: linear-gradient(100deg, #00FF4D, #00D63F 55%, #00B836);color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 11px 22px; border-radius: 999px">Download the app</a><a href="https://identity.layer9i.com/subscribe" style="background: linear-gradient(100deg, #00FF4D, #00D63F 55%, #00B836);color: #050A1C; font-weight: 600; font-size: 15px; text-decoration: none; padding: 11px 22px; border-radius: 999px">Subscribe</a></div>
-</div>
-</section>
+
 
 <section id="join" aria-labelledby="join-h" style="padding: 80px 0 140px">
 <div class="wrap" style="text-align: center">
@@ -305,10 +319,10 @@ img[src*="assets/home/app-"],img[src*="assets/home/changed"],img[src*="assets/ho
 <p style="margin: 32px 0 0; font-size: 20px; font-weight: 600; color: #FFFFFF">1. Download the app</p>
 <div class="dl-row" style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; margin: 16px 0 0"><a href="https://apps.apple.com/us/app/atlas-identity/id6808464373" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 0px; width: 200px; height: 60px; box-sizing: border-box; padding: 0 10px; border: 1px solid #FFFFFF; border-radius: 12px; background: #000000; color: #FFFFFF; text-decoration: none" target="_blank" rel="noopener noreferrer"><picture style="display: block; width: 52px; height: 52px; overflow: hidden; border-radius: 10px"><source srcset="assets/brand/atlas-app-icon.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/atlas-app-icon.png" alt="ATLAS identity app icon" width="160" height="160" style="display: block; width: 68px; max-width: none; height: auto; margin: -8px 0 0 -8px"></picture><span style="display: block; white-space: nowrap; text-align: left; font-size: 12px; line-height: 1.2; font-weight: 400">Download on the<br><b style="font-size: 20px; font-weight: 600">App Store</b></span></a><a href="https://play.google.com/store/apps/details?id=com.layer9i.atlas" style="display: block; width: 200px; height: 60px; overflow: hidden; border-radius: 12px" target="_blank" rel="noopener noreferrer"><picture style="display: block"><source srcset="assets/brand/google-play-badge.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/google-play-badge.png" alt="Get it on Google Play" width="646" height="250" style="display: block; width: 229px; max-width: none; height: auto; margin: -14px 0 0 -14px"></picture></a><div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 0px; width: 200px; height: 60px; box-sizing: border-box; padding: 0 10px; border: 1px solid #FFFFFF; border-radius: 12px; background: #000000; color: #FFFFFF; text-decoration: none"><picture style="display: block; width: 52px; height: 52px; overflow: hidden; border-radius: 10px"><source srcset="assets/brand/atlas-app-icon.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/atlas-app-icon.png" alt="ATLAS identity app icon" width="160" height="160" style="display: block; width: 68px; max-width: none; height: auto; margin: -8px 0 0 -8px"></picture><span style="display: block; white-space: nowrap; text-align: left; font-size: 12px; line-height: 1.2; font-weight: 400">Coming soon<br><b style="font-size: 19px; font-weight: 600">Mac</b></span></div><a href="https://identity.layer9i.com/downloads.html" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 0px; width: 200px; height: 60px; box-sizing: border-box; padding: 0 10px; border: 1px solid #FFFFFF; border-radius: 12px; background: #000000; color: #FFFFFF; text-decoration: none" target="_blank" rel="noopener noreferrer"><picture style="display: block; width: 52px; height: 52px; overflow: hidden; border-radius: 10px"><source srcset="assets/brand/atlas-app-icon.webp" type="image/webp"><img loading="lazy" decoding="async" src="assets/brand/atlas-app-icon.png" alt="ATLAS identity app icon" width="160" height="160" style="display: block; width: 68px; max-width: none; height: auto; margin: -8px 0 0 -8px"></picture><span style="display: block; white-space: nowrap; text-align: left; font-size: 12px; line-height: 1.2; font-weight: 400">Download for<br><b style="font-size: 19px; font-weight: 600">Windows</b></span></a></div>
 <p style="margin: 10px 0 0; font-size: 15px; color: #C9D3F2">Android: <a href="https://play.google.com/store/apps/details?id=com.layer9i.atlas" style="color: #FFFFFF" target="_blank" rel="noopener noreferrer">ATLAS identity on Google Play</a>. iPhone: <a href="https://apps.apple.com/us/app/atlas-identity/id6808464373" style="color: #FFFFFF" target="_blank" rel="noopener noreferrer">ATLAS identity on the App Store</a>.</p>
-<a href="https://identity.layer9i.com/get.html" style="display: inline-block; margin: 28px auto 0; height: 58px; line-height: 58px; padding: 0 34px; border-radius: 999px; background: linear-gradient(100deg, #00FF4D, #00D63F 55%, #00B836);color: #050A1C; font-weight: 600; font-size: 17px; text-decoration: none">Get ATLAS identity</a>
+<a href="https://identity.layer9i.com/get.html" style="display: inline-block; margin: 28px auto 0; height: 58px; line-height: 58px; padding: 0 34px; border-radius: 999px; background: linear-gradient(100deg, #009A00, #009A00 55%, #009A00);color: #050A1C; font-weight: 600; font-size: 17px; text-decoration: none">Get ATLAS identity</a>
 <p style="margin: 14px 0 0; font-size: 15px; color: #C9D3F2">iPhone, iPad, Mac and Windows: sign up with your email.</p>
 <p style="margin: 44px 0 0; font-size: 20px; font-weight: 600; color: #FFFFFF">2. Subscribe</p>
-<a href="https://identity.layer9i.com/subscribe" style="display: inline-block; margin: 14px auto 0; height: 58px; line-height: 58px; padding: 0 34px; border-radius: 999px; background: linear-gradient(100deg, #00FF4D, #00D63F 55%, #00B836);color: #050A1C; font-weight: 600; font-size: 17px; text-decoration: none">Subscribe</a>
+<a href="https://identity.layer9i.com/subscribe" style="display: inline-block; margin: 14px auto 0; height: 58px; line-height: 58px; padding: 0 34px; border-radius: 999px; background: linear-gradient(100deg, #009A00, #009A00 55%, #009A00);color: #050A1C; font-weight: 600; font-size: 17px; text-decoration: none">Subscribe</a>
 <p style="margin: 14px auto 0; max-width: 56ch; font-size: 15px; line-height: 1.5; color: #C9D3F2"><b>Launch offer, for a limited time:</b> pay for your first month and get your second month free with any monthly plan.<br>Individual plan, up to 2 devices: $7.99 a month or $69.99 a year.<br>Family plan, up to 5 devices: $11.99 a month or $129.99 a year.<br>All prices are in US dollars.<br>Use the same email you sign up with in the app.</p></div>
 </section>
 
