@@ -173,16 +173,16 @@
   <div class="container">
     <div class="pitch-block">
       <span class="pitch-tag">Try it</span>
-      <h2 id="try-h">Set your paths.</h2>
-      <p>This is the real app's Your paths screen, drawn here so you can try it before you install. Change a city on the phone and watch what websites see. Real screenshots from the app follow below.</p>
+      <h2 id="try-h">Set your personas.</h2>
+      <p>This is the real app's Lens screen, drawn here so you can try it before you install. Change a city on the phone and watch what websites see. Real screenshots from the app follow below.</p>
     </div>
     <div class="hiw-try">
       <div class="hiw-phone">
-        <div class="hiw-screen" role="group" aria-label="ATLAS identity, Your paths screen">
+        <div class="hiw-screen" role="group" aria-label="ATLAS identity, Lens screen">
           <div class="hiw-screen-head"><span></span><span><span class="ai"><b>ATLAS</b> <i>identity</i></span></span></div>
           <p class="hiw-eyebrow">ATLAS LENS</p>
-          <h3>Your paths</h3>
-          <p class="hiw-hint">A path takes the sites you choose to the city they see you from. Tap any city to move its sites somewhere else, or tap one site to send just that one.</p>
+          <h3>Lens</h3>
+          <p class="hiw-hint">Choose where each part of your online life appears from. Tap any city to move that persona's sites somewhere else.</p>
           <p class="hiw-eyebrow hiw-eyebrow-grey">WHERE YOU APPEAR</p>
           <div class="hiw-paths" id="try-paths"></div>
           <p class="hiw-info" id="try-info"></p>
@@ -384,9 +384,9 @@
     });
   }
 
-  /* Try it: the paths screen and what websites see. */
+  /* Try it: the Lens screen and what websites see. */
   var PATHS = [
-    { key: "default", label: "Default City", sub: "Every site not listed on a path", who: "Every other site", verb: "sees", city: "New York" },
+    { key: "default", label: "Everything else", sub: "All sites not listed below", who: "Every other site", verb: "sees", city: "New York" },
     { key: "personal", label: "Personal", sub: "Only the sites listed under Personal", who: "Your Personal sites", verb: "see", city: "New York" },
     { key: "work", label: "Work", sub: "Only the sites listed under Work", who: "Your Work sites", verb: "see", city: "Toronto" }
   ];
@@ -407,7 +407,7 @@
       lab.appendChild(sub);
       var sel = document.createElement("select");
       sel.id = "try-" + p.key;
-      sel.setAttribute("aria-label", p.label + " path city");
+      sel.setAttribute("aria-label", p.label + " city");
       CITIES.forEach(function (c) {
         var o = document.createElement("option");
         o.textContent = c;
@@ -444,7 +444,7 @@
       var ch = changed ? PATHS.filter(function (p) { return p.key === changed; })[0] : PATHS[0];
       verdict.textContent = "You asked for " + ch.city + ". " + ch.who + " " + ch.verb + " " + ch.city + ".";
       var dflt = PATHS[0].city, personal = PATHS[1].city, work = PATHS[2].city;
-      document.getElementById("try-info").textContent = "Personal and Work only move the sites listed on their paths. Every other site, app and check follows your Default City, " + dflt + ".";
+      document.getElementById("try-info").textContent = "Personal and Work only move the sites listed under them. Every other site, app and check follows Everything else, " + dflt + ".";
       story.textContent = "Your Personal sites see " + personal + ". Your Work sites see " + work + ". Every other site sees " + dflt + ". All at the same time, over one connection, and your real location stays hidden.";
     }
     render(null);
